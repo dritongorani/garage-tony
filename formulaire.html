@@ -1,69 +1,60 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Prendre Rendez-vous - Garage Tony</title>
-        <!-- Lier le nouveau fichier CSS -->
-        <link rel="stylesheet" href="formulaire.css" />
-      </head>
-      
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prendre Rendez-vous - Garage Tony</title>
+    <!-- Lier le fichier CSS -->
+    <link rel="stylesheet" href="formulaire.css" />
+  </head>
+
+  <body>
     <section class="hero">
-        <div class="hero-overlay">
-            <h1>Prendre Rendez-vous</h1>
-            <p>Réservez votre service automobile rapidement en remplissant ce formulaire</p>
-        </div>
+      <div class="hero-overlay">
+        <h1>Prendre Rendez-vous</h1>
+        <p>Réservez votre service automobile rapidement en remplissant ce formulaire</p>
+      </div>
     </section>
 
     <main>
-        <section class="form-section">
-            <div class="form-container">
-                <h2>Formulaire de Rendez-vous</h2>
-                <form action="submit_form.php" method="POST" class="appointment-form">
-                    <div class="form-group">
-                        <label for="name">Nom :</label>
-                        <input type="text" id="name" name="name" required placeholder="Votre nom" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email :</label>
-                        <input type="email" id="email" name="email" required placeholder="Votre email" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Téléphone :</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="Votre numéro" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="date">Date souhaitée :</label>
-                        <input type="date" id="date" name="date" required />
-                    </div>
-
-                    <!-- <div class="form-group">
-                        <label for="service">Service requis :</label>
-                        <select id="service" name="service" required>
-                            <option value="vidange">Vidange</option>
-                            <option value="freins">Freins</option>
-                            <option value="petite_mecanique">Petite Mécanique</option>
-                            <option value="parallellisme">Parallélisme 3D</option>
-                        </select>
-                    </div> -->
-
-                    <div class="form-group">
-                        <label for="message">Decrivez vos besoin:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Dites-nous en plus..." ></textarea>
-                    </div>
-
-                    <button type="submit" class="cta-btn">Envoyer la demande</button>
-                </form>
+      <section class="form-section">
+        <div class="form-container">
+          <h2>Formulaire de Rendez-vous</h2>
+          <!-- Remplacez l'action par votre URL Formspree -->
+          <form action="https://formspree.io/f/mrbprjeo" method="POST" class="appointment-form">
+            <div class="form-group">
+              <label for="name">Nom :</label>
+              <input type="text" id="name" name="name" required placeholder="Votre nom" />
             </div>
-        </section>
+
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" id="email" name="email" required placeholder="Votre email" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Téléphone :</label>
+              <input type="tel" id="phone" name="phone" required placeholder="Votre numéro" />
+            </div>
+
+            <div class="form-group">
+              <label for="date">Date souhaitée :</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Décrivez vos besoins :</label>
+              <textarea id="message" name="message" rows="4" placeholder="Dites-nous en plus..." required></textarea>
+            </div>
+
+            <button type="submit" class="cta-btn">Envoyer la demande</button>
+          </form>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Garage Tony. Tous droits réservés.</p>
+      <p>&copy; 2025 Garage Tony. Tous droits réservés.</p>
     </footer>
-</body>
+  </body>
 </html>
