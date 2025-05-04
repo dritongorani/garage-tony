@@ -207,12 +207,16 @@ footer {
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 }
 
-.hero-overlay h2{
+.hero-overlay h2 {
     text-align: center;
     font-weight: bold;
     color: white;
-    
+    background: linear-gradient(45deg, #e74c3c, #3498db); /* Dégradé de couleur */
+    -webkit-background-clip: text; /* Permet de "clipper" le dégradé sur le texte */
+    background-clip: text;
+    font-size: 2.5rem;
 }
+
 
 .cta-btn {
     display: inline-block;
