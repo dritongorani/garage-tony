@@ -90,6 +90,24 @@ header p {
     margin-bottom: 0.5rem;
 }
 
+.service p {
+    text-align: left;
+    font-size: large;
+    font-weight: bold;
+    position: relative;
+    padding-left: 25px; /* Pour donner de l'espace pour l'icône ou le contenu avant */
+}
+
+.service p::before {
+    content: "✓"; /* Icône ou texte avant chaque paragraphe */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Centrer verticalement */
+    font-size: 1.5rem; /* Taille de l'icône ou du symbole */
+    color: #c0392b; /* Couleur de l'icône ou texte */
+}
+
 /* CONTACT */
 .contact {
     padding: 3rem 1rem;
@@ -187,6 +205,13 @@ footer {
     background: rgba(0, 0, 0, 0.55);
     border-radius: 16px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.hero-overlay h2{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    
 }
 
 .cta-btn {
