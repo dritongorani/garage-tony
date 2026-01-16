@@ -22,41 +22,41 @@
           
           <form action="https://formspree.io/f/mrbprjeo" method="POST" class="appointment-form">
             
-            <input type="hidden" name="_subject" value="Nouvelle demande de devis - Garage Tony" />
-            
+            <input type="hidden" name="_subject" value="Nouveau Devis Site Garage Tony" />
             <input type="text" name="_gotcha" style="display:none" />
 
             <div class="form-group">
-              <label for="name">Nom :</label>
-              <input type="text" id="name" name="name" required placeholder="Votre nom complet" />
+              <label for="name">Nom complet :</label>
+              <input type="text" id="name" name="nom_client" required placeholder="Votre nom" />
             </div>
 
             <div class="form-group">
               <label for="phone">Téléphone :</label>
-              <input type="tel" id="phone" name="phone" required placeholder="Ex: 06 01 02 03 04" />
+              <input type="tel" id="phone" name="telephone" required placeholder="Ex: 06 01 02 03 04" />
             </div>
 
             <div class="form-group">
-              <label for="email">Email :</label>
+              <label for="email">Votre Email :</label>
               <input type="email" id="email" name="email" required placeholder="votre@email.com" />
             </div>
 
             <div class="form-group">
               <label for="city">Ville d'intervention :</label>
-              <input type="text" id="city" name="city" required placeholder="Ex: Lyon, Meximieux, Villeurbanne..." />
+              <input type="text" id="city" name="ville" required placeholder="Ex: Lyon, Meximieux, Villeurbanne..." />
             </div>
 
             <div class="form-group">
-              <label for="date">Date souhaitée (si urgent) :</label>
-              <input type="date" id="date" name="date" />
+              <label for="date">Date souhaitée :</label>
+              <input type="date" id="date" name="date_souhaitee" />
             </div>
 
             <div class="form-group">
-              <label for="message">Détails de l'intervention (Modèle de voiture + Panne) :</label>
-              <textarea id="message" name="message" rows="4" required placeholder="Ex: Passage valise sur Golf 7 pour voyant moteur allumé..."></textarea>
+              <label for="message">Détails de l'intervention (Modèle voiture + Panne) :</label>
+              <textarea id="message" name="message" rows="4" required placeholder="Ex: Diagnostic valise sur Audi A3, voyant moteur allumé..."></textarea>
             </div>
 
-            <button type="submit" class="cta-btn">Envoyer la demande</button>
+            <button type="submit" class="cta-btn">Envoyer ma demande</button>
+            
             <div style="text-align: center; margin-top: 20px;">
                 <a href="index.html" style="text-decoration: none; color: #555; font-size: 0.9em;">← Retour à l'accueil</a>
             </div>
