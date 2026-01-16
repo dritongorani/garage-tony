@@ -108,6 +108,33 @@ header p {
     color: #c0392b; /* Couleur de l'icône ou texte */
 }
 
+.zones {
+    padding: 3rem 1rem;
+    background: #fff;
+    text-align: center;
+}
+
+.zones h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.zones p {
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.zones strong {
+    font-weight: bold;
+}
+
+
+.points-forts {
+    padding: 3rem 1rem;
+    background: #fff;
+    text-align: center;
+}
+
 /* CONTACT */
 .contact {
     padding: 3rem 1rem;
