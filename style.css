@@ -35,19 +35,8 @@ header p {
 }
 
 /* MAIN IMAGE */
-.main-image {
-    width: 100%;
-    max-width: 1000px;
-    margin: 2rem auto;
-    display: block;
-    border-radius: 16px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-}
 
-.main-image:hover {
-    transform: scale(1.01);
-}
+
 
 /* SERVICES */
 .services {
@@ -297,5 +286,56 @@ html {
     .cta-btn, .call-btn, .whatsapp-btn {
         width: 100%;
         padding: 1rem;
+    }
+}
+
+/* --- CORRECTION LOGO & RESPONSIVE --- */
+
+/* On désactive les styles de l'ancien header qui causaient le problème */
+header {
+    display: none; /* Cache l'ancien header noir qui créait le conflit */
+}
+
+.header-logo-container {
+    background-color: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    border-bottom: 3px solid #e74c3c;
+    line-height: 0; /* Évite les espaces vides sous l'image */
+}
+
+.main-logo {
+    max-width: 450px; /* Taille sur PC */
+    width: 80%;       /* Taille sur téléphone */
+    height: auto;
+    display: inline-block;
+}
+
+.hero {
+    /* On s'assure que la section hero commence bien SOUS le logo */
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .header-logo-container {
+        padding: 10px 0;
+    }
+    
+    .main-logo {
+        max-width: 280px; /* Taille ajustée pour les petits écrans */
+    }
+
+    .hero-overlay h1 {
+        font-size: 1.8rem !important; /* Réduit la taille du texte sur mobile */
+        margin-top: 10px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 1.2rem !important;
     }
 }
