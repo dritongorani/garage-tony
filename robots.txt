@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Prevent crawling of technical or private paths if added later
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /tmp/
+
+# Preferred host and sitemap discovery
+Host: mecanicienchezvous.fr
+Sitemap: https://mecanicienchezvous.fr/sitemap.xml
+Sitemap: https://mecanicienchezvous.fr/sitemap-pages.xml

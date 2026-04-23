@@ -52,6 +52,28 @@ garage-goauto/
 
 ---
 
+## 🤖 Chatbot IA local
+
+Le chatbot du site peut utiliser de vraies réponses IA via un backend local sécurisé.
+
+1. Copiez `.env.example` en `.env`
+2. Mettez votre clé dans `OPENAI_API_KEY`
+3. Lancez l'API chat :
+
+```bash
+node chat-server.js
+```
+
+4. Gardez aussi le serveur statique du site actif :
+
+```bash
+python -m http.server 5500
+```
+
+Le front appelle `http://localhost:8787/api/chat`.
+
+---
+
 ## 🚀 Déploiement
 
 Le site est entièrement statique. Il peut être hébergé sur :
