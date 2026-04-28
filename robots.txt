@@ -1,0 +1,5 @@
+# https://mecanoolyon.com/
+User-agent: *
+Allow: /
+
+Sitemap: https://mecanoolyon.com/sitemap.xml
