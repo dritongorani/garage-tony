@@ -523,7 +523,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </a>
             <span class="text-sm text-zinc-500"><span class="text-zinc-400">Ou appelez&nbsp;:</span> <a href="tel:+33603439954" class="font-medium text-white underline-offset-4 hover:text-racing hover:underline">+33&nbsp;6&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a></span>
           </p>
-          <form class="mt-8 grid gap-6 sm:grid-cols-2" action="#" method="post" id="contact-form">
+          <form class="mt-8 grid gap-6 sm:grid-cols-2" action="https://formspree.io/f/xzdddyle" method="post" id="contact-form">
             <div class="sm:col-span-1">
               <label for="name" class="mb-2 block text-sm font-medium text-zinc-400">Nom</label>
               <input type="text" id="name" name="name" required autocomplete="name"
@@ -768,12 +768,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     }
 
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var fb = document.getElementById('form-feedback');
-      fb.textContent = 'Merci ! Votre message a bien été enregistré (démo). Branchez une API ou Formspree pour l\'envoi réel.';
-      fb.classList.remove('hidden');
-    });
   </script>
 </body>
 </html>
