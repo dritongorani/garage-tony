@@ -365,6 +365,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="text-sm text-zinc-500"><span class="text-zinc-400">Ou appelez&nbsp;:</span> <a href="tel:+33603439954" class="font-medium text-white underline-offset-4 hover:text-racing hover:underline">+33&nbsp;6&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a></span>
           </p>
           <form class="mt-8 grid gap-6 sm:grid-cols-2" action="https://formspree.io/f/xzdddyle" method="post" id="contact-form-e85">
+            <input type="hidden" name="_next" value="https://mecanoolyon.com/thank-you.html" />
+            <input type="hidden" name="_subject" value="Nouveau message depuis mecanoolyon.com" />
             <div class="sm:col-span-2">
               <label for="subject-e85" class="mb-2 block text-sm font-medium text-zinc-400">Objet</label>
               <input type="text" id="subject-e85" name="subject" value="Installation kit E85 — Lyon"
@@ -483,6 +485,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         );
       });
     }
+
+
+    function bindFormspree(formId) {
+      var form = document.getElementById(formId);
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            window.location.href = 'thank-you.html';
+            return;
+          }
+          throw new Error('submit_failed');
+        }).catch(function () {
+          alert('Envoi impossible pour le moment. Merci de reessayer ou WhatsApp.');
+        }).finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
+      });
+    }
+
+    bindFormspree('contact-form-e85');
 
   </script>
 </body>
