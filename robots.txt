@@ -1,5 +1,5 @@
-# https://mecanoolyon.com/
+# https://mecanolyon.fr/
 User-agent: *
 Allow: /
 
-Sitemap: https://mecanoolyon.com/sitemap.xml
+Sitemap: https://mecanolyon.fr/sitemap.xml
