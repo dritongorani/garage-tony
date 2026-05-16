@@ -25,6 +25,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="geo.region" content="FR-69" />
   <meta name="geo.placename" content="Lyon" />
+  <meta name="geo.position" content="45.764;4.8357" />
+  <meta name="ICBM" content="45.764, 4.8357" />
 
   <title>Mécanicien à domicile Lyon | Clés, clim &amp; mécanique — Mecanoo</title>
 
@@ -103,7 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "AutomotiveBusiness"],
+        "@type": ["LocalBusiness", "AutomotiveBusiness", "AutoRepair"],
         "@id": "https://mecanolyon.fr/#localbusiness",
         "name": "Mecanoo Lyon",
         "alternateName": "Mecanoo",
@@ -116,6 +118,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "description": "Mécanicien à domicile Lyon et Rhône (69) : mécanique automobile mobile, double de clés et service clés à la maison, recharge climatisation chez vous. Lyon, Villeurbanne, Vénissieux et métropole.",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Interventions à domicile",
           "addressLocality": "Lyon",
           "addressRegion": "Auvergne-Rhône-Alpes",
           "postalCode": "69000",
@@ -126,11 +129,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "latitude": 45.764,
           "longitude": 4.8357
         },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Mecanoo+Lyon+m%C3%A9canicien+%C3%A0+domicile",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "19:00"
+          }
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+33603439954",
+            "contactType": "customer service",
+            "areaServed": "FR",
+            "availableLanguage": ["French"]
+          }
+        ],
         "areaServed": [
           { "@type": "AdministrativeArea", "name": "Rhône" },
           { "@type": "City", "name": "Lyon" },
           { "@type": "City", "name": "Villeurbanne" },
-          { "@type": "City", "name": "Vénissieux" }
+          { "@type": "City", "name": "Vénissieux" },
+          { "@type": "City", "name": "Bron" },
+          { "@type": "City", "name": "Saint-Priest" },
+          { "@type": "City", "name": "Meyzieu" },
+          { "@type": "City", "name": "Décines-Charpieu" },
+          { "@type": "City", "name": "Caluire-et-Cuire" }
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -165,6 +191,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
           ]
         }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://mecanolyon.fr/#website",
+        "url": "https://mecanolyon.fr/",
+        "name": "Mecanoo Lyon",
+        "inLanguage": "fr-FR",
+        "publisher": { "@id": "https://mecanolyon.fr/#localbusiness" }
       },
       {
         "@type": "FAQPage",
@@ -437,7 +471,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="mt-4 max-w-3xl text-lg text-zinc-400">
           Mecanoo Lyon est un <strong class="font-semibold text-zinc-200">professionnel automobile basé sur Lyon</strong>. Nous assurons des interventions sur <strong class="font-semibold text-zinc-200">Villeurbanne</strong>, <strong class="font-semibold text-zinc-200">Vénissieux</strong>, l’ensemble du <strong class="font-semibold text-zinc-200">secteur 69</strong> (département du Rhône) et la métropole : <strong class="font-semibold text-zinc-200">réparation et entretien voiture</strong> à domicile, clés et clim selon vos besoins.
         </p>
-        <div class="mt-12 max-w-3xl">
+        <div class="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start">
+          <aside class="rounded-2xl border border-white/10 bg-zinc-900/50 p-6 sm:p-8" aria-labelledby="nap-heading" itemscope itemtype="https://schema.org/AutoRepair">
+            <h3 id="nap-heading" class="text-lg font-bold text-white">Coordonnées (identiques sur Google)</h3>
+            <p class="mt-2 text-sm text-zinc-400">Garage mobile — interventions chez vous sur Lyon et le Rhône (69), sur rendez-vous.</p>
+            <address class="mt-6 not-italic text-zinc-300" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+              <span class="block font-semibold text-white" itemprop="name">Mecanoo Lyon</span>
+              <span class="mt-2 block text-sm" itemprop="streetAddress">Service à domicile</span>
+              <span class="block text-sm"><span itemprop="postalCode">69000</span> <span itemprop="addressLocality">Lyon</span></span>
+              <span class="block text-sm" itemprop="addressRegion">Rhône (69)</span>
+            </address>
+            <p class="mt-4">
+              <a href="tel:+33603439954" class="font-semibold text-white hover:text-racing" itemprop="telephone">+33&nbsp;6&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            </p>
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Mecanoo+Lyon+m%C3%A9canicien+%C3%A0+domicile"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-white"
+              >
+                <i data-lucide="map-pin" class="h-4 w-4 text-racing" aria-hidden="true"></i>
+                Voir sur Google Maps
+              </a>
+              <a
+                id="google-review-link"
+                href="https://www.google.com/maps/search/?api=1&query=Mecanoo+Lyon+m%C3%A9canicien+%C3%A0+domicile"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-sm font-semibold text-amber-200 transition hover:bg-amber-500/20"
+              >
+                <i data-lucide="star" class="h-4 w-4" aria-hidden="true"></i>
+                Laisser un avis Google
+              </a>
+            </div>
+            <p class="mt-4 text-xs text-zinc-500">Dans votre fiche Google Business, copiez le lien «&nbsp;Obtenir plus d’avis&nbsp;» et remplacez l’URL du bouton ci-dessus.</p>
+          </aside>
           <figure class="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/40">
             <div class="relative aspect-[16/10] w-full overflow-hidden bg-zinc-950/50">
               <img
