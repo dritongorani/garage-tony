@@ -1,8 +1,10 @@
-# https://mecanolyon.fr/ (domaine canonique — pas de www)
+# Domaine canonique : https://mecanolyon.fr/ (sans www)
 User-agent: *
 Allow: /
 
-# Pages de redirection uniquement (noindex)
+# Doublons et pages utilitaires — ne pas indexer
+Disallow: /index.html
+Disallow: /thank-you.html
 Disallow: /e85-lyon.html
 Disallow: /service-ethanol.html
 
