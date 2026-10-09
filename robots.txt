@@ -2,8 +2,4 @@
 User-agent: *
 Allow: /
 
-# Pages de redirection uniquement (noindex)
-Disallow: /e85-lyon.html
-Disallow: /service-ethanol.html
-
 Sitemap: https://mecanolyon.fr/sitemap.xml

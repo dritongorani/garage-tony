@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate SEO service pages for mecanolyon.fr"""
+"""Generate SEO service pages for mecanolyon.fr — Électronique Automobile & Diagnostic"""
 
 from pathlib import Path
 
@@ -13,8 +13,8 @@ HEAD = """<!DOCTYPE html>
   <meta charset="UTF-8" />
   <script src="assets/canonical-host.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NPKTDZMM4"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-6NPKTDZMM4');</script>
-  <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}})(window,document,'script','dataLayer','GTM-TMZK9J9X');</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6NPKTDZMM4');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TMZK9J9X');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="{description}" />
   <meta name="keywords" content="{keywords}" />
@@ -22,6 +22,8 @@ HEAD = """<!DOCTYPE html>
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="geo.region" content="FR-69" />
   <meta name="geo.placename" content="Lyon" />
+  <meta name="geo.position" content="45.764;4.8357" />
+  <meta name="ICBM" content="45.764, 4.8357" />
   <title>{title}</title>
   <link rel="canonical" href="{canonical}" />
   <link rel="alternate" hreflang="fr-FR" href="{canonical}" />
@@ -31,17 +33,25 @@ HEAD = """<!DOCTYPE html>
   <meta property="og:description" content="{og_description}" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Mecanoo Lyon" />
+  <meta property="og:image" content="https://mecanolyon.fr/images/seo-reparation-voiture-lyon_1.jpg" />
+  <meta property="og:image:width" content="1264" />
+  <meta property="og:image:height" content="848" />
+  <meta property="og:image:alt" content="Mecanoo Lyon — électronique automobile & diagnostic à Lyon" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://mecanolyon.fr/images/seo-reparation-voiture-lyon_1.jpg" />
+  <meta name="twitter:image:alt" content="Mecanoo Lyon — électronique automobile & diagnostic à Lyon" />
   <meta name="theme-color" content="#0a0c0f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={{theme:{{extend:{{colors:{{racing:'#FF5733',ink:'#0a0c0f'}},fontFamily:{{sans:['Inter','system-ui','sans-serif']}}}}}}};</script>
+  <script>tailwind.config={theme:{extend:{colors:{racing:'#FF5733',racingStrong:'#D03F14',ink:'#0a0c0f'},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}};</script>
   <style>
-    html{{scroll-behavior:smooth;}}
-    .glass-nav{{background:rgba(10,12,15,0.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}}
-    .noise-bg::before{{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;}}
+    html{scroll-behavior:smooth;}
+    section[id]{scroll-margin-top:5rem;}
+    :is(a,button,[tabindex]):focus-visible{outline:2px solid #FF5733;outline-offset:2px;border-radius:6px;}
+    .glass-nav{background:rgba(10,12,15,0.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+    .noise-bg::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;}
   </style>
   <script type="application/ld+json">{schema}</script>
 </head>
@@ -53,34 +63,42 @@ NAV = """
   <header class="glass-nav sticky top-0 z-50">
     <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6" aria-label="Navigation principale">
       <a href="index.html" class="flex items-center gap-2 text-lg font-bold tracking-tight text-white">
-        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-racing/15 text-racing ring-1 ring-racing/30" aria-hidden="true"><i data-lucide="wrench" class="h-5 w-5"></i></span>
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-racing/15 text-racing ring-1 ring-racing/30" aria-hidden="true"><i data-lucide="cpu" class="h-5 w-5"></i></span>
         Mecanoo Lyon
       </a>
       <ul class="hidden flex-wrap items-center justify-end gap-x-3 gap-y-1 text-xs font-medium text-zinc-300 lg:flex xl:gap-x-5 xl:text-sm">
         <li><a href="index.html#services" class="transition hover:text-racing">Services</a></li>
-        <li><a href="service-cles.html" class="transition hover:text-racing">Clés Lyon</a></li>
-        <li><a href="service-mecanique.html" class="transition hover:text-racing">Entretien</a></li>
-        <li><a href="service-reprogrammation.html" class="{reprog_class}">Reprog ECU</a></li>
-        <li><a href="zone-intervention.html" class="transition hover:text-racing">Zone</a></li>
+        <li><a href="service-diagnostic.html" class="{diag_class}">Diagnostic</a></li>
+        <li><a href="service-ecu-clonage.html" class="{ecu_class}">Calculateurs ECU/BSI</a></li>
+        <li><a href="service-reprogrammation.html" class="{reprog_class}">Reprog moteur</a></li>
+        <li><a href="service-antipollution.html" class="{anti_class}">Anti-pollution</a></li>
+        <li><a href="zone-intervention.html" class="transition hover:text-racing">Zone Lyon &amp; Ain</a></li>
         <li><a href="index.html#faq" class="transition hover:text-racing">FAQ</a></li>
         <li><a href="index.html#contact" class="transition hover:text-racing">Contact</a></li>
       </ul>
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="ml-auto flex items-center gap-2 sm:gap-3">
+        <a href="tel:+33603439954" class="hidden items-center gap-1.5 text-sm font-semibold text-zinc-200 transition hover:text-racing xl:inline-flex" aria-label="Appeler le 06 03 43 99 54"><i data-lucide="phone" class="h-4 w-4 text-racing"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
         <a href="https://wa.me/33603439954" target="_blank" rel="noopener noreferrer" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/30 ring-2 ring-black/30 transition hover:scale-105" aria-label="WhatsApp">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
-        <a href="index.html#contact" class="rounded-lg bg-racing px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-racing/25 transition hover:bg-racing/90">Devis gratuit</a>
+        <a href="index.html#contact" class="hidden rounded-lg bg-racing-strong px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-racing/25 transition hover:bg-racing-strong/90 sm:inline-flex">Devis gratuit</a>
       </div>
       <button type="button" id="mobile-menu-btn" class="inline-flex rounded-md p-2 text-zinc-300 lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><i data-lucide="menu" class="h-6 w-6"></i></button>
     </nav>
     <div id="mobile-menu" class="hidden border-t border-white/5 bg-ink/95 px-4 py-4 lg:hidden">
       <ul class="flex flex-col gap-3 text-sm font-medium">
         <li><a href="index.html#services" class="block py-2 text-zinc-300 hover:text-racing">Services</a></li>
-        <li><a href="service-cles.html" class="block py-2 text-zinc-300 hover:text-racing">Clés Lyon</a></li>
-        <li><a href="service-mecanique.html" class="block py-2 text-zinc-300 hover:text-racing">Freins &amp; entretien</a></li>
-        <li><a href="service-reprogrammation.html" class="block py-2 {mobile_reprog_class}">Reprog ECU</a></li>
-        <li><a href="zone-intervention.html" class="block py-2 text-zinc-300 hover:text-racing">Zone</a></li>
+        <li><a href="service-diagnostic.html" class="block py-2 {mobile_diag_class}">Diagnostic électronique</a></li>
+        <li><a href="service-ecu-clonage.html" class="block py-2 {mobile_ecu_class}">Calculateurs ECU/BSI</a></li>
+        <li><a href="service-reprogrammation.html" class="block py-2 {mobile_reprog_class}">Reprog moteur — Stage 1 &amp; E85</a></li>
+        <li><a href="service-antipollution.html" class="block py-2 {mobile_anti_class}">Anti-pollution — FAP, EGR, AdBlue</a></li>
+        <li><a href="zone-intervention.html" class="block py-2 text-zinc-300 hover:text-racing">Zone Lyon &amp; Ain</a></li>
+        <li><a href="index.html#faq" class="block py-2 text-zinc-300 hover:text-racing">FAQ</a></li>
         <li><a href="index.html#contact" class="block py-2 text-zinc-300 hover:text-racing">Contact</a></li>
+        <li class="flex flex-col gap-2 pt-2">
+          <a href="tel:+33603439954" class="flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 py-3 font-semibold text-zinc-100 transition hover:bg-white/10"><i data-lucide="phone" class="h-5 w-5 text-racing"></i>Appeler — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-lg border border-[#25D366]/35 bg-[#25D366]/15 py-3 pl-3 pr-4 font-semibold text-emerald-300 transition hover:bg-[#25D366]/25"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>WhatsApp — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+        </li>
       </ul>
     </div>
   </header>
@@ -90,11 +108,11 @@ FOOTER = """
   <footer class="border-t border-white/10 bg-black/40 py-12 pb-28 sm:pb-12">
     <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-6">
       <div>
-        <p class="text-sm text-zinc-500">© <span id="year"></span> Mecanoo Lyon. Tous droits réservés.</p>
-        <p class="mt-2 text-sm text-zinc-600"><a href="service-cles.html" class="text-racing hover:underline">Clés Lyon</a> · <a href="service-mecanique.html" class="hover:text-zinc-400 hover:underline">Entretien</a> · <a href="service-reprogrammation.html" class="hover:text-zinc-400 hover:underline">Reprog ECU</a> · <a href="zone-intervention.html" class="hover:text-zinc-400 hover:underline">Zone</a> · <a href="index.html#contact" class="hover:text-zinc-400 hover:underline">Contact</a>.</p>
+        <p class="text-sm text-zinc-400">© <span id="year"></span> Mecanoo Lyon. Tous droits réservés.</p>
+        <p class="mt-2 text-sm text-zinc-400"><a href="service-diagnostic.html" class="text-racing hover:underline">Diagnostic</a> · <a href="service-ecu-clonage.html" class="hover:text-zinc-300 hover:underline">Calculateurs ECU/BSI</a> · <a href="service-reprogrammation.html" class="hover:text-zinc-300 hover:underline">Reprog moteur</a> · <a href="service-antipollution.html" class="hover:text-zinc-300 hover:underline">Anti-pollution</a> · <a href="zone-intervention.html" class="hover:text-zinc-300 hover:underline">Zone Lyon &amp; Ain</a> · <a href="index.html#contact" class="hover:text-zinc-300 hover:underline">Contact</a>.</p>
       </div>
       <div class="flex flex-col items-start gap-3 sm:items-end">
-        <p class="text-xs uppercase tracking-wide text-zinc-600 text-left sm:text-right">Mécanique · clés · reprogrammation ECU sur devis</p>
+        <p class="text-xs text-zinc-400 uppercase tracking-wide text-left sm:text-right">Diagnostic &amp; électronique automobile — Lyon · 69 · Ain 01</p>
         <a href="https://wa.me/33603439954" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-[#25D366]/35 bg-[#25D366]/15 px-4 py-2 text-sm font-medium text-emerald-300 transition hover:bg-[#25D366]/25">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp +33&nbsp;6&nbsp;03&nbsp;43&nbsp;99&nbsp;54
@@ -102,7 +120,7 @@ FOOTER = """
       </div>
     </div>
   </footer>
-  <a href="https://wa.me/33603439954?text={wa_text}" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl ring-2 ring-black/40 transition hover:scale-105 md:bottom-8 md:right-8" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <a href="https://wa.me/33603439954?text={wa_text}" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-black/40 ring-2 ring-black/40 transition hover:scale-105 md:bottom-8 md:right-8" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();document.getElementById('year').textContent=new Date().getFullYear();var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m)b.addEventListener('click',function(){{m.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!m.classList.contains('hidden')));}});</script>
 </body>
@@ -112,185 +130,166 @@ FOOTER = """
 LEGAL = """
     <section class="border-b border-white/5 bg-zinc-950 py-10 sm:py-12" aria-label="Mention légale">
       <div class="mx-auto max-w-3xl px-4 sm:px-6">
-        <p class="text-xs leading-relaxed text-zinc-600">
-          <strong class="font-medium text-zinc-500">Mention légale&nbsp;:</strong> la modification ou la désactivation de systèmes antipollution (AdBlue, SCR, FAP, EGR…) et toute reprogrammation moteur (stage, flexfuel) est strictement réservée à un usage <strong class="font-medium text-zinc-500">hors voie publique</strong> — circuit, piste privée ou usage professionnel hors route ouverte à la circulation. L'utilisation d'un véhicule modifié sur la voie publique est interdite par la réglementation en vigueur. Mecanoo informe ses clients de ces contraintes légales avant toute intervention.
+        <p class="text-xs leading-relaxed text-zinc-400">
+          <strong class="font-medium text-zinc-300">Mention légale&nbsp;:</strong> la modification ou la désactivation de systèmes antipollution (AdBlue, SCR, FAP, EGR…) et toute reprogrammation moteur (stage, flexfuel) est strictement réservée à un usage <strong class="font-medium text-zinc-300">hors voie publique</strong> — circuit, piste privée ou usage professionnel hors route ouverte à la circulation. L'utilisation d'un véhicule modifié sur la voie publique est interdite par la réglementation en vigueur. Mecanoo informe ses clients de ces contraintes légales avant toute intervention.
         </p>
       </div>
     </section>
 """
 
+# ---------------------------------------------------------------------------
+# Catalogue des services (feuilles) — chacun dispose d'une page dédiée SEO
+# ---------------------------------------------------------------------------
+
 SERVICES = [
     {
-        "file": "service-adblue.html",
-        "slug": "service-adblue",
-        "active": "adblue",
-        "breadcrumb": "AdBlue / SCR — Lyon",
-        "badge": "problème AdBlue Lyon — Rhône 69",
-        "icon": "alert-triangle",
-        "h1": "Dépannage &amp; solution électronique AdBlue / SCR à Lyon",
-        "hero": "<strong class=\"font-semibold text-zinc-200\">Problème AdBlue Lyon</strong>, <strong class=\"font-semibold text-zinc-200\">défaut antipollution Peugeot Citroën</strong> ou voyant SCR récurrent&nbsp;? Reprogrammation logicielle définitive avec outils <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — alternative aux devis exorbitants en concession sur Lyon et le <strong class=\"font-semibold text-zinc-200\">69</strong>.",
-        "title": "Dépannage AdBlue / SCR Lyon — Problème AdBlue & défaut antipollution | Mecanoo",
-        "description": "Problème AdBlue Lyon : dépannage SCR, défaut antipollution Peugeot Citroën, suppression AdBlue 69. Reprogrammation FoxFlash — Mecanoo Rhône.",
-        "keywords": "problème AdBlue Lyon, défaut antipollution Peugeot Citroën Lyon, suppression AdBlue 69, dépannage SCR Lyon",
-        "og_title": "Dépannage AdBlue / SCR Lyon | Mecanoo",
-        "og_description": "Problème AdBlue Lyon, défaut antipollution Peugeot Citroën, solution SCR sur le Rhône (69).",
-        "service_name": "Dépannage AdBlue / SCR Lyon",
-        "problem_title": "Le problème AdBlue / SCR",
-        "problem_intro": "Compteur bloqué, réservoir déformé, injecteur bouché ou devis concession à plusieurs milliers d'euros — le système SCR touche surtout les diesel récents.",
+        "file": "service-diagnostic.html",
+        "slug": "service-diagnostic",
+        "active": "diagnostic",
+        "parent_label": None,
+        "parent_url": None,
+        "hub_url": "index.html#services",
+        "hub_label": "Toutes nos prestations",
+        "breadcrumb": "Diagnostic électronique — Lyon",
+        "badge": "diagnostic valise Lyon — OBD 69 / Ain 01",
+        "icon": "scan-line",
+        "h1": "Diagnostic électronique &amp; valise OBD à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Diagnostic électronique Lyon</strong>&nbsp;: lecture des codes défaut moteur, boîte, ABS et airbag avec <strong class=\"font-semibold text-zinc-200\">valise OBD multimarque</strong> — rapport complet et devis avant intervention sur Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Diagnostic Électronique Lyon — Valise OBD | Mecanoo",
+        "description": "Diagnostic électronique à Lyon : valise OBD multimarque, lecture codes défaut moteur, boîte, ABS et airbag. Rapport et devis — Rhône (69) et Ain (01).",
+        "keywords": "diagnostic électronique Lyon, diagnostic valise Lyon, lecture codes défaut Lyon, diagnostic auto OBD 69, diagnostic automobile Ain 01",
+        "og_title": "Diagnostic électronique Lyon — Valise OBD | Mecanoo",
+        "og_description": "Diagnostic valise OBD multimarque à Lyon, Rhône (69) et Ain (01) — codes défaut moteur, boîte, ABS, airbag.",
+        "service_name": "Diagnostic électronique Lyon",
+        "step3": "Rapport détaillé des codes défaut et proposition de réparation chiffrée.",
+        "problem_title": "Quand faire un diagnostic électronique automobile ?",
+        "problem_intro": "Voyant moteur, mode dégradé, consommation anormale ou bruit suspect — la valise OBD identifie l'origine électronique avant toute réparation, évitant les devis à l'aveugle.",
         "problems": [
-            ("Compteur kilométrique bloqué", "Message « démarrage impossible dans X km », mode dégradé, véhicule immobilisé.", "gauge"),
-            ("Réservoir AdBlue déformé", "Fissures, fuites, remplacement seul &gt; 1 500 € en concession.", "droplets"),
-            ("Injecteur AdBlue bouché", "Cristallisation urée, sonde NOx HS, défaut antipollution permanent.", "syringe"),
-            ("Frais exorbitants concession", "Devis 2 000 à 4 000 € sans garantie de fiabilité long terme.", "euro"),
+            ("Voyant moteur allumé", "Code défaut moteur (P0xxx) à lire et interpréter avant toute réparation.", "alert-triangle"),
+            ("Mode dégradé", "Véhicule bridé, puissance limitée — origine électronique à identifier rapidement.", "gauge"),
+            ("Voyants ABS / ESP / airbag", "Calculateurs annexes à diagnostiquer (freinage, stabilité, sécurité passive).", "shield-alert"),
+            ("Devis aveugle", "Sans diagnostic valise, les réparations se font à l'aveugle et coûtent cher.", "euro"),
         ],
-        "solution_title": "Reprogrammation définitive FoxFlash",
-        "solution_intro": "Suppression AdBlue 69 par reprogrammation calculateur — plus de voyants, compteur débloqué, fin des recharges d'urée.",
+        "solution_title": "Diagnostic valise OBD multimarque",
+        "solution_intro": "Lecture et interprétation de tous les calculateurs du véhicule, rapport détaillé avec préconisations et devis transparent avant toute intervention.",
         "solution_points": [
-            "Suppression AdBlue 69 par reprogrammation définitive",
-            "Outils officiels FoxFlash — pas un simple effacement de défauts",
-            "Peugeot, Citroën, DS, Renault, VW, BMW, Mercedes…",
-            "Intervention Lyon, Villeurbanne, Vénissieux, métropole 69",
+            "Valise OBD multimarque — essence, diesel, hybride",
+            "Lecture et effacement codes défaut moteur, boîte, ABS, airbag",
+            "Rapport écrit avec préconisations et devis",
+            "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
         ],
-        "faq_intro": "« problème AdBlue Lyon », « défaut antipollution Peugeot Citroën Lyon », « suppression AdBlue 69 »",
+        "faq_intro": "« diagnostic valise Lyon », « lecture codes défaut Lyon », « diagnostic électronique automobile 69 »",
         "faqs": [
-            ("Quels symptômes d'un problème AdBlue sur Peugeot ou Citroën à Lyon ?", "Voyant antipollution, compteur bloqué, mode dégradé, injecteur bouché. Très fréquent sur BlueHDi / HDi PSA après 80 000 km."),
-            ("Combien coûte une réparation AdBlue en concession vs solution électronique 69 ?", "Concession : 2 000 à 4 000 €. Mecanoo : reprogrammation FoxFlash bien plus économique sur devis."),
-            ("Proposez-vous une suppression AdBlue définitive sur Lyon et le 69 ?", "Oui : reprogrammation définitive via FoxFlash, intervention métropole lyonnaise. Devis après diagnostic."),
+            ("Que fait un diagnostic électronique automobile ?", "La valise OBD se connecte au calculateur, lit les codes défaut enregistrés (moteur, boîte, ABS, airbag), permet de cibler la panne puis d'effacer les codes après réparation."),
+            ("Combien coûte un diagnostic valise à Lyon ?", "Tarif selon véhicule et périmètre (moteur seul ou diagnostic complet) — devis après marque et modèle. Souvent déduit du montant de la réparation."),
+            ("Diagnostic sur Peugeot, Citroën, Renault, BMW à Lyon ?", "Oui, valise multimarque essence / diesel / hybride sur Lyon, la métropole, le Rhône (69) et l'Ain (01)."),
         ],
-        "wa_text": "Bonjour%2C%20probl%C3%A8me%20AdBlue%20Lyon",
-        "img_alt": "Problème AdBlue Lyon — diagnostic SCR Rhône 69",
+        "wa_text": "Bonjour%2C%20diagnostic%20%C3%A9lectronique%20Lyon",
+        "img_alt": "Diagnostic électronique automobile à Lyon — valise OBD Rhône 69 et Ain 01",
     },
     {
         "file": "service-ecu-clonage.html",
         "slug": "service-ecu-clonage",
         "active": "ecu",
+        "parent_label": None,
+        "parent_url": None,
+        "hub_url": "service-ecu-clonage.html",
+        "hub_label": "Programmation calculateurs",
         "breadcrumb": "Clonage ECU — Lyon",
-        "badge": "clonage ECU Lyon — calculateur 69",
+        "badge": "clonage ECU Lyon — calculateur ECU/BSI 69",
         "icon": "cpu",
-        "h1": "Clonage ECU &amp; copie calculateur à Lyon",
-        "hero": "<strong class=\"font-semibold text-zinc-200\">Clonage ECU Lyon</strong>, calculateur HS, ECU noyé ou véhicule ne démarre plus&nbsp;? Copie intégrale du firmware sur un calculateur neuf ou d'occasion avec outils <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — intervention sur Lyon et le Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong>.",
-        "title": "Clonage ECU Lyon — Copie calculateur & reprogrammation | Mecanoo",
-        "description": "Clonage ECU Lyon : copie calculateur moteur, ECU cloning 69, transfert firmware BSI/ECU. FoxFlash — Mecanoo métropole lyonnaise.",
-        "keywords": "clonage ECU Lyon, copie calculateur Lyon, ECU cloning 69, reprogrammation calculateur Rhône",
-        "og_title": "Clonage ECU Lyon | Mecanoo",
-        "og_description": "Copie calculateur moteur et clonage ECU sur Lyon et le Rhône (69).",
+        "h1": "Clonage ECU &amp; programmation calculateurs ECU/BSI à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Clonage ECU Lyon</strong>, calculateur HS, ECU noyé ou véhicule ne démarre plus&nbsp;? Copie intégrale du firmware sur un calculateur neuf ou d'occasion avec outils <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — codage VIN et synchronisation immobiliseur sur Lyon et le Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong>.",
+        "title": "Clonage ECU Lyon — Programmation ECU/BSI | Mecanoo",
+        "description": "Clonage ECU/BSI à Lyon : copie du firmware, codage VIN, synchronisation immo. Calculateur HS ou noyé — Rhône (69) et Ain (01), outils FoxFlash.",
+        "keywords": "clonage ECU Lyon, programmation calculateur ECU BSI Lyon, copie calculateur Lyon, ECU cloning 69, reprogrammation calculateur Rhône",
+        "og_title": "Clonage ECU &amp; programmation ECU/BSI Lyon | Mecanoo",
+        "og_description": "Copie calculateur moteur, clonage ECU/BSI et codage VIN sur Lyon et le Rhône (69).",
         "service_name": "Clonage ECU Lyon",
         "problem_title": "Quand faut-il cloner un calculateur ?",
-        "problem_intro": "ECU endommagé par l'eau, surtension, panne électronique ou remplacement nécessaire sans reprogrammation concession.",
+        "problem_intro": "ECU endommagé par l'eau, surtension, panne électronique ou remplacement nécessaire sans reprogrammation concession — le clonage évite le codage onéreux en concession.",
         "problems": [
             ("Calculateur moteur HS", "ECU noyé, court-circuit, composants grillés — véhicule ne démarre plus.", "cpu"),
-            ("Remplacement ECU d'occasion", "Calculateur d'occasion non codé à votre véhicule — immobilisation ou défauts.", "refresh-cw"),
+            ("Remplacement ECU d'occasion", "Calculateur d'occasion non codé à votre véhicule — immobilisation ou défauts persistants.", "refresh-cw"),
             ("Perte données origine", "Effacement accidentel, mise à jour ratée, ECU vierge après panne.", "hard-drive"),
             ("Devis concession élevé", "Codage + main-d'œuvre concession souvent très coûteux et délais longs.", "euro"),
         ],
         "solution_title": "Clonage ECU avec FoxFlash",
-        "solution_intro": "Lecture du calculateur d'origine, copie complète du firmware (Flash + EEPROM) sur ECU de remplacement, synchronisation immo si nécessaire.",
+        "solution_intro": "Lecture du calculateur d'origine, copie complète du firmware (Flash + EEPROM) sur ECU de remplacement, synchronisation immo et codage VIN si nécessaire.",
         "solution_points": [
             "Lecture complète ECU d'origine (Flash, EEPROM, OTP)",
             "Transfert sur calculateur neuf ou d'occasion compatible",
             "Codage VIN, immo, kilométrage selon besoin",
-            "Peugeot, Citroën, Renault, VW, BMW, Mercedes… sur Lyon 69",
+            "Peugeot, Citroën, Renault, VW, BMW, Mercedes… Lyon, 69 et Ain 01",
         ],
-        "faq_intro": "« clonage ECU Lyon », « copie calculateur Lyon », « ECU cloning 69 »",
+        "faq_intro": "« clonage ECU Lyon », « programmation calculateur ECU BSI Lyon », « ECU cloning 69 »",
         "faqs": [
-            ("Qu'est-ce que le clonage ECU et dans quels cas l'utiliser à Lyon ?", "Copie intégrale du firmware d'un calculateur HS vers un ECU de remplacement. Indispensable si l'ECU d'origine est irréparable."),
-            ("Peut-on cloner un calculateur Peugeot ou Citroën sans aller en concession ?", "Oui, avec outils FoxFlash sur Lyon et le 69 — lecture, copie et codage sur place selon modèle."),
+            ("Qu'est-ce que le clonage ECU et dans quels cas l'utiliser à Lyon ?", "Copie intégrale du firmware d'un calculateur HS vers un ECU de remplacement. Indispensable si l'ECU d'origine est irréparable ou lors d'un remplacement par un calculateur d'occasion."),
+            ("Peut-on cloner un calculateur Peugeot ou Citroën sans aller en concession ?", "Oui, avec outils FoxFlash sur Lyon, le Rhône (69) et l'Ain (01) — lecture, copie et codage sur place selon modèle."),
             ("Combien de temps dure un clonage ECU chez Mecanoo ?", "Selon marque et accès calculateur : généralement quelques heures. Devis après marque, modèle et motorisation."),
         ],
         "wa_text": "Bonjour%2C%20clonage%20ECU%20Lyon",
-        "img_alt": "Clonage ECU Lyon — copie calculateur moteur Rhône 69",
+        "img_alt": "Clonage ECU Lyon — programmation calculateur ECU/BSI Rhône 69",
     },
     {
-        "file": "service-fap.html",
-        "slug": "service-fap",
-        "active": "fap",
-        "breadcrumb": "Suppression FAP — Lyon",
-        "badge": "suppression FAP Lyon — FAP 69",
-        "icon": "filter",
-        "h1": "Suppression FAP &amp; solution filtre à particules à Lyon",
-        "hero": "<strong class=\"font-semibold text-zinc-200\">Suppression FAP Lyon</strong>, filtre à particules saturé ou régénération impossible&nbsp;? Reprogrammation logicielle définitive du FAP / DPF avec <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — évitez le remplacement à 1 500 €+ en concession sur Lyon et le <strong class=\"font-semibold text-zinc-200\">69</strong>.",
-        "title": "Suppression FAP Lyon — Filtre à particules & décalaminage | Mecanoo",
-        "description": "Suppression FAP Lyon, filtre à particules saturé 69, reprogrammation DPF Rhône. Solution électronique FoxFlash — Mecanoo métropole.",
-        "keywords": "suppression FAP Lyon, filtre à particules Lyon, décalaminage FAP 69, reprogrammation DPF Rhône",
-        "og_title": "Suppression FAP Lyon | Mecanoo",
-        "og_description": "Filtre à particules saturé ? Solution électronique FAP / DPF sur Lyon et le 69.",
-        "service_name": "Suppression FAP Lyon",
-        "problem_title": "Les problèmes de filtre à particules (FAP / DPF)",
-        "problem_intro": "Voyant FAP, perte de puissance, régénération ratée ou conduite urbaine qui colmate le filtre rapidement.",
+        "file": "service-immo-off.html",
+        "slug": "service-immo-off",
+        "active": "ecu",
+        "parent_label": "Calculateurs ECU/BSI",
+        "parent_url": "service-ecu-clonage.html",
+        "hub_url": "service-ecu-clonage.html",
+        "hub_label": "Programmation calculateurs",
+        "breadcrumb": "Immo Off — Lyon",
+        "badge": "immo off Lyon — antidémarrage ECU/BSI 69",
+        "icon": "lock",
+        "h1": "Immo Off &amp; suppression antidémarrage à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Immo off Lyon</strong>, problème antidémarrage, ECU ou BSI verrouillé&nbsp;? Suppression immobiliseur par reprogrammation avec <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — dépannage électronique sur Lyon et le Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong>.",
+        "title": "Immo Off Lyon — Suppression antidémarrage | Mecanoo",
+        "description": "Immo off à Lyon : suppression antidémarrage et reprogrammation immobiliseur ECU/BSI. Véhicule ne démarre plus — Rhône (69) et Ain (01).",
+        "keywords": "immo off Lyon, suppression antidémarrage Lyon, reprogrammation immo 69, dépannage immobiliseur ECU BSI Rhône",
+        "og_title": "Immo Off Lyon | Mecanoo",
+        "og_description": "Suppression antidémarrage et immo off ECU/BSI sur Lyon et le 69.",
+        "service_name": "Immo Off Lyon",
+        "problem_title": "Les problèmes d'antidémarrage (immo)",
+        "problem_intro": "Véhicule qui ne démarre plus, clé non reconnue, ECU/BSI remplacé sans codage ou panne circuit immobiliseur — le diagnostic valise identifie le calculateur fautif.",
         "problems": [
-            ("FAP saturé / colmaté", "Régénération impossible, mode dégradé, perte de puissance importante.", "filter"),
-            ("Voyant FAP allumé", "Défaut antipollution récurrent malgré nettoyage ou décalaminage.", "alert-triangle"),
-            ("Conduite urbaine", "Trajets courts empêchent la régénération — colmatage rapide du DPF.", "map-pin"),
-            ("Remplacement coûteux", "Nouveau FAP + capteurs : 1 200 à 2 500 € en concession.", "euro"),
+            ("Véhicule ne démarre plus", "Clé reconnue mais moteur coupé immédiatement — voyant immo.", "lock"),
+            ("ECU / BSI remplacé", "Calculateur neuf non synchronisé avec clés et immobiliseur.", "cpu"),
+            ("Panne circuit immo", "Transpondeur, antenne, câblage ou BSI défaillant.", "alert-triangle"),
+            ("Codage concession", "Devis élevé et délais pour simple synchronisation immo.", "euro"),
         ],
-        "solution_title": "Suppression FAP par reprogrammation FoxFlash",
-        "solution_intro": "Désactivation logicielle définitive du FAP dans le calculateur — plus de régénération, plus de voyant, conduite normale.",
+        "solution_title": "Immo Off par reprogrammation FoxFlash",
+        "solution_intro": "Suppression logicielle de l'immobiliseur dans ECU/BSI — démarrage sans blocage immo, solution définitive.",
         "solution_points": [
-            "Suppression FAP 69 par reprogrammation calculateur",
-            "Fin des cycles de régénération et voyants récurrents",
-            "Diesel Peugeot, Citroën, Renault, VW, BMW, Mercedes…",
-            "Intervention Lyon, métropole et Rhône sur rendez-vous",
+            "Immo off ECU et/ou BSI selon architecture",
+            "Dépannage après remplacement calculateur",
+            "Peugeot, Citroën, Renault, VAG, BMW…",
+            "Intervention Lyon, métropole, Rhône (69)",
         ],
-        "faq_intro": "« suppression FAP Lyon », « filtre à particules saturé 69 », « décalaminage FAP Lyon »",
+        "faq_intro": "« immo off Lyon », « suppression antidémarrage Lyon », « reprogrammation immo 69 »",
         "faqs": [
-            ("Mon voyant FAP est allumé sur Lyon : que faire ?", "Diagnostic OBD d'abord. Si FAP colmaté ou HS, reprogrammation définitive souvent plus économique que remplacement."),
-            ("La suppression FAP est-elle définitive ?", "Oui : modification gravée dans le calculateur via FoxFlash — pas un simple effacement temporaire."),
-            ("Intervenez-vous sur diesel Peugeot et Citroën pour le FAP dans le 69 ?", "Oui : BlueHDi, HDi, et autres motorisations diesel courantes sur Lyon et métropole."),
+            ("Mon véhicule ne démarre plus à cause de l'immo : que faire à Lyon ?", "Diagnostic valise d'abord. Si immo HS ou ECU remplacé, immo off par reprogrammation est souvent la solution la plus rapide."),
+            ("L'immo off est-il définitif ?", "Oui : suppression gravée dans le calculateur — le véhicule démarre sans vérification immobiliseur."),
+            ("Faites-vous l'immo off sur Peugeot et Citroën dans le 69 ?", "Oui : PSA (ECU + BSI), Renault, VAG et autres — sur Lyon et métropole."),
         ],
-        "wa_text": "Bonjour%2C%20suppression%20FAP%20Lyon",
-        "img_alt": "Suppression FAP Lyon — filtre à particules diesel Rhône 69",
-    },
-    {
-        "file": "service-egr.html",
-        "slug": "service-egr",
-        "active": "egr",
-        "breadcrumb": "Suppression EGR — Lyon",
-        "badge": "suppression EGR Lyon — vanne EGR 69",
-        "icon": "wind",
-        "h1": "Suppression EGR &amp; vanne EGR bloquée à Lyon",
-        "hero": "<strong class=\"font-semibold text-zinc-200\">Suppression EGR Lyon</strong>, vanne EGR bloquée ou encrassée&nbsp;? Reprogrammation logicielle définitive + option démontage vanne — solution durable avec <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> sur Lyon et le <strong class=\"font-semibold text-zinc-200\">69</strong>.",
-        "title": "Suppression EGR Lyon — Vanne EGR bloquée & reprogrammation | Mecanoo",
-        "description": "Suppression EGR Lyon, vanne EGR bloquée 69, reprogrammation EGR Rhône. Solution FoxFlash — Mecanoo métropole lyonnaise.",
-        "keywords": "suppression EGR Lyon, vanne EGR bloquée Lyon, reprogrammation EGR 69, dépannage EGR Rhône",
-        "og_title": "Suppression EGR Lyon | Mecanoo",
-        "og_description": "Vanne EGR bloquée ? Suppression EGR par reprogrammation sur Lyon et le 69.",
-        "service_name": "Suppression EGR Lyon",
-        "problem_title": "Les problèmes de vanne EGR",
-        "problem_intro": "Encrassement, blocage en position ouverte/fermée, perte de puissance et surconsommation sur diesel.",
-        "problems": [
-            ("Vanne EGR bloquée", "Encrassement carbone, vanne grippée — perte de puissance et fumée noire.", "wind"),
-            ("Voyant antipollution", "Défaut EGR récurrent, mode dégradé, ratés à l'accélération.", "alert-triangle"),
-            ("Nettoyage temporaire", "Démontage/nettoyage vanne — problème revient en quelques mois.", "refresh-cw"),
-            ("Remplacement vanne EGR", "Pièce + main-d'œuvre : 400 à 900 €, sans traiter la cause.", "euro"),
-        ],
-        "solution_title": "Suppression EGR par reprogrammation FoxFlash",
-        "solution_intro": "Désactivation logicielle de la vanne EGR dans le calculateur — plus de défauts, plus d'encrassement EGR.",
-        "solution_points": [
-            "Suppression EGR 69 — reprogrammation définitive calculateur",
-            "Option démontage / obturation vanne EGR",
-            "Diesel toutes marques : PSA, Renault, VAG, BMW…",
-            "Intervention Lyon, Villeurbanne, Vénissieux, Rhône",
-        ],
-        "faq_intro": "« suppression EGR Lyon », « vanne EGR bloquée Lyon », « reprogrammation EGR 69 »",
-        "faqs": [
-            ("Ma vanne EGR est bloquée : reprogrammation ou remplacement à Lyon ?", "La reprogrammation définitive traite la cause logicielle. Souvent plus durable et économique que remplacer la vanne."),
-            ("La suppression EGR améliore-t-elle les performances ?", "Oui : moins d'encrassement admission, meilleure réponse moteur — surtout sur diesel encrassés."),
-            ("Intervenez-vous sur Peugeot 308 / Citroën C4 EGR dans le 69 ?", "Oui : HDi, BlueHDi et autres diesel PSA très courants sur Lyon et métropole."),
-        ],
-        "wa_text": "Bonjour%2C%20suppression%20EGR%20Lyon",
-        "img_alt": "Suppression EGR Lyon — vanne EGR bloquée Rhône 69",
+        "wa_text": "Bonjour%2C%20immo%20off%20Lyon",
+        "img_alt": "Immo off Lyon — suppression antidémarrage ECU/BSI Rhône 69",
     },
     {
         "file": "service-stage1.html",
         "slug": "service-stage1",
-        "active": "stage1",
+        "active": "reprog",
+        "parent_label": "Reprogrammation moteur",
+        "parent_url": "service-reprogrammation.html",
+        "hub_url": "service-reprogrammation.html",
+        "hub_label": "Reprogrammation moteur",
         "breadcrumb": "Reprogrammation Stage 1 — Lyon",
         "badge": "stage 1 Lyon — reprog moteur 69",
         "icon": "zap",
         "h1": "Reprogrammation Stage 1 &amp; gain de puissance à Lyon",
         "hero": "<strong class=\"font-semibold text-zinc-200\">Reprogrammation stage 1 Lyon</strong>, reprog moteur ou gain de puissance/couple&nbsp;? Cartographie optimisée avec outils <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — diesel et essence sur Lyon et le Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong>.",
-        "title": "Reprogrammation Stage 1 Lyon — Reprog moteur & gain puissance | Mecanoo",
-        "description": "Reprogrammation stage 1 Lyon, reprog moteur 69, gain puissance Rhône. Tuning FoxFlash — Mecanoo métropole lyonnaise.",
+        "title": "Stage 1 Lyon — Reprogrammation moteur | Mecanoo",
+        "description": "Stage 1 à Lyon : reprogrammation moteur sur mesure, +20 à +40 ch, +40 à +80 Nm. Cartographie FoxFlash — Rhône (69) et Ain (01).",
         "keywords": "reprogrammation stage 1 Lyon, reprog moteur Lyon, gain puissance 69, tuning automobile Rhône",
         "og_title": "Reprogrammation Stage 1 Lyon | Mecanoo",
         "og_description": "Stage 1 : gain de puissance et couple sur Lyon et le 69 avec FoxFlash.",
@@ -303,7 +302,7 @@ SERVICES = [
             ("Marge constructeur", "Carto d'origine volontairement bridée pour normes et fiabilité marketing.", "cpu"),
             ("Reprog générique risquée", "Fichiers bas de gamme = risque moteur. FoxFlash = cartographies fiables.", "shield-alert"),
         ],
-        "solution_title": "Stage 1 FoxFlash — puissance & couple optimisés",
+        "solution_title": "Stage 1 FoxFlash — puissance &amp; couple optimisés",
         "solution_intro": "Modification cartographie injection, turbo, couple — gains typiques +20 à +40 ch selon motorisation.",
         "solution_points": [
             "Stage 1 sur mesure — pas de fichier générique",
@@ -323,14 +322,18 @@ SERVICES = [
     {
         "file": "service-flexfuel.html",
         "slug": "service-flexfuel",
-        "active": "flexfuel",
-        "breadcrumb": "Reprogrammation Flexfuel E85 — Lyon",
-        "badge": "flexfuel E85 Lyon — conversion ethanol 69",
+        "active": "reprog",
+        "parent_label": "Reprogrammation moteur",
+        "parent_url": "service-reprogrammation.html",
+        "hub_url": "service-reprogrammation.html",
+        "hub_label": "Reprogrammation moteur",
+        "breadcrumb": "Conversion Éthanol E85 — Lyon",
+        "badge": "flexfuel E85 Lyon — conversion éthanol 69",
         "icon": "fuel",
-        "h1": "Reprogrammation Flexfuel E85 &amp; conversion éthanol à Lyon",
-        "hero": "<strong class=\"font-semibold text-zinc-200\">Reprogrammation E85 Lyon</strong>, conversion flexfuel ou passage à l'éthanol&nbsp;? Cartographie Flex Fuel avec <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — roulez SP95/E85 indifféremment, économies à la pompe sur Lyon et le <strong class=\"font-semibold text-zinc-200\">69</strong>.",
-        "title": "Reprogrammation Flexfuel E85 Lyon — Conversion éthanol 69 | Mecanoo",
-        "description": "Reprogrammation E85 Lyon, flexfuel 69, conversion éthanol Rhône. Cartographie Flex Fuel FoxFlash — Mecanoo métropole.",
+        "h1": "Reprogrammation Flexfuel E85 &amp; conversion Éthanol à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Reprogrammation E85 Lyon</strong>, conversion flexfuel ou passage à l'éthanol&nbsp;? Cartographie Flex Fuel avec <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — roulez SP95/E85 indifféremment, économies à la pompe sur Lyon et le Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong>.",
+        "title": "Conversion E85 Lyon — Flexfuel sans boîtier | Mecanoo",
+        "description": "Conversion éthanol E85 à Lyon : cartographie Flex Fuel intégrée au calculateur, sans boîtier. Roulez E85 et SP95 — Rhône (69), Ain (01).",
         "keywords": "reprogrammation E85 Lyon, flexfuel Lyon, conversion éthanol 69, passage E85 Rhône",
         "og_title": "Reprogrammation Flexfuel E85 Lyon | Mecanoo",
         "og_description": "Flexfuel E85 : conversion éthanol par reprogrammation sur Lyon et le 69.",
@@ -361,58 +364,252 @@ SERVICES = [
         "img_alt": "Reprogrammation flexfuel E85 Lyon — conversion éthanol Rhône 69",
     },
     {
-        "file": "service-immo-off.html",
-        "slug": "service-immo-off",
-        "active": "immo",
-        "breadcrumb": "Immo Off — Lyon",
-        "badge": "immo off Lyon — antidémarrage 69",
-        "icon": "lock",
-        "h1": "Immo Off &amp; suppression antidémarrage à Lyon",
-        "hero": "<strong class=\"font-semibold text-zinc-200\">Immo off Lyon</strong>, problème antidémarrage, ECU ou BSI verrouillé&nbsp;? Suppression immobiliseur par reprogrammation avec <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — dépannage sur Lyon et le Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong>.",
-        "title": "Immo Off Lyon — Suppression antidémarrage & reprogrammation immo | Mecanoo",
-        "description": "Immo off Lyon, suppression antidémarrage 69, reprogrammation immo Rhône. FoxFlash — Mecanoo métropole lyonnaise.",
-        "keywords": "immo off Lyon, suppression antidémarrage Lyon, reprogrammation immo 69, dépannage immobiliseur Rhône",
-        "og_title": "Immo Off Lyon | Mecanoo",
-        "og_description": "Suppression antidémarrage et immo off sur Lyon et le 69.",
-        "service_name": "Immo Off Lyon",
-        "problem_title": "Les problèmes d'antidémarrage (immo)",
-        "problem_intro": "Véhicule qui ne démarre plus, clé non reconnue, ECU/BSI remplacé sans codage ou panne circuit immobiliseur.",
+        "file": "service-fap.html",
+        "slug": "service-fap",
+        "active": "antipollution",
+        "parent_label": "Solutions anti-pollution",
+        "parent_url": "service-antipollution.html",
+        "hub_url": "service-antipollution.html",
+        "hub_label": "Solutions anti-pollution",
+        "breadcrumb": "Suppression FAP — Lyon",
+        "badge": "suppression FAP Lyon — FAP 69",
+        "icon": "filter",
+        "h1": "Suppression FAP &amp; solution filtre à particules à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Suppression FAP Lyon</strong>, filtre à particules saturé ou régénération impossible&nbsp;? Reprogrammation logicielle définitive du FAP / DPF avec <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — évitez le remplacement à 1 500 €+ en concession sur Lyon et le Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong>.",
+        "title": "Suppression FAP Lyon — Filtre à particules | Mecanoo",
+        "description": "Suppression FAP à Lyon : filtre à particules saturé, régénérations ratées, voyant allumé. Reprogrammation définitive — Rhône (69), Ain (01).",
+        "keywords": "suppression FAP Lyon, filtre à particules Lyon, décalaminage FAP 69, reprogrammation DPF Rhône",
+        "og_title": "Suppression FAP Lyon | Mecanoo",
+        "og_description": "Filtre à particules saturé ? Solution électronique FAP / DPF sur Lyon et le 69.",
+        "service_name": "Suppression FAP Lyon",
+        "problem_title": "Les problèmes de filtre à particules (FAP / DPF)",
+        "problem_intro": "Voyant FAP, perte de puissance, régénération ratée ou conduite urbaine qui colmate le filtre rapidement.",
         "problems": [
-            ("Véhicule ne démarre plus", "Clé reconnue mais moteur coupé immédiatement — voyant immo.", "lock"),
-            ("ECU / BSI remplacé", "Calculateur neuf non synchronisé avec clés et immobiliseur.", "cpu"),
-            ("Panne circuit immo", "Transpondeur, antenne, câblage ou BSI défaillant.", "alert-triangle"),
-            ("Codage concession", "Devis élevé et délais pour simple synchronisation immo.", "euro"),
+            ("FAP saturé / colmaté", "Régénération impossible, mode dégradé, perte de puissance importante.", "filter"),
+            ("Voyant FAP allumé", "Défaut antipollution récurrent malgré nettoyage ou décalaminage.", "alert-triangle"),
+            ("Conduite urbaine", "Trajets courts empêchent la régénération — colmatage rapide du DPF.", "map-pin"),
+            ("Remplacement coûteux", "Nouveau FAP + capteurs : 1 200 à 2 500 € en concession.", "euro"),
         ],
-        "solution_title": "Immo Off par reprogrammation FoxFlash",
-        "solution_intro": "Suppression logicielle de l'immobiliseur dans ECU/BSI — démarrage sans blocage immo, solution définitive.",
+        "solution_title": "Suppression FAP par reprogrammation FoxFlash",
+        "solution_intro": "Désactivation logicielle définitive du FAP dans le calculateur — plus de régénération, plus de voyant, conduite normale.",
         "solution_points": [
-            "Immo off ECU et/ou BSI selon architecture",
-            "Dépannage après remplacement calculateur",
-            "Peugeot, Citroën, Renault, VAG, BMW…",
-            "Intervention Lyon, métropole, Rhône (69)",
+            "Suppression FAP 69 par reprogrammation calculateur",
+            "Fin des cycles de régénération et voyants récurrents",
+            "Diesel Peugeot, Citroën, Renault, VW, BMW, Mercedes…",
+            "Intervention Lyon, métropole et Rhône sur rendez-vous",
         ],
-        "faq_intro": "« immo off Lyon », « suppression antidémarrage Lyon », « reprogrammation immo 69 »",
+        "faq_intro": "« suppression FAP Lyon », « filtre à particules saturé 69 », « décalaminage FAP Lyon »",
         "faqs": [
-            ("Mon véhicule ne démarre plus à cause de l'immo : que faire à Lyon ?", "Diagnostic OBD d'abord. Si immo HS ou ECU remplacé, immo off par reprogrammation souvent la solution la plus rapide."),
-            ("L'immo off est-il définitif ?", "Oui : suppression gravée dans le calculateur — le véhicule démarre sans vérification immobiliseur."),
-            ("Faites-vous l'immo off sur Peugeot et Citroën dans le 69 ?", "Oui : PSA (ECU + BSI), Renault, VAG et autres — sur Lyon et métropole."),
+            ("Mon voyant FAP est allumé sur Lyon : que faire ?", "Diagnostic valise d'abord. Si FAP colmaté ou HS, reprogrammation définitive souvent plus économique que remplacement."),
+            ("La suppression FAP est-elle définitive ?", "Oui : modification gravée dans le calculateur via FoxFlash — pas un simple effacement temporaire."),
+            ("Intervenez-vous sur diesel Peugeot et Citroën pour le FAP dans le 69 ?", "Oui : BlueHDi, HDi, et autres motorisations diesel courantes sur Lyon et métropole."),
         ],
-        "wa_text": "Bonjour%2C%20immo%20off%20Lyon",
-        "img_alt": "Immo off Lyon — suppression antidémarrage Rhône 69",
+        "wa_text": "Bonjour%2C%20suppression%20FAP%20Lyon",
+        "img_alt": "Suppression FAP Lyon — filtre à particules diesel Rhône 69",
+    },
+    {
+        "file": "service-egr.html",
+        "slug": "service-egr",
+        "active": "antipollution",
+        "parent_label": "Solutions anti-pollution",
+        "parent_url": "service-antipollution.html",
+        "hub_url": "service-antipollution.html",
+        "hub_label": "Solutions anti-pollution",
+        "breadcrumb": "Suppression EGR — Lyon",
+        "badge": "suppression EGR Lyon — vanne EGR 69",
+        "icon": "wind",
+        "h1": "Suppression EGR &amp; vanne EGR bloquée à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Suppression EGR Lyon</strong>, vanne EGR bloquée ou encrassée&nbsp;? Reprogrammation logicielle définitive + option démontage vanne — solution durable avec <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> sur Lyon et le Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong>.",
+        "title": "Suppression EGR Lyon — Vanne EGR bloquée | Mecanoo",
+        "description": "Suppression EGR à Lyon : vanne EGR bloquée, encrassement, codes défaut. Reprogrammation logicielle définitive — Rhône (69) et Ain (01).",
+        "keywords": "suppression EGR Lyon, vanne EGR bloquée Lyon, reprogrammation EGR 69, dépannage EGR Rhône",
+        "og_title": "Suppression EGR Lyon | Mecanoo",
+        "og_description": "Vanne EGR bloquée ? Suppression EGR par reprogrammation sur Lyon et le 69.",
+        "service_name": "Suppression EGR Lyon",
+        "problem_title": "Les problèmes de vanne EGR",
+        "problem_intro": "Encrassement, blocage en position ouverte/fermée, perte de puissance et surconsommation sur diesel.",
+        "problems": [
+            ("Vanne EGR bloquée", "Encrassement carbone, vanne grippée — perte de puissance et fumée noire.", "wind"),
+            ("Voyant antipollution", "Défaut EGR récurrent, mode dégradé, ratés à l'accélération.", "alert-triangle"),
+            ("Nettoyage temporaire", "Démontage/nettoyage vanne — problème revient en quelques mois.", "refresh-cw"),
+            ("Remplacement vanne EGR", "Pièce + main-d'œuvre : 400 à 900 €, sans traiter la cause.", "euro"),
+        ],
+        "solution_title": "Suppression EGR par reprogrammation FoxFlash",
+        "solution_intro": "Désactivation logicielle de la vanne EGR dans le calculateur — plus de défauts, plus d'encrassement EGR.",
+        "solution_points": [
+            "Suppression EGR 69 — reprogrammation définitive calculateur",
+            "Option démontage / obturation vanne EGR",
+            "Diesel toutes marques : PSA, Renault, VAG, BMW…",
+            "Intervention Lyon, Villeurbanne, Vénissieux, Rhône",
+        ],
+        "faq_intro": "« suppression EGR Lyon », « vanne EGR bloquée Lyon », « reprogrammation EGR 69 »",
+        "faqs": [
+            ("Ma vanne EGR est bloquée : reprogrammation ou remplacement à Lyon ?", "La reprogrammation définitive traite la cause logicielle. Souvent plus durable et économique que remplacer la vanne."),
+            ("La suppression EGR améliore-t-elle les performances ?", "Oui : moins d'encrassement admission, meilleure réponse moteur — surtout sur diesel encrassés."),
+            ("Intervenez-vous sur Peugeot 308 / Citroën C4 EGR dans le 69 ?", "Oui : HDi, BlueHDi et autres diesel PSA très courants sur Lyon et métropole."),
+        ],
+        "wa_text": "Bonjour%2C%20suppression%20EGR%20Lyon",
+        "img_alt": "Suppression EGR Lyon — vanne EGR bloquée Rhône 69",
+    },
+    {
+        "file": "service-adblue.html",
+        "slug": "service-adblue",
+        "active": "antipollution",
+        "parent_label": "Solutions anti-pollution",
+        "parent_url": "service-antipollution.html",
+        "hub_url": "service-antipollution.html",
+        "hub_label": "Solutions anti-pollution",
+        "breadcrumb": "AdBlue / SCR — Lyon",
+        "badge": "problème AdBlue Lyon — Rhône 69",
+        "icon": "alert-triangle",
+        "h1": "Dépannage &amp; solution électronique AdBlue / SCR à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Problème AdBlue Lyon</strong>, <strong class=\"font-semibold text-zinc-200\">défaut antipollution Peugeot Citroën</strong> ou voyant SCR récurrent&nbsp;? Reprogrammation logicielle définitive avec outils <strong class=\"font-semibold text-zinc-200\">FoxFlash</strong> — alternative aux devis exorbitants en concession sur Lyon et le <strong class=\"font-semibold text-zinc-200\">69</strong>.",
+        "title": "Dépannage AdBlue Lyon — Défaut SCR | Mecanoo",
+        "description": "Problème AdBlue à Lyon : défaut SCR, voyant antipollution, pompe et injecteur. Suppression logicielle AdBlue — Rhône (69) et Ain (01).",
+        "keywords": "problème AdBlue Lyon, défaut antipollution Peugeot Citroën Lyon, suppression AdBlue 69, dépannage SCR Lyon",
+        "og_title": "Dépannage AdBlue / SCR Lyon | Mecanoo",
+        "og_description": "Problème AdBlue Lyon, défaut antipollution Peugeot Citroën, solution SCR sur le Rhône (69).",
+        "service_name": "Dépannage AdBlue / SCR Lyon",
+        "problem_title": "Le problème AdBlue / SCR",
+        "problem_intro": "Compteur bloqué, réservoir déformé, injecteur bouché ou devis concession à plusieurs milliers d'euros — le système SCR touche surtout les diesel récents.",
+        "problems": [
+            ("Compteur kilométrique bloqué", "Message « démarrage impossible dans X km », mode dégradé, véhicule immobilisé.", "gauge"),
+            ("Réservoir AdBlue déformé", "Fissures, fuites, remplacement seul &gt; 1 500 € en concession.", "droplets"),
+            ("Injecteur AdBlue bouché", "Cristallisation urée, sonde NOx HS, défaut antipollution permanent.", "syringe"),
+            ("Frais exorbitants concession", "Devis 2 000 à 4 000 € sans garantie de fiabilité long terme.", "euro"),
+        ],
+        "solution_title": "Reprogrammation définitive FoxFlash",
+        "solution_intro": "Suppression AdBlue 69 par reprogrammation calculateur — plus de voyants, compteur débloqué, fin des recharges d'urée.",
+        "solution_points": [
+            "Suppression AdBlue 69 par reprogrammation définitive",
+            "Outils officiels FoxFlash — pas un simple effacement de défauts",
+            "Peugeot, Citroën, DS, Renault, VW, BMW, Mercedes…",
+            "Intervention Lyon, Villeurbanne, Vénissieux, métropole 69",
+        ],
+        "faq_intro": "« problème AdBlue Lyon », « défaut antipollution Peugeot Citroën Lyon », « suppression AdBlue 69 »",
+        "faqs": [
+            ("Quels symptômes d'un problème AdBlue sur Peugeot ou Citroën à Lyon ?", "Voyant antipollution, compteur bloqué, mode dégradé, injecteur bouché. Très fréquent sur BlueHDi / HDi PSA après 80 000 km."),
+            ("Combien coûte une réparation AdBlue en concession vs solution électronique 69 ?", "Concession : 2 000 à 4 000 €. Mecanoo : reprogrammation FoxFlash bien plus économique sur devis."),
+            ("Proposez-vous une suppression AdBlue définitive sur Lyon et le 69 ?", "Oui : reprogrammation définitive via FoxFlash, intervention métropole lyonnaise. Devis après diagnostic."),
+        ],
+        "wa_text": "Bonjour%2C%20probl%C3%A8me%20AdBlue%20Lyon",
+        "img_alt": "Problème AdBlue Lyon — diagnostic SCR Rhône 69",
     },
 ]
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+BASE_CLASS = "transition hover:text-racing"
+ACTIVE_CLASS = "font-semibold text-racing"
+MOBILE_ACTIVE_CLASS = "font-semibold text-racing"
+MOBILE_BASE_CLASS = "text-zinc-300 hover:text-racing"
+
+
+def nav_classes(active):
+    """Classes de navigation selon la page active (piliers)."""
+    def cls(key):
+        return ACTIVE_CLASS if active == key else BASE_CLASS
+
+    def mcls(key):
+        return MOBILE_ACTIVE_CLASS if active == key else MOBILE_BASE_CLASS
+
+    return {
+        "diag_class": cls("diagnostic"),
+        "ecu_class": cls("ecu"),
+        "reprog_class": cls("reprog"),
+        "anti_class": cls("antipollution"),
+        "mobile_diag_class": mcls("diagnostic"),
+        "mobile_ecu_class": mcls("ecu"),
+        "mobile_reprog_class": mcls("reprog"),
+        "mobile_anti_class": mcls("antipollution"),
+    }
+
+
+def automotive_business_node():
+    """Entité schema.org LocalBusiness/AutomotiveBusiness — identique sur toutes les pages (@id stable)."""
+    return {
+        "@type": ["LocalBusiness", "AutomotiveBusiness", "AutoRepair"],
+        "@id": f"{SITE}/#localbusiness",
+        "name": "Mecanoo Lyon",
+        "alternateName": "Mecanoo",
+        "image": [f"{SITE}/images/seo-reparation-voiture-lyon_1.jpg"],
+        "url": f"{SITE}/",
+        "telephone": "+33603439954",
+        "priceRange": "€€",
+        "description": (
+            "Mecanoo Lyon — spécialiste électronique automobile & diagnostic à Lyon, Rhône (69) et Ain (01) : "
+            "diagnostic valise OBD multimarque, clonage & programmation calculateurs ECU/BSI, reprogrammation "
+            "moteur Stage 1 & conversion Éthanol E85, suppression définitive FAP, EGR et AdBlue — outils FoxFlash, "
+            "intervention à domicile."
+        ),
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Interventions à domicile",
+            "addressLocality": "Lyon",
+            "addressRegion": "Auvergne-Rhône-Alpes",
+            "postalCode": "69000",
+            "addressCountry": "FR",
+        },
+        "geo": {"@type": "GeoCoordinates", "latitude": 45.764, "longitude": 4.8357},
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Mecanoo+Lyon+diagnostic+%C3%A9lectronique+automobile",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "08:00",
+                "closes": "19:00",
+            }
+        ],
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+33603439954",
+                "contactType": "customer service",
+                "areaServed": ["FR-69", "FR-01"],
+                "availableLanguage": ["French"],
+            }
+        ],
+        "areaServed": [
+            {"@type": "AdministrativeArea", "name": "Rhône"},
+            {"@type": "AdministrativeArea", "name": "Ain"},
+            {"@type": "City", "name": "Lyon"},
+            {"@type": "City", "name": "Villeurbanne"},
+            {"@type": "City", "name": "Vénissieux"},
+            {"@type": "City", "name": "Bron"},
+            {"@type": "City", "name": "Saint-Priest"},
+            {"@type": "City", "name": "Meyzieu"},
+            {"@type": "City", "name": "Décines-Charpieu"},
+            {"@type": "City", "name": "Caluire-et-Cuire"},
+            {"@type": "City", "name": "Oullins"},
+            {"@type": "City", "name": "Bourg-en-Bresse"},
+            {"@type": "City", "name": "Ambérieu-en-Bugey"},
+            {"@type": "City", "name": "Nantua"},
+            {"@type": "City", "name": "Gex"},
+            {"@type": "City", "name": "Miribel"},
+            {"@type": "City", "name": "Belley"},
+        ],
+    }
 
 
 def schema_json(s):
     import json
     faqs = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in s["faqs"]]
+    breadcrumbs = [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
+    ]
+    pos = 2
+    if s.get("parent_label") and s.get("parent_url"):
+        breadcrumbs.append({"@type": "ListItem", "position": pos, "name": s["parent_label"], "item": f"{SITE}/{s['parent_url']}"})
+        pos += 1
+    breadcrumbs.append({"@type": "ListItem", "position": pos, "name": s["service_name"], "item": f"{SITE}/{s['file']}"})
     graph = [
-        {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
-            {"@type": "ListItem", "position": 2, "name": s["service_name"], "item": f"{SITE}/{s['file']}"},
-        ]},
+        automotive_business_node(),
+        {"@type": "BreadcrumbList", "itemListElement": breadcrumbs},
         {"@type": "Service", "name": s["service_name"], "description": s["description"],
-         "provider": {"@id": f"{SITE}/#localbusiness"}, "areaServed": {"@type": "AdministrativeArea", "name": "Rhône"},
+         "provider": {"@id": f"{SITE}/#localbusiness"},
+         "areaServed": [{"@type": "AdministrativeArea", "name": "Rhône"}, {"@type": "AdministrativeArea", "name": "Ain"}],
          "url": f"{SITE}/{s['file']}"},
         {"@type": "FAQPage", "mainEntity": faqs},
     ]
@@ -464,10 +661,16 @@ def render_head(meta):
     return h
 
 
+def breadcrumb_html(s):
+    if s.get("parent_label") and s.get("parent_url"):
+        return f"""           <li aria-hidden="true">/</li>
+           <li><a href="{s['parent_url']}" class="text-zinc-400 transition hover:text-racing">{s['parent_label']}</a></li>"""
+    return ""
+
+
 def build_page(s):
     canonical = f"{SITE}/{s['file']}"
-    reprog_class = "font-semibold text-racing" if s.get("active") == "hub" else "transition hover:text-racing"
-    mobile_reprog = reprog_class.replace("transition hover:text-racing", "text-zinc-300 hover:text-racing")
+    classes = nav_classes(s["active"])
 
     head = render_head({
         "description": s["description"], "keywords": s["keywords"], "title": s["title"],
@@ -476,14 +679,13 @@ def build_page(s):
     })
 
     body = f"""{head}
-{NAV.format(reprog_class=reprog_class, mobile_reprog_class=mobile_reprog)}
+{NAV.format(**classes)}
   <main>
     <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
       <div class="mx-auto max-w-6xl">
         <ol class="flex flex-wrap items-center gap-2">
           <li><a href="index.html" class="text-zinc-400 transition hover:text-racing">Accueil</a></li>
-          <li aria-hidden="true">/</li>
-          <li><a href="service-reprogrammation.html" class="text-zinc-400 transition hover:text-racing">Reprog ECU</a></li>
+{breadcrumb_html(s)}
           <li aria-hidden="true">/</li>
           <li class="text-zinc-300">{s['breadcrumb']}</li>
         </ol>
@@ -498,14 +700,15 @@ def build_page(s):
           <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">{s['h1']}</h1>
           <p class="text-lg text-zinc-400">{s['hero']}</p>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
             <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Demander un devis<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
           </div>
         </div>
         <div class="mt-10 lg:col-span-2 lg:mt-0">
           <figure class="overflow-hidden rounded-2xl border border-white/10">
             <div class="aspect-[4/5] max-h-[520px] bg-zinc-900/80 sm:aspect-video sm:max-h-none">
-              <img src="images/seo-reparation-voiture-lyon_1.jpg" alt="{s['img_alt']}" width="1200" height="800" loading="eager" decoding="async" class="size-full object-cover object-center" />
+              <img src="images/seo-reparation-voiture-lyon_1.jpg" alt="{s['img_alt']}" width="1264" height="848" loading="eager" decoding="async" class="size-full object-cover object-center" />
             </div>
           </figure>
         </div>
@@ -531,16 +734,16 @@ def build_page(s):
 {solution_points(s['solution_points'])}
           </ul>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-racing px-6 py-3 font-semibold text-white shadow-xl transition hover:bg-racing/90"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="service-reprogrammation.html" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Toutes nos reprogs<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+            <a href="{s['hub_url']}" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s['hub_label']}<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
           </div>
         </div>
         <div class="rounded-2xl border border-racing/20 bg-racing/5 p-6">
           <h3 class="flex items-center gap-2 font-semibold text-white"><i data-lucide="wrench" class="h-5 w-5 text-racing"></i>Déroulement</h3>
           <ol class="mt-4 space-y-3 text-sm text-zinc-400">
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">1</span><span>Diagnostic OBD — marque, modèle, motorisation, codes défaut.</span></li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">1</span><span>Diagnostic valise OBD — marque, modèle, motorisation, codes défaut.</span></li>
             <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">2</span><span>Devis transparent avant intervention.</span></li>
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">3</span><span>Reprogrammation FoxFlash — modification définitive.</span></li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">3</span><span>{s.get('step3', 'Reprogrammation / clonage FoxFlash — modification définitive.')}</span></li>
             <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">4</span><span>Contrôle et essai — véhicule opérationnel.</span></li>
           </ol>
         </div>
@@ -551,10 +754,11 @@ def build_page(s):
 {LEGAL}
     <section class="py-14 sm:py-20">
       <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
-        <p class="text-lg font-medium text-white">Besoin d'un devis {s['service_name']} ?</p>
-        <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation — réponse sous 24 h en général.</p>
+        <p class="text-lg font-medium text-white">Besoin d'un devis — {s['service_name']} ?</p>
+        <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing px-8 py-3.5 font-semibold text-white transition hover:bg-racing/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
           <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
         </div>
       </div>
@@ -565,82 +769,286 @@ def build_page(s):
     return body
 
 
-def build_hub():
-    cards = []
-    hub_items = [
-        ("service-adblue.html", "alert-triangle", "AdBlue / SCR", "Problème AdBlue, défaut antipollution Peugeot Citroën, suppression AdBlue 69."),
-        ("service-ecu-clonage.html", "cpu", "Clonage ECU", "Copie calculateur moteur, ECU cloning, transfert firmware."),
-        ("service-fap.html", "filter", "Suppression FAP", "Filtre à particules saturé, reprogrammation DPF définitive."),
-        ("service-egr.html", "wind", "Suppression EGR", "Vanne EGR bloquée, reprogrammation EGR 69."),
-        ("service-stage1.html", "zap", "Stage 1", "Reprog moteur, gain puissance et couple."),
-        ("service-flexfuel.html", "fuel", "Flexfuel E85", "Conversion éthanol, reprogrammation Flex Fuel."),
-        ("service-immo-off.html", "lock", "Immo Off", "Suppression antidémarrage, dépannage immobiliseur."),
-    ]
-    for href, icon, title, desc in hub_items:
-        cards.append(f"""          <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition hover:-translate-y-1 hover:border-racing/40">
+# ---------------------------------------------------------------------------
+# Pages piliers (hubs)
+# ---------------------------------------------------------------------------
+
+HUB_CARDS = """          <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30"><i data-lucide="{icon}" class="h-6 w-6"></i></div>
             <h3 class="text-lg font-bold text-white">{title}</h3>
             <p class="mt-2 text-sm text-zinc-400">{desc}</p>
             <div class="mt-auto pt-6"><a href="{href}" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4"></i></a></div>
-          </article>""")
+          </article>"""
 
-    s = {
-        "file": "service-reprogrammation.html",
-        "description": "Reprogrammation moteur Lyon : AdBlue, FAP, EGR, stage 1, flexfuel E85, immo off, clonage ECU. FoxFlash — Mecanoo Rhône 69.",
-        "keywords": "reprogrammation moteur Lyon, reprog ECU Lyon, tuning automobile 69, reprogrammation calculateur Rhône",
-        "title": "Reprogrammation moteur Lyon — Reprog ECU & tuning | Mecanoo",
-        "canonical": f"{SITE}/service-reprogrammation.html",
-        "og_title": "Reprogrammation moteur Lyon | Mecanoo",
-        "og_description": "AdBlue, FAP, EGR, stage 1, flexfuel, immo off, clonage ECU — reprog FoxFlash sur Lyon et le 69.",
-    }
+
+def hub_breadcrumb(name):
+    return f"""<ol class="flex flex-wrap items-center gap-2">
+          <li><a href="index.html" class="text-zinc-400 transition hover:text-racing">Accueil</a></li><li aria-hidden="true">/</li>
+          <li class="text-zinc-300">{name}</li>
+        </ol>"""
+
+
+def build_reprogrammation_hub():
+    """service-reprogrammation.html — Reprogrammation moteur : Stage 1 & E85."""
+    cards = []
+    hub_items = [
+        ("service-stage1.html", "zap", "Stage 1 — puissance &amp; couple", "Reprog moteur sur mesure : gains typiques +20 à +40 ch, meilleure réponse, essence et diesel."),
+        ("service-flexfuel.html", "fuel", "Conversion Éthanol E85 (Flexfuel)", "Cartographie Flex Fuel intégrée au calculateur — E85 / SP95 indifféremment, sans boîtier."),
+    ]
+    for href, icon, title, desc in hub_items:
+        cards.append(HUB_CARDS.format(icon=icon, title=title, desc=desc, href=href))
+
+    other = []
+    other_items = [
+        ("service-ecu-clonage.html", "cpu", "Clonage ECU &amp; programmation ECU/BSI", "Copie firmware, codage VIN, immo off — calculateurs."),
+        ("service-antipollution.html", "filter", "Anti-pollution — FAP, EGR, AdBlue", "Suppressions logicielles définitives FoxFlash."),
+        ("service-diagnostic.html", "scan-line", "Diagnostic électronique &amp; valise OBD", "Lecture codes défaut moteur, boîte, ABS, airbag."),
+    ]
+    for href, icon, title, desc in other_items:
+        other.append(HUB_CARDS.format(icon=icon, title=title, desc=desc, href=href))
+
     import json
+    faqs = [
+        ("Quelle est la différence entre Stage 1 et conversion E85 ?", "Le Stage 1 optimise la cartographie pour plus de puissance et de couple ; la conversion E85 (flexfuel) adapte la cartographie pour rouler à l'éthanol E85 ou à l'essence indifféremment, sans boîtier additif."),
+        ("La reprogrammation moteur est-elle disponible sur Lyon et l'Ain ?", "Oui : Mecanoo intervient sur Lyon, la métropole, le Rhône (69) et l'Ain (01) avec outils FoxFlash — devis après marque, modèle et motorisation."),
+    ]
+    faq_entities = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]
     schema = json.dumps({"@context": "https://schema.org", "@graph": [
+        automotive_business_node(),
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
-            {"@type": "ListItem", "position": 2, "name": "Reprogrammation ECU Lyon", "item": s["canonical"]},
+            {"@type": "ListItem", "position": 2, "name": "Reprogrammation moteur Lyon", "item": f"{SITE}/service-reprogrammation.html"},
         ]},
-        {"@type": "Service", "name": "Reprogrammation moteur et ECU Lyon", "description": s["description"],
-         "provider": {"@id": f"{SITE}/#localbusiness"}, "url": s["canonical"]},
+        {"@type": "Service", "name": "Reprogrammation moteur Stage 1 & Éthanol E85 Lyon",
+         "description": "Reprogrammation moteur Lyon : Stage 1 gain de puissance/couple et conversion éthanol E85 flexfuel par FoxFlash — sans boîtier.",
+         "provider": {"@id": f"{SITE}/#localbusiness"},
+         "areaServed": [{"@type": "AdministrativeArea", "name": "Rhône"}, {"@type": "AdministrativeArea", "name": "Ain"}],
+         "url": f"{SITE}/service-reprogrammation.html"},
+        {"@type": "FAQPage", "mainEntity": faq_entities},
     ]}, ensure_ascii=False)
 
+    faq_items = "\n".join(
+        f"""          <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+            <dt class="font-semibold text-white">{q}</dt>
+            <dd class="mt-2 text-zinc-400">{a}</dd>
+          </div>""" for q, a in faqs
+    )
+
     head = render_head({
-        "description": s["description"], "keywords": s["keywords"], "title": s["title"],
-        "canonical": s["canonical"], "og_title": s["og_title"], "og_description": s["og_description"],
+        "description": "Reprogrammation moteur à Lyon : Stage 1 puissance/couple et conversion éthanol E85 sans boîtier, outils FoxFlash — Rhône (69) et Ain (01).",
+        "keywords": "reprogrammation moteur Lyon, stage 1 Lyon, conversion E85 Lyon, flexfuel Lyon, reprog ECU 69, reprog moteur Rhône",
+        "title": "Reprogrammation Moteur Lyon — Stage 1 &amp; E85 | Mecanoo",
+        "canonical": f"{SITE}/service-reprogrammation.html",
+        "og_title": "Reprogrammation moteur Lyon — Stage 1 & E85 | Mecanoo",
+        "og_description": "Stage 1 puissance/couple et conversion éthanol E85 flexfuel par FoxFlash — Lyon, Rhône (69) et Ain (01).",
         "schema": schema,
     })
+    classes = nav_classes("reprog")
+
     return f"""{head}
-{NAV.format(reprog_class="font-semibold text-racing", mobile_reprog_class="font-semibold text-racing")}
+{NAV.format(**classes)}
   <main>
     <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
-      <div class="mx-auto max-w-6xl"><ol class="flex flex-wrap items-center gap-2">
-        <li><a href="index.html" class="text-zinc-400 hover:text-racing">Accueil</a></li><li aria-hidden="true">/</li>
-        <li class="text-zinc-300">Reprogrammation ECU — Lyon</li>
-      </ol></div>
+      <div class="mx-auto max-w-6xl">
+        {hub_breadcrumb('Reprogrammation moteur — Stage 1 &amp; E85')}
+      </div>
     </nav>
     <section class="relative overflow-hidden bg-gradient-to-b from-zinc-950 to-ink pb-16 pt-12 sm:pb-24 sm:pt-16 noise-bg">
       <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
-      <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="cpu" class="h-3.5 w-3.5"></i>&nbsp;reprogrammation ECU Lyon — 69</p>
-        <h1 class="mb-6 max-w-4xl text-4xl font-extrabold leading-tight text-white sm:text-5xl">Reprogrammation moteur &amp; solutions électroniques à Lyon</h1>
-        <p class="max-w-3xl text-lg text-zinc-400"><strong class="font-semibold text-zinc-200">Reprog ECU Lyon</strong> : AdBlue, FAP, EGR, stage 1, flexfuel E85, immo off et clonage calculateur — outils officiels <strong class="font-semibold text-zinc-200">FoxFlash</strong>, intervention sur Lyon et le Rhône <strong class="font-semibold text-zinc-200">(69)</strong>.</p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing px-6 py-3 font-semibold text-white shadow-xl hover:bg-racing/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 hover:bg-white/10">Devis reprog<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12">
+        <div class="lg:col-span-3">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="zap" class="h-3.5 w-3.5"></i>&nbsp;reprogrammation moteur Lyon — Stage 1 &amp; E85</p>
+          <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Reprogrammation moteur — Stage 1 &amp; conversion Éthanol E85 à Lyon</h1>
+          <p class="text-lg text-zinc-400"><strong class="font-semibold text-zinc-200">Reprogrammation moteur Lyon</strong>&nbsp;: <strong class="font-semibold text-zinc-200">Stage 1</strong> (gain de puissance et couple) et <strong class="font-semibold text-zinc-200">conversion Éthanol E85</strong> (flexfuel) intégrée au calculateur — sans boîtier, outils <strong class="font-semibold text-zinc-200">FoxFlash</strong>, intervention sur Lyon, Rhône <strong class="font-semibold text-zinc-200">(69)</strong> et Ain <strong class="font-semibold text-zinc-200">(01)</strong>.</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="https://wa.me/33603439954?text=Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+            <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis reprog moteur<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          </div>
+        </div>
+        <div class="mt-10 lg:col-span-2 lg:mt-0">
+          <figure class="overflow-hidden rounded-2xl border border-white/10">
+            <div class="aspect-[4/5] max-h-[520px] bg-zinc-900/80 sm:aspect-video sm:max-h-none">
+              <img src="images/seo-reparation-voiture-lyon_1.jpg" alt="Reprogrammation moteur Stage 1 et conversion éthanol E85 à Lyon — Mecanoo" width="1264" height="848" loading="eager" decoding="async" class="size-full object-cover object-center" />
+            </div>
+          </figure>
         </div>
       </div>
     </section>
     <section class="border-y border-white/5 bg-zinc-950 py-14 sm:py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 class="text-2xl font-bold text-white sm:text-3xl">Nos prestations reprogrammation</h2>
-        <p class="mt-4 max-w-2xl text-zinc-400">Chaque service dispose d'une page dédiée optimisée SEO — cliquez pour en savoir plus.</p>
-        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Nos reprogrammations moteur</h2>
+        <p class="mt-4 max-w-2xl text-zinc-400">Deux spécialités, un seul rendez-vous — cartographies sur mesure FoxFlash, devis après diagnostic valise.</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
 {chr(10).join(cards)}
         </div>
       </div>
     </section>
+    <section class="border-b border-white/5 bg-ink py-14 sm:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Autres domaines d'intervention — électronique &amp; diagnostic</h2>
+        <p class="mt-4 max-w-2xl text-zinc-400">Mecanoo Lyon couvre aussi le clonage calculateurs, l'anti-pollution et le diagnostic valise OBD sur Lyon, Rhône (69) et Ain (01).</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+{chr(10).join(other)}
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="border-b border-white/5 bg-ink py-20 sm:py-24" aria-labelledby="reprog-faq-heading">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6">
+        <h2 id="reprog-faq-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Questions fréquentes — reprogrammation moteur Lyon</h2>
+        <p class="mt-4 text-lg text-zinc-400">Recherche Google : « reprogrammation moteur Lyon », « stage 1 Lyon », « conversion E85 Lyon ».</p>
+        <dl class="mt-10 space-y-6">
+{faq_items}
+        </dl>
+      </div>
+    </section>
 {LEGAL}
+    <section class="py-14 sm:py-20">
+      <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <p class="text-lg font-medium text-white">Un devis Stage 1 ou E85 ?</p>
+        <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text=Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+        </div>
+      </div>
+    </section>
   </main>
-{FOOTER.format(wa_text="Bonjour%2C%20reprog%20ECU%20Lyon")}
+{FOOTER.format(wa_text="Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)")}
+"""
+
+
+def build_antipollution_hub():
+    """service-antipollution.html — Solutions anti-pollution : FAP, EGR, AdBlue."""
+    cards = []
+    hub_items = [
+        ("service-fap.html", "filter", "Suppression FAP", "Filtre à particules saturé, régénération impossible — reprogrammation DPF définitive."),
+        ("service-egr.html", "wind", "Suppression EGR", "Vanne EGR bloquée ou encrassée — désactivation logicielle + option démontage."),
+        ("service-adblue.html", "alert-triangle", "Dépannage AdBlue / SCR", "Défaut antipollution, compteur bloqué, injecteur urée — suppression définitive."),
+    ]
+    for href, icon, title, desc in hub_items:
+        cards.append(HUB_CARDS.format(icon=icon, title=title, desc=desc, href=href))
+
+    other = []
+    other_items = [
+        ("service-ecu-clonage.html", "cpu", "Clonage ECU &amp; programmation ECU/BSI", "Copie firmware, codage VIN, immo off — calculateurs."),
+        ("service-reprogrammation.html", "zap", "Reprog moteur — Stage 1 &amp; E85", "Gain puissance/couple et conversion éthanol flexfuel."),
+        ("service-diagnostic.html", "scan-line", "Diagnostic électronique &amp; valise OBD", "Lecture codes défaut moteur, boîte, ABS, airbag."),
+    ]
+    for href, icon, title, desc in other_items:
+        other.append(HUB_CARDS.format(icon=icon, title=title, desc=desc, href=href))
+
+    import json
+    faqs = [
+        ("La suppression FAP / EGR / AdBlue est-elle définitive ?", "Oui : la modification est gravée dans le calculateur via FoxFlash — ce n'est pas un simple effacement temporaire de voyants."),
+        ("Quel est le prix d'une suppression anti-pollution à Lyon ?", "Selon le système (FAP, EGR ou AdBlue) et le véhicule — devis après diagnostic valise. Toujours bien plus économique que le remplacement en concession (souvent 1 200 à 4 000 €)."),
+        ("Intervenez-vous sur Lyon, le Rhône et l'Ain ?", "Oui : Lyon et métropole, Rhône (69) et Ain (01) — Bourg-en-Bresse, Ambérieu-en-Bugey, Nantua, Gex et environs."),
+    ]
+    faq_entities = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]
+    schema = json.dumps({"@context": "https://schema.org", "@graph": [
+        automotive_business_node(),
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
+            {"@type": "ListItem", "position": 2, "name": "Solutions anti-pollution Lyon", "item": f"{SITE}/service-antipollution.html"},
+        ]},
+        {"@type": "Service", "name": "Solutions anti-pollution FAP, EGR & AdBlue Lyon",
+         "description": "Solutions anti-pollution Lyon : suppression définitive FAP, EGR et AdBlue par reprogrammation FoxFlash — fin des voyants et des régénérations.",
+         "provider": {"@id": f"{SITE}/#localbusiness"},
+         "areaServed": [{"@type": "AdministrativeArea", "name": "Rhône"}, {"@type": "AdministrativeArea", "name": "Ain"}],
+         "url": f"{SITE}/service-antipollution.html"},
+        {"@type": "FAQPage", "mainEntity": faq_entities},
+    ]}, ensure_ascii=False)
+
+    faq_items = "\n".join(
+        f"""          <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+            <dt class="font-semibold text-white">{q}</dt>
+            <dd class="mt-2 text-zinc-400">{a}</dd>
+          </div>""" for q, a in faqs
+    )
+
+    head = render_head({
+        "description": "Solutions anti-pollution à Lyon : suppression définitive FAP, EGR et AdBlue par reprogrammation FoxFlash — fin des voyants. Rhône (69), Ain (01).",
+        "keywords": "suppression FAP EGR AdBlue Lyon, anti-pollution Lyon, FAP DPF 69, vanne EGR Lyon, problème AdBlue Rhône",
+        "title": "Anti-Pollution Lyon — FAP, EGR &amp; AdBlue | Mecanoo",
+        "canonical": f"{SITE}/service-antipollution.html",
+        "og_title": "Solutions anti-pollution Lyon — FAP, EGR, AdBlue | Mecanoo",
+        "og_description": "Suppression définitive FAP, EGR et AdBlue par reprogrammation FoxFlash — Lyon, Rhône (69) et Ain (01).",
+        "schema": schema,
+    })
+    classes = nav_classes("antipollution")
+
+    return f"""{head}
+{NAV.format(**classes)}
+  <main>
+    <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
+      <div class="mx-auto max-w-6xl">
+        {hub_breadcrumb('Solutions anti-pollution — FAP, EGR, AdBlue')}
+      </div>
+    </nav>
+    <section class="relative overflow-hidden bg-gradient-to-b from-zinc-950 to-ink pb-16 pt-12 sm:pb-24 sm:pt-16 noise-bg">
+      <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12">
+        <div class="lg:col-span-3">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="filter" class="h-3.5 w-3.5"></i>&nbsp;solutions anti-pollution Lyon — FAP · EGR · AdBlue</p>
+          <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Solutions anti-pollution — FAP, EGR &amp; AdBlue à Lyon</h1>
+          <p class="text-lg text-zinc-400"><strong class="font-semibold text-zinc-200">Solutions anti-pollution Lyon</strong>&nbsp;: <strong class="font-semibold text-zinc-200">suppression définitive FAP, EGR et AdBlue</strong> par reprogrammation logicielle <strong class="font-semibold text-zinc-200">FoxFlash</strong> — fin des voyants, des régénérations et des frais de concession sur Lyon, Rhône <strong class="font-semibold text-zinc-200">(69)</strong> et Ain <strong class="font-semibold text-zinc-200">(01)</strong>.</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="https://wa.me/33603439954?text=Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+            <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis anti-pollution<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          </div>
+        </div>
+        <div class="mt-10 lg:col-span-2 lg:mt-0">
+          <figure class="overflow-hidden rounded-2xl border border-white/10">
+            <div class="aspect-[4/5] max-h-[520px] bg-zinc-900/80 sm:aspect-video sm:max-h-none">
+              <img src="images/seo-reparation-voiture-lyon_1.jpg" alt="Suppression FAP, EGR et AdBlue par reprogrammation à Lyon — Mecanoo" width="1264" height="848" loading="eager" decoding="async" class="size-full object-cover object-center" />
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="border-y border-white/5 bg-zinc-950 py-14 sm:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Nos solutions anti-pollution</h2>
+        <p class="mt-4 max-w-2xl text-zinc-400">Chaque système dispose d'une page dédiée optimisée SEO — cliquez pour en savoir plus.</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+{chr(10).join(cards)}
+        </div>
+      </div>
+    </section>
+    <section class="border-b border-white/5 bg-ink py-14 sm:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Autres domaines d'intervention — électronique &amp; diagnostic</h2>
+        <p class="mt-4 max-w-2xl text-zinc-400">Mecanoo Lyon couvre aussi le clonage calculateurs, la reprogrammation moteur et le diagnostic valise OBD sur Lyon, Rhône (69) et Ain (01).</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+{chr(10).join(other)}
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="border-b border-white/5 bg-ink py-20 sm:py-24" aria-labelledby="antipollution-faq-heading">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6">
+        <h2 id="antipollution-faq-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Questions fréquentes — anti-pollution Lyon</h2>
+        <p class="mt-4 text-lg text-zinc-400">Recherche Google : « suppression FAP Lyon », « vanne EGR bloquée 69 », « problème AdBlue Lyon ».</p>
+        <dl class="mt-10 space-y-6">
+{faq_items}
+        </dl>
+      </div>
+    </section>
+{LEGAL}
+    <section class="py-14 sm:py-20">
+      <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <p class="text-lg font-medium text-white">Un devis suppression FAP, EGR ou AdBlue ?</p>
+        <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation, symptômes — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text=Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+{FOOTER.format(wa_text="Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon")}
 """
 
 
@@ -650,5 +1058,8 @@ if __name__ == "__main__":
         out.write_text(build_page(svc), encoding="utf-8")
         print(f"Generated {out.name}")
     hub = BASE / "service-reprogrammation.html"
-    hub.write_text(build_hub(), encoding="utf-8")
+    hub.write_text(build_reprogrammation_hub(), encoding="utf-8")
     print(f"Generated {hub.name}")
+    anti = BASE / "service-antipollution.html"
+    anti.write_text(build_antipollution_hub(), encoding="utf-8")
+    print(f"Generated {anti.name}")

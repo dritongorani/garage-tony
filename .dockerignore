@@ -1,0 +1,13 @@
+.git
+.github
+.agent
+.gitignore
+.dockerignore
+*.md
+generate-services.py
+Dockerfile
+docker-compose.yml
+docker-compose*.yml
+*.log
+.DS_Store
+Thumbs.db

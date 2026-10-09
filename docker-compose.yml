@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mecanolyon-web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      # Montage en lecture seule pour permettre les tests et modifications en temps réel sans rebuild
+      - ./:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
