@@ -73,6 +73,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": ["LocalBusiness", "AutomotiveBusiness", "AutoRepair"],
+        "@id": "https://mecanolyon.fr/#localbusiness",
+        "name": "Mecanoo Lyon",
+        "alternateName": "Mecanoo",
+        "image": ["https://mecanolyon.fr/images/seo-reparation-voiture-lyon_1.jpg"],
+        "url": "https://mecanolyon.fr/",
+        "telephone": "+33603439954",
+        "priceRange": "€€",
+        "description": "Mecanoo Lyon — spécialiste électronique automobile & diagnostic à Lyon, Rhône (69) et Ain (01) : diagnostic valise OBD multimarque, clonage & programmation calculateurs ECU/BSI, reprogrammation moteur Stage 1 & conversion Éthanol E85, suppression définitive FAP, EGR et AdBlue — outils FoxFlash, intervention à domicile.",
+        "address": { "@type": "PostalAddress", "streetAddress": "Interventions à domicile", "addressLocality": "Lyon", "addressRegion": "Auvergne-Rhône-Alpes", "postalCode": "69000", "addressCountry": "FR" },
+        "geo": { "@type": "GeoCoordinates", "latitude": 45.764, "longitude": 4.8357 },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Mecanoo+Lyon+diagnostic+%C3%A9lectronique+automobile",
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:00", "closes": "19:00" }
+        ],
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Rhône" },
+          { "@type": "AdministrativeArea", "name": "Ain" },
+          { "@type": "City", "name": "Lyon" },
+          { "@type": "City", "name": "Villeurbanne" },
+          { "@type": "City", "name": "Vénissieux" },
+          { "@type": "City", "name": "Bourg-en-Bresse" }
+        ]
+      },
+      {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://mecanolyon.fr/" },
@@ -81,7 +106,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       },
       {
         "@type": "Service",
+        "@id": "https://mecanolyon.fr/zone-intervention.html#service",
+        "serviceType": "Diagnostic & électronique automobile à domicile — Lyon, Rhône (69) et Ain (01)",
         "name": "Diagnostic & électronique automobile — zone Lyon, Rhône et Ain",
+        "description": "Intervention à domicile sur Lyon, le Rhône (69) et l'Ain (01) : diagnostic valise OBD, clonage ECU/BSI, reprogrammation moteur et solutions anti-pollution — déplacement sur Villeurbanne, Vénissieux, Bron, Saint-Priest, Meyzieu, Caluire, Bourg-en-Bresse et environs.",
         "provider": { "@id": "https://mecanolyon.fr/#localbusiness" },
         "areaServed": [
           { "@type": "AdministrativeArea", "name": "Rhône" },
@@ -91,6 +119,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           { "@type": "City", "name": "Vénissieux" },
           { "@type": "City", "name": "Bourg-en-Bresse" }
         ],
+        "offers": {
+          "@type": "Offer",
+          "name": "Devis gratuit avant intervention",
+          "description": "Diagnostic et devis gratuits — tarif de la réparation communiqué après diagnostic, aucune pièce déposée sans accord.",
+          "url": "https://mecanolyon.fr/zone-intervention.html",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "https://mecanolyon.fr/#localbusiness" },
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Rhône" },
+            { "@type": "AdministrativeArea", "name": "Ain" }
+          ]
+        },
         "url": "https://mecanolyon.fr/zone-intervention.html"
       }
     ]

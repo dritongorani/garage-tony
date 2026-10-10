@@ -109,7 +109,7 @@ FOOTER = """
     <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-6">
       <div>
         <p class="text-sm text-zinc-400">© <span id="year"></span> Mecanoo Lyon. Tous droits réservés.</p>
-        <p class="mt-2 text-sm text-zinc-400"><a href="service-diagnostic.html" class="text-racing hover:underline">Diagnostic</a> · <a href="service-ecu-clonage.html" class="hover:text-zinc-300 hover:underline">Calculateurs ECU/BSI</a> · <a href="service-reprogrammation.html" class="hover:text-zinc-300 hover:underline">Reprog moteur</a> · <a href="service-antipollution.html" class="hover:text-zinc-300 hover:underline">Anti-pollution</a> · <a href="zone-intervention.html" class="hover:text-zinc-300 hover:underline">Zone Lyon &amp; Ain</a> · <a href="index.html#contact" class="hover:text-zinc-300 hover:underline">Contact</a>.</p>
+        <p class="mt-2 text-sm text-zinc-400"><a href="service-diagnostic.html" class="text-racing hover:underline">Diagnostic</a> · <a href="service-abs.html" class="hover:text-zinc-300 hover:underline">Bloc ABS</a> · <a href="service-ecu-clonage.html" class="hover:text-zinc-300 hover:underline">Calculateurs ECU/BSI</a> · <a href="service-reprogrammation.html" class="hover:text-zinc-300 hover:underline">Reprog moteur</a> · <a href="service-antipollution.html" class="hover:text-zinc-300 hover:underline">Anti-pollution</a> · <a href="zone-intervention.html" class="hover:text-zinc-300 hover:underline">Zone Lyon &amp; Ain</a> · <a href="index.html#contact" class="hover:text-zinc-300 hover:underline">Contact</a>.</p>
       </div>
       <div class="flex flex-col items-start gap-3 sm:items-end">
         <p class="text-xs text-zinc-400 uppercase tracking-wide text-left sm:text-right">Diagnostic &amp; électronique automobile — Lyon · 69 · Ain 01</p>
@@ -120,7 +120,7 @@ FOOTER = """
       </div>
     </div>
   </footer>
-  <a href="https://wa.me/33603439954?text={wa_text}" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-black/40 ring-2 ring-black/40 transition hover:scale-105 md:bottom-8 md:right-8" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <a href="https://wa.me/33603439954?text={wa_text}" target="_blank" rel="noopener noreferrer" class="fixed {fab_pos} right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-black/40 ring-2 ring-black/40 transition hover:scale-105 md:bottom-8 md:right-8" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();document.getElementById('year').textContent=new Date().getFullYear();var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m)b.addEventListener('click',function(){{m.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!m.classList.contains('hidden')));}});</script>
 </body>
@@ -178,7 +178,7 @@ SERVICES = [
             "Rapport écrit avec préconisations et devis",
             "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
         ],
-        "faq_intro": "« diagnostic valise Lyon », « lecture codes défaut Lyon », « diagnostic électronique automobile 69 »",
+        "faq_intro": "« diagnostic valise Lyon », « voyant ABS allumé Lyon », « lecture codes défaut Lyon »",
         "faqs": [
             ("Que fait un diagnostic électronique automobile ?", "La valise OBD se connecte au calculateur, lit les codes défaut enregistrés (moteur, boîte, ABS, airbag), permet de cibler la panne puis d'effacer les codes après réparation."),
             ("Combien coûte un diagnostic valise à Lyon ?", "Tarif selon véhicule et périmètre (moteur seul ou diagnostic complet) — devis après marque et modèle. Souvent déduit du montant de la réparation."),
@@ -186,6 +186,84 @@ SERVICES = [
         ],
         "wa_text": "Bonjour%2C%20diagnostic%20%C3%A9lectronique%20Lyon",
         "img_alt": "Diagnostic électronique automobile à Lyon — valise OBD Rhône 69 et Ain 01",
+        "related_links": [
+            ("service-abs.html", "Réparation bloc ABS — voyant ABS allumé"),
+            ("service-ecu-clonage.html", "Calculateurs ECU/BSI"),
+        ],
+    },
+    {
+        "file": "service-abs.html",
+        "slug": "service-abs",
+        "active": "diagnostic",
+        "parent_label": "Diagnostic électronique",
+        "parent_url": "service-diagnostic.html",
+        "hub_url": "service-diagnostic.html",
+        "hub_label": "Diagnostic électronique",
+        "breadcrumb": "Réparation bloc ABS — Lyon",
+        "badge": "réparation bloc ABS Lyon — voyant ABS 69 / Ain 01",
+        "icon": "shield-alert",
+        "h1": "Réparation bloc ABS &amp; voyant ABS allumé à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Réparation bloc ABS Lyon</strong>&nbsp;: <strong class=\"font-semibold text-zinc-200\">voyant ABS allumé</strong>, capteur de roue défaillant ou pompe de frein — diagnostic du circuit antiblocage, test des capteurs et réparation à domicile sur Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Réparation Bloc ABS Lyon — Voyant ABS allumé | Mecanoo",
+        "description": "Voyant ABS allumé à Lyon ? Diagnostic et réparation du bloc ABS, capteurs de roues et pompe de frein — intervention à domicile, Rhône (69) et Ain (01).",
+        "keywords": "réparation bloc ABS Lyon, voyant ABS allumé, bloc ABS Lyon, capteur de roue ABS 69, diagnostic freinage ABS Lyon, dépannage ABS Ain 01",
+        "og_title": "Réparation bloc ABS Lyon — Voyant ABS allumé | Mecanoo",
+        "og_description": "Voyant ABS allumé à Lyon ? Diagnostic et réparation bloc ABS, capteurs de roues — Rhône (69) et Ain (01).",
+        "service_name": "Réparation bloc ABS Lyon",
+        "service_type": "Réparation bloc ABS, capteurs de roue & diagnostic freinage (ABS/ESP/ESC)",
+        "step3": "Réparation bloc ABS / capteur de roue — effacement des codes défaut et essai routier.",
+        "problem_title": "Voyant ABS allumé — les causes fréquentes",
+        "problem_intro": "Capteur de roue, bloc hydraulique ABS, connectique ou liquide de frein&nbsp;: le voyant ABS s'allume dès qu'un défaut est détecté sur le circuit antiblocage. Le diagnostic valise freinage passe avant le remplacement de toute pièce.",
+        "problems": [
+            ("Voyant ABS allumé", "Défaut enregistré sur le circuit antiblocage — codes C0xxx à lire en priorité.", "alert-triangle"),
+            ("Capteur de roue défaillant", "Panne la plus fréquente : signal de vitesse de roue absent ou erratique.", "gauge"),
+            ("Bloc / pompe ABS défaillant", "Bloc hydraulique calé ou moteur de pompe — remplacement onéreux en concession.", "settings"),
+            ("ABS et ESP désactivés", "Freinage dégradé, pédale dure ou freinage inégal — sécurité à ne pas négliger.", "shield-alert"),
+        ],
+        "solution_title": "Réparation bloc ABS &amp; capteurs de roue",
+        "solution_intro": "Diagnostic du système antiblocage, test des quatre capteurs de vitesse de roue, contrôle de la connectique et de la pompe — réparation ciblée avec devis avant intervention.",
+        "solution_points": [
+            "Lecture des codes défaut ABS / ESP / ESC (C0xxx)",
+            "Test des capteurs de vitesse de roue un par un",
+            "Réparation ou remplacement du bloc ABS / pompe hydraulique",
+            "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
+        ],
+        "faq_intro": "« réparation bloc ABS Lyon », « voyant ABS allumé », « capteur de roue ABS 69 »",
+        "faqs": [
+            ("Pourquoi mon voyant ABS est-il allumé à Lyon ?", "Un défaut sur le circuit antiblocage : capteur de roue, bloc ou pompe ABS, connectique ou liquide de frein. Le diagnostic valise freinage lit les codes C0xxx pour cibler la panne avant toute pièce."),
+            ("Combien coûte une réparation de bloc ABS ?", "Capteur de roue : souvent modeste, une centaine d'euros posé. Bloc ou pompe ABS complet : plusieurs centaines d'euros, bien plus en concession — devis après diagnostic sur Lyon et le 69."),
+            ("Peut-on rouler avec le voyant ABS allumé ?", "Le freinage classique reste fonctionnel, mais l'ABS et souvent l'ESP sont désactivés : sécurité réduite en freinage d'urgence. Intervention Mecanoo sur Lyon, Rhône (69) et Ain (01)."),
+        ],
+        "wa_text": "Bonjour%2C%20voyant%20ABS%20allum%C3%A9%20Lyon",
+        "img_alt": "Réparation bloc ABS à Lyon — voyant ABS allumé, diagnostic freinage Rhône 69",
+        "related_links": [
+            ("service-diagnostic.html", "Diagnostic électronique &amp; valise OBD"),
+            ("zone-intervention.html", "Zone d'intervention — Lyon, 69 &amp; Ain 01"),
+        ],
+        # --- Habillage UI spécifique à la page ABS (sections optionnelles) ---
+        "cards_modern": True,
+        "sticky_cta": True,
+        "reassurance": [
+            ("shield-check", "Garantie de réparation", "Pièces et main-d'œuvre — suivi assuré après l'intervention."),
+            ("timer", "Intervention rapide", "Diagnostic ciblé le jour même si disponible, réponse sous 24 h."),
+            ("file-text", "Devis gratuit", "Chiffrage validé par vous avant toute dépose de pièce."),
+            ("map-pin", "Intervention à domicile", "Lyon, Rhône (69) et Ain (01) — on vient à vous."),
+        ],
+        "process_kicker": "Notre méthode",
+        "process_title": "La réparation de bloc ABS en 4 étapes",
+        "process_intro": "Aucune pièce remplacée à l'aveugle&nbsp;: le bloc ABS n'est déposé qu'après diagnostic, et chaque étape est validée avec vous avant de passer à la suivante.",
+        "process": [
+            ("Diagnostic freinage", "scan-line", "Lecture des codes défaut ABS / ESP / ESC (C0xxx) et test individuel des quatre capteurs de vitesse de roue&nbsp;: la cause réelle est identifiée avant toute dépose."),
+            ("Démontage &amp; réparation", "wrench", "Dépose du bloc hydraulique ou du capteur défaillant, réparation ciblée ou remplacement compatible, connectique, raccordements et niveau de liquide contrôlés."),
+            ("Test au banc", "activity", "Contrôle du bloc et des capteurs au banc, purge du circuit de freinage, effacement des codes défaut puis essai routier pour valider le freinage."),
+            ("Garantie &amp; suivi", "shield-check", "Réparation couverte par notre garantie, compte-rendu des opérations remis et disponibilité par téléphone ou WhatsApp en cas de question."),
+        ],
+        "cta": {
+            "kicker": "Voyant ABS allumé&nbsp;? Appelez maintenant",
+            "title": "Un doute sur votre freinage&nbsp;? Un appel suffit pour cadrer la réparation.",
+            "text": "Décrivez les symptômes (voyant ABS, pédale dure, code défaut affiché)&nbsp;: nous vous donnons une première orientation et un créneau d'intervention — <strong class=\"font-semibold text-zinc-200\">devis gratuit avant toute dépose</strong>.",
+            "points": ["Devis gratuit", "Garantie de réparation", "Rapidité d'intervention", "À domicile Lyon &amp; 69"],
+        },
     },
     {
         "file": "service-ecu-clonage.html",
@@ -593,6 +671,26 @@ def automotive_business_node():
     }
 
 
+def offer_node(url):
+    """Offer 'devis gratuit' — aucun prix public (tarif communiqué après diagnostic).
+
+    Pas de champ `price` ni `priceCurrency` : inventer un prix exposerait une donnée
+    fausse dans les résultats Google (politique structured data spam).
+    """
+    return {
+        "@type": "Offer",
+        "name": "Devis gratuit avant intervention",
+        "description": "Diagnostic et devis gratuits — tarif de la réparation communiqué après diagnostic, aucune pièce déposée sans accord.",
+        "url": url,
+        "availability": "https://schema.org/InStock",
+        "seller": {"@id": f"{SITE}/#localbusiness"},
+        "areaServed": [
+            {"@type": "AdministrativeArea", "name": "Rhône"},
+            {"@type": "AdministrativeArea", "name": "Ain"},
+        ],
+    }
+
+
 def schema_json(s):
     import json
     faqs = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in s["faqs"]]
@@ -607,19 +705,36 @@ def schema_json(s):
     graph = [
         automotive_business_node(),
         {"@type": "BreadcrumbList", "itemListElement": breadcrumbs},
-        {"@type": "Service", "name": s["service_name"], "description": s["description"],
+        {"@type": "Service", "@id": f"{SITE}/{s['file']}#service",
+         "serviceType": s.get("service_type", s["service_name"]),
+         "name": s["service_name"], "description": s["description"],
          "provider": {"@id": f"{SITE}/#localbusiness"},
-         "areaServed": [{"@type": "AdministrativeArea", "name": "Rhône"}, {"@type": "AdministrativeArea", "name": "Ain"}],
+         "areaServed": [
+             {"@type": "AdministrativeArea", "name": "Rhône"},
+             {"@type": "AdministrativeArea", "name": "Ain"},
+             {"@type": "City", "name": "Lyon"},
+         ],
+         "offers": offer_node(f"{SITE}/{s['file']}"),
          "url": f"{SITE}/{s['file']}"},
         {"@type": "FAQPage", "mainEntity": faqs},
     ]
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
 
-def problem_cards(problems):
+def problem_cards(s):
+    """Cartes 'causes' — variante moderne (spec `cards_modern`) ou standard."""
+    modern = bool(s.get("cards_modern"))
     cards = []
-    for title, desc, icon in problems:
-        cards.append(f"""          <li class="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+    for title, desc, icon in s["problems"]:
+        if modern:
+            cards.append(f"""          <li class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-white/[0.01] p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10">
+            <span class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-6 w-6"></i></div>
+            <h3 class="text-lg font-bold text-white">{title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-400">{desc}</p>
+          </li>""")
+        else:
+            cards.append(f"""          <li class="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
             <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-racing/10 text-racing ring-1 ring-racing/20"><i data-lucide="{icon}" class="h-5 w-5"></i></div>
             <h3 class="font-semibold text-white">{title}</h3>
             <p class="mt-2 text-sm text-zinc-400">{desc}</p>
@@ -634,6 +749,178 @@ def solution_points(points):
         icon = icons[i % len(icons)]
         rows.append(f'            <li class="flex gap-3"><i data-lucide="{icon}" class="mt-1 h-5 w-5 shrink-0 text-racing"></i><span>{p}</span></li>')
     return "\n".join(rows)
+
+
+# ---------------------------------------------------------------------------
+# Sections optionnelles (habillage spécifique — ex. page bloc ABS)
+# ---------------------------------------------------------------------------
+
+def reassurance_block(s):
+    """Bandeau de réassurance (garantie, rapidité, devis, domicile) — spec `reassurance`."""
+    items = s.get("reassurance") or []
+    if not items:
+        return ""
+    rows = []
+    for icon, title, desc in items:
+        rows.append(f"""          <li class="group flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition duration-300 hover:-translate-y-0.5 hover:border-racing/40 hover:bg-racing/[0.07] sm:items-center">
+            <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-5 w-5"></i></span>
+            <span class="min-w-0">
+              <span class="block font-semibold leading-tight text-white">{title}</span>
+              <span class="mt-1 block text-sm leading-snug text-zinc-400">{desc}</span>
+            </span>
+          </li>""")
+    return f"""    <section class="bg-ink py-6 sm:py-8" aria-label="Nos engagements">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+{chr(10).join(rows)}
+        </ul>
+      </div>
+    </section>
+"""
+
+
+def solution_section(s):
+    """Bloc solution — carte 'Déroulement' masquée quand une section processus existe (spec `process`)."""
+    has_process = bool(s.get("process"))
+    grid = '      <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:items-start">'
+    single = '      <div class="mx-auto max-w-6xl px-4 sm:px-6">'
+
+    deroulement = "" if has_process else """        <div class="rounded-2xl border border-racing/20 bg-racing/5 p-6">
+          <h3 class="flex items-center gap-2 font-semibold text-white"><i data-lucide="wrench" class="h-5 w-5 text-racing"></i>Déroulement</h3>
+          <ol class="mt-4 space-y-3 text-sm text-zinc-400">
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">1</span><span>Diagnostic valise OBD — marque, modèle, motorisation, codes défaut.</span></li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">2</span><span>Devis transparent avant intervention.</span></li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">3</span><span>""" + s.get("step3", "Reprogrammation / clonage FoxFlash — modification définitive.") + """</span></li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">4</span><span>Contrôle et essai — véhicule opérationnel.</span></li>
+          </ol>
+        </div>
+"""
+    open_col = '<div class="max-w-3xl">' if has_process else "<div>"
+
+    return f"""    <section class="border-b border-white/5 bg-ink py-14 sm:py-20">
+{single if has_process else grid}
+        {open_col}
+          <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{s['solution_title']}</h2>
+          <p class="mt-4 text-zinc-400">{s['solution_intro']}</p>
+          <ul class="mt-6 space-y-4 text-zinc-300">
+{solution_points(s['solution_points'])}
+          </ul>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+            <a href="{s['hub_url']}" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s['hub_label']}<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          </div>
+        </div>
+{deroulement}      </div>
+    </section>
+"""
+
+
+def process_block(s):
+    """Section processus en 4 étapes avec icônes (spec `process`)."""
+    steps = s.get("process") or []
+    if not steps:
+        return ""
+    cards = []
+    for i, (title, icon, desc) in enumerate(steps, start=1):
+        cards.append(f"""          <li class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.07] via-white/[0.03] to-white/[0.01] p-6 transition duration-300 hover:-translate-y-1.5 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10">
+            <span class="pointer-events-none absolute right-4 top-3 select-none text-5xl font-extrabold leading-none text-white/[0.07] transition group-hover:text-racing/30" aria-hidden="true">0{i}</span>
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-6 w-6"></i></span>
+            <h3 class="pr-8 text-lg font-bold text-white">{title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-400">{desc}</p>
+          </li>""")
+    return f"""    <section id="process" class="border-b border-white/5 bg-zinc-950 py-14 sm:py-20" aria-labelledby="process-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="list-checks" class="h-3.5 w-3.5"></i>&nbsp;{s['process_kicker']}</p>
+        <h2 id="process-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">{s['process_title']}</h2>
+        <p class="mt-4 max-w-3xl text-zinc-400">{s['process_intro']}</p>
+        <ol class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+{chr(10).join(cards)}
+        </ol>
+        <p class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-zinc-400"><i data-lucide="info" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Chaque étape fait l'objet d'un point avec vous&nbsp;: rien n'est déposé ni remplacé sans votre accord.</p>
+      </div>
+    </section>
+"""
+
+
+def sticky_cta(s):
+    """Barre d'appel fixe en bas sur mobile (spec `sticky_cta`)."""
+    if not s.get("sticky_cta"):
+        return ""
+    return f"""    <div class="fixed inset-x-0 bottom-0 z-[55] border-t border-white/10 bg-ink/95 px-3 py-3 backdrop-blur-md md:hidden" role="region" aria-label="Contact rapide">
+      <div class="mx-auto flex max-w-6xl gap-3">
+        <a href="tel:+33603439954" class="flex flex-1 items-center justify-center gap-2 rounded-xl bg-racing-strong px-4 py-3 text-sm font-bold text-white shadow-lg shadow-racing/30 transition active:scale-95"><i data-lucide="phone" class="h-4 w-4" aria-hidden="true"></i>Appeler</a>
+        <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/15 px-4 py-3 text-sm font-bold text-emerald-300 transition active:scale-95"><i data-lucide="message-circle" class="h-4 w-4" aria-hidden="true"></i>WhatsApp</a>
+      </div>
+    </div>
+"""
+
+
+def final_cta(s):
+    """Bloc final de conversion — variante percutante (spec `cta`) ou standard."""
+    cta = s.get("cta")
+    if not cta:
+        return f"""    <section class="py-14 sm:py-20">
+      <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <p class="text-lg font-medium text-white">Besoin d'un devis — {s['service_name']} ?</p>
+        <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+        </div>
+      </div>
+    </section>"""
+
+    points = "\n".join(
+        f'          <li class="inline-flex items-center gap-2"><i data-lucide="circle-check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>{p}</li>'
+        for p in cta["points"]
+    )
+    return f"""    <section class="relative overflow-hidden border-t border-white/5 py-16 sm:py-24" aria-labelledby="cta-heading">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/70 to-transparent" aria-hidden="true"></div>
+      <div class="absolute left-1/2 top-0 h-64 w-[46rem] -translate-x-1/2 rounded-full bg-racing/20 blur-3xl" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="siren" class="h-3.5 w-3.5" aria-hidden="true"></i>&nbsp;{cta['kicker']}</p>
+        <h2 id="cta-heading" class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">{cta['title']}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-zinc-400">{cta['text']}</p>
+        <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <a href="tel:+33603439954" class="group inline-flex items-center justify-center gap-3 rounded-2xl bg-racing-strong px-7 py-4 text-base font-bold text-white shadow-2xl shadow-racing/40 transition duration-200 hover:scale-[1.03] hover:bg-racing active:scale-95 sm:text-lg">
+            <span class="relative flex h-3 w-3" aria-hidden="true"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span><span class="relative inline-flex h-3 w-3 rounded-full bg-white"></span></span>
+            Appeler le 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54
+          </a>
+          <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#25D366]/45 bg-[#25D366]/15 px-7 py-4 text-base font-bold text-emerald-300 transition duration-200 hover:scale-[1.03] hover:bg-[#25D366]/25 active:scale-95 sm:text-lg"><i data-lucide="message-circle" class="h-5 w-5" aria-hidden="true"></i>WhatsApp</a>
+        </div>
+        <a href="index.html#contact" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-300 underline-offset-4 transition hover:text-racing hover:underline">Préférez-vous le formulaire de contact ?<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+        <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-medium text-zinc-300">
+{points}
+        </ul>
+      </div>
+    </section>"""
+
+
+def footer_html(s):
+    """FOOTER — position du bouton WhatsApp surélevée si une barre d'appel fixe est présente."""
+    fab_pos = "bottom-20" if s.get("sticky_cta") else "bottom-5"
+    return FOOTER.format(wa_text=s["wa_text"], fab_pos=fab_pos)
+
+
+def related_block(s):
+    """Maillage interne optionnel : liens vers les pages associées (spec 'related_links')."""
+    links = s.get("related_links") or []
+    if not links:
+        return ""
+    items = "\n".join(
+        f'          <li><a href="{href}" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-racing">{label}<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a></li>'
+        for href, label in links
+    )
+    return f"""    <section class="border-b border-white/5 bg-zinc-950 py-10 sm:py-12" aria-label="Pages associées">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-xl font-bold tracking-tight text-white sm:text-2xl">Pages associées — {s['service_name']}</h2>
+        <ul class="mt-5 flex flex-wrap gap-3">
+{items}
+        </ul>
+      </div>
+    </section>
+"""
 
 
 def faq_block(s):
@@ -714,57 +1001,23 @@ def build_page(s):
         </div>
       </div>
     </section>
-
+{reassurance_block(s)}
     <section class="border-y border-white/5 bg-zinc-950 py-14 sm:py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{s['problem_title']}</h2>
         <p class="mt-4 max-w-3xl text-zinc-400">{s['problem_intro']}</p>
         <ul class="mt-10 grid gap-6 sm:grid-cols-2">
-{problem_cards(s['problems'])}
+{problem_cards(s)}
         </ul>
       </div>
     </section>
 
-    <section class="border-b border-white/5 bg-ink py-14 sm:py-20">
-      <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:items-start">
-        <div>
-          <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{s['solution_title']}</h2>
-          <p class="mt-4 text-zinc-400">{s['solution_intro']}</p>
-          <ul class="mt-6 space-y-4 text-zinc-300">
-{solution_points(s['solution_points'])}
-          </ul>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="{s['hub_url']}" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s['hub_label']}<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
-          </div>
-        </div>
-        <div class="rounded-2xl border border-racing/20 bg-racing/5 p-6">
-          <h3 class="flex items-center gap-2 font-semibold text-white"><i data-lucide="wrench" class="h-5 w-5 text-racing"></i>Déroulement</h3>
-          <ol class="mt-4 space-y-3 text-sm text-zinc-400">
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">1</span><span>Diagnostic valise OBD — marque, modèle, motorisation, codes défaut.</span></li>
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">2</span><span>Devis transparent avant intervention.</span></li>
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">3</span><span>{s.get('step3', 'Reprogrammation / clonage FoxFlash — modification définitive.')}</span></li>
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">4</span><span>Contrôle et essai — véhicule opérationnel.</span></li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-{faq_block(s)}
+{solution_section(s)}{process_block(s)}
+{related_block(s)}{faq_block(s)}
 {LEGAL}
-    <section class="py-14 sm:py-20">
-      <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
-        <p class="text-lg font-medium text-white">Besoin d'un devis — {s['service_name']} ?</p>
-        <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
-        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
-        </div>
-      </div>
-    </section>
+{final_cta(s)}
   </main>
-{FOOTER.format(wa_text=s['wa_text'])}
+{sticky_cta(s)}{footer_html(s)}
 """
     return body
 
@@ -819,10 +1072,13 @@ def build_reprogrammation_hub():
             {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
             {"@type": "ListItem", "position": 2, "name": "Reprogrammation moteur Lyon", "item": f"{SITE}/service-reprogrammation.html"},
         ]},
-        {"@type": "Service", "name": "Reprogrammation moteur Stage 1 & Éthanol E85 Lyon",
+        {"@type": "Service", "@id": f"{SITE}/service-reprogrammation.html#service",
+         "serviceType": "Reprogrammation moteur Stage 1 & conversion Éthanol E85 Lyon",
+         "name": "Reprogrammation moteur Stage 1 & Éthanol E85 Lyon",
          "description": "Reprogrammation moteur Lyon : Stage 1 gain de puissance/couple et conversion éthanol E85 flexfuel par FoxFlash — sans boîtier.",
          "provider": {"@id": f"{SITE}/#localbusiness"},
-         "areaServed": [{"@type": "AdministrativeArea", "name": "Rhône"}, {"@type": "AdministrativeArea", "name": "Ain"}],
+         "areaServed": [{"@type": "AdministrativeArea", "name": "Rhône"}, {"@type": "AdministrativeArea", "name": "Ain"}, {"@type": "City", "name": "Lyon"}],
+         "offers": offer_node(f"{SITE}/service-reprogrammation.html"),
          "url": f"{SITE}/service-reprogrammation.html"},
         {"@type": "FAQPage", "mainEntity": faq_entities},
     ]}, ensure_ascii=False)
@@ -915,7 +1171,7 @@ def build_reprogrammation_hub():
       </div>
     </section>
   </main>
-{FOOTER.format(wa_text="Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)")}
+{FOOTER.format(wa_text="Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)", fab_pos="bottom-5")}
 """
 
 
@@ -952,10 +1208,13 @@ def build_antipollution_hub():
             {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
             {"@type": "ListItem", "position": 2, "name": "Solutions anti-pollution Lyon", "item": f"{SITE}/service-antipollution.html"},
         ]},
-        {"@type": "Service", "name": "Solutions anti-pollution FAP, EGR & AdBlue Lyon",
+        {"@type": "Service", "@id": f"{SITE}/service-antipollution.html#service",
+         "serviceType": "Suppression FAP, EGR & AdBlue — solutions anti-pollution Lyon",
+         "name": "Solutions anti-pollution FAP, EGR & AdBlue Lyon",
          "description": "Solutions anti-pollution Lyon : suppression définitive FAP, EGR et AdBlue par reprogrammation FoxFlash — fin des voyants et des régénérations.",
          "provider": {"@id": f"{SITE}/#localbusiness"},
-         "areaServed": [{"@type": "AdministrativeArea", "name": "Rhône"}, {"@type": "AdministrativeArea", "name": "Ain"}],
+         "areaServed": [{"@type": "AdministrativeArea", "name": "Rhône"}, {"@type": "AdministrativeArea", "name": "Ain"}, {"@type": "City", "name": "Lyon"}],
+         "offers": offer_node(f"{SITE}/service-antipollution.html"),
          "url": f"{SITE}/service-antipollution.html"},
         {"@type": "FAQPage", "mainEntity": faq_entities},
     ]}, ensure_ascii=False)
@@ -1048,7 +1307,7 @@ def build_antipollution_hub():
       </div>
     </section>
   </main>
-{FOOTER.format(wa_text="Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon")}
+{FOOTER.format(wa_text="Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon", fab_pos="bottom-5")}
 """
 
 
