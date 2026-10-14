@@ -59,57 +59,104 @@ HEAD = """<!DOCTYPE html>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMZK9J9X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 """
 
-NAV = """
-  <header class="glass-nav sticky top-0 z-50">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6" aria-label="Navigation principale">
-      <a href="index.html" class="flex items-center gap-2 text-lg font-bold tracking-tight text-white">
-        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-racing/15 text-racing ring-1 ring-racing/30" aria-hidden="true"><i data-lucide="cpu" class="h-5 w-5"></i></span>
-        Mecanoo Lyon
-      </a>
-      <ul class="hidden flex-wrap items-center justify-end gap-x-3 gap-y-1 text-xs font-medium text-zinc-300 lg:flex xl:gap-x-5 xl:text-sm">
-        <li><a href="index.html#services" class="transition hover:text-racing">Services</a></li>
-        <li><a href="service-diagnostic.html" class="{diag_class}">Diagnostic</a></li>
-        <li><a href="service-ecu-clonage.html" class="{ecu_class}">Calculateurs ECU/BSI</a></li>
-        <li><a href="service-reprogrammation.html" class="{reprog_class}">Reprog moteur</a></li>
-        <li><a href="service-antipollution.html" class="{anti_class}">Anti-pollution</a></li>
-        <li><a href="zone-intervention.html" class="transition hover:text-racing">Zone Lyon &amp; Ain</a></li>
-        <li><a href="index.html#faq" class="transition hover:text-racing">FAQ</a></li>
-        <li><a href="index.html#contact" class="transition hover:text-racing">Contact</a></li>
-      </ul>
-      <div class="ml-auto flex items-center gap-2 sm:gap-3">
-        <a href="tel:+33603439954" class="hidden items-center gap-1.5 text-sm font-semibold text-zinc-200 transition hover:text-racing xl:inline-flex" aria-label="Appeler le 06 03 43 99 54"><i data-lucide="phone" class="h-4 w-4 text-racing"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-        <a href="https://wa.me/33603439954" target="_blank" rel="noopener noreferrer" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/30 ring-2 ring-black/30 transition hover:scale-105" aria-label="WhatsApp">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-        <a href="index.html#contact" class="hidden rounded-lg bg-racing-strong px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-racing/25 transition hover:bg-racing-strong/90 sm:inline-flex">Devis gratuit</a>
-      </div>
-      <button type="button" id="mobile-menu-btn" class="inline-flex rounded-md p-2 text-zinc-300 lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><i data-lucide="menu" class="h-6 w-6"></i></button>
-    </nav>
-    <div id="mobile-menu" class="hidden border-t border-white/5 bg-ink/95 px-4 py-4 lg:hidden">
-      <ul class="flex flex-col gap-3 text-sm font-medium">
-        <li><a href="index.html#services" class="block py-2 text-zinc-300 hover:text-racing">Services</a></li>
-        <li><a href="service-diagnostic.html" class="block py-2 {mobile_diag_class}">Diagnostic électronique</a></li>
-        <li><a href="service-ecu-clonage.html" class="block py-2 {mobile_ecu_class}">Calculateurs ECU/BSI</a></li>
-        <li><a href="service-reprogrammation.html" class="block py-2 {mobile_reprog_class}">Reprog moteur — Stage 1 &amp; E85</a></li>
-        <li><a href="service-antipollution.html" class="block py-2 {mobile_anti_class}">Anti-pollution — FAP, EGR, AdBlue</a></li>
-        <li><a href="zone-intervention.html" class="block py-2 text-zinc-300 hover:text-racing">Zone Lyon &amp; Ain</a></li>
-        <li><a href="index.html#faq" class="block py-2 text-zinc-300 hover:text-racing">FAQ</a></li>
-        <li><a href="index.html#contact" class="block py-2 text-zinc-300 hover:text-racing">Contact</a></li>
-        <li class="flex flex-col gap-2 pt-2">
-          <a href="tel:+33603439954" class="flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 py-3 font-semibold text-zinc-100 transition hover:bg-white/10"><i data-lucide="phone" class="h-5 w-5 text-racing"></i>Appeler — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="https://wa.me/33603439954" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-lg border border-[#25D366]/35 bg-[#25D366]/15 py-3 pl-3 pr-4 font-semibold text-emerald-300 transition hover:bg-[#25D366]/25"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>WhatsApp — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-        </li>
-      </ul>
-    </div>
-  </header>
-"""
+# ---------------------------------------------------------------------------
+# Composant de navigation — SOURCE UNIQUEE
+# ---------------------------------------------------------------------------
+# Le markup de la nav n'existe qu'à un seul endroit : partials/navbar.html.
+# Il est injecté :
+#   1. dans les pages générées par render_nav() / build_page() ;
+#   2. dans les pages écrites à la main, entre les marqueurs
+#      <!-- nav:begin --> ... <!-- nav:end --> (index, zone-intervention).
+# Contrainte du partial : aucun accolade littérale (rendu via str.format),
+# uniquement les tokens produits par nav_tokens().
+NAV_PATH = BASE / "partials" / "navbar.html"
+NAV = "\n" + NAV_PATH.read_text(encoding="utf-8")
+
+NAV_BEGIN = "<!-- nav:begin — source : partials/navbar.html (généré, ne pas éditer ici) -->"
+NAV_END = "<!-- nav:end -->"
+
+# Pages écrites à la main dont la nav est injectée depuis le partial.
+# `on_home=True` bascule les ancres vers la page courante (#faq au lieu de index.html#faq).
+NAV_PAGES = {
+    "index.html": {"active": None, "on_home": True},
+    "zone-intervention.html": {"active": "zone", "on_home": False},
+}
+
+
+def nav_tokens(active=None, on_home=False):
+    """Tokens du partial navbar.html : lien surligné par pilier + ancres de page.
+
+    active   : pilier courant — "diagnostic" | "abs" | "ecu" | "reprog"
+               | "antipollution" | "zone" | None (aucun).
+    on_home  : True sur index.html — les liens #services/#faq/#contact restent
+               sur la page courante au lieu de rebondir vers index.html.
+    """
+    def cls(key):
+        return ACTIVE_CLASS if active == key else BASE_CLASS
+
+    def mcls(key):
+        return MOBILE_ACTIVE_CLASS if active == key else MOBILE_BASE_CLASS
+
+    home_href = "index.html#hero" if on_home else "index.html"
+    anchor = "" if on_home else "index.html"
+
+    return {
+        "diag_class": cls("diagnostic"),
+        "abs_class": cls("abs"),
+        "ecu_class": cls("ecu"),
+        "reprog_class": cls("reprog"),
+        "anti_class": cls("antipollution"),
+        "zone_class": cls("zone"),
+        "mobile_diag_class": mcls("diagnostic"),
+        "mobile_abs_class": mcls("abs"),
+        "mobile_ecu_class": mcls("ecu"),
+        "mobile_reprog_class": mcls("reprog"),
+        "mobile_anti_class": mcls("antipollution"),
+        "mobile_zone_class": mcls("zone"),
+        "home_href": home_href,
+        "services_href": f"{anchor}#services",
+        "faq_href": f"{anchor}#faq",
+        "contact_href": f"{anchor}#contact",
+    }
+
+
+def render_nav(active=None, on_home=False):
+    """Rend le partial de nav (str.format lève KeyError si un token manque)."""
+    return NAV.format(**nav_tokens(active, on_home))
+
+
+def sync_nav_pages():
+    """Réinjecte partials/navbar.html dans les pages écrites à la main.
+
+    Échoue brutalement si les marqueurs nav:begin / nav:end sont absents ou
+    ambigus : jamais de réécriture silencieuse hors marqueurs.
+    """
+    import re
+
+    pattern = re.compile(re.escape(NAV_BEGIN) + r".*?" + re.escape(NAV_END), re.S)
+    for name, cfg in NAV_PAGES.items():
+        path = BASE / name
+        text = path.read_text(encoding="utf-8")
+        nav_html = render_nav(**cfg).strip("\n")  # strip("\n") : strip() avalerait l'indentation du <header>
+        block = f"{NAV_BEGIN}\n{nav_html}\n{NAV_END}"
+        text, count = pattern.subn(lambda _m: block, text)
+        if count != 1:
+            raise SystemExit(
+                f"ERREUR : {name} — marqueurs nav:begin / nav:end introuvables "
+                f"ou ambigus (occurrences : {count}).\n"
+                f"Reposer les marqueurs autour du <header> puis relancer."
+            )
+        if text != path.read_text(encoding="utf-8"):
+            path.write_text(text, encoding="utf-8")
+        print(f"Synced navbar → {name}")
+
 
 FOOTER = """
   <footer class="border-t border-white/10 bg-black/40 py-12 pb-28 sm:pb-12">
     <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-6">
       <div>
         <p class="text-sm text-zinc-400">© <span id="year"></span> Mecanoo Lyon. Tous droits réservés.</p>
-        <p class="mt-2 text-sm text-zinc-400"><a href="service-diagnostic.html" class="text-racing hover:underline">Diagnostic</a> · <a href="service-abs.html" class="hover:text-zinc-300 hover:underline">Bloc ABS</a> · <a href="service-ecu-clonage.html" class="hover:text-zinc-300 hover:underline">Calculateurs ECU/BSI</a> · <a href="service-reprogrammation.html" class="hover:text-zinc-300 hover:underline">Reprog moteur</a> · <a href="service-antipollution.html" class="hover:text-zinc-300 hover:underline">Anti-pollution</a> · <a href="zone-intervention.html" class="hover:text-zinc-300 hover:underline">Zone Lyon &amp; Ain</a> · <a href="index.html#contact" class="hover:text-zinc-300 hover:underline">Contact</a>.</p>
+        <p class="mt-2 text-sm text-zinc-400"><a href="service-diagnostic.html" class="text-racing hover:underline">Diagnostic</a> · <a href="service-abs.html" class="hover:text-zinc-300 hover:underline">Bloc ABS</a> · <a href="service-airbag.html" class="hover:text-zinc-300 hover:underline">Airbag</a> · <a href="service-ecu-clonage.html" class="hover:text-zinc-300 hover:underline">Calculateurs ECU/BSI</a> · <a href="service-reprogrammation.html" class="hover:text-zinc-300 hover:underline">Reprog moteur</a> · <a href="service-antipollution.html" class="hover:text-zinc-300 hover:underline">Anti-pollution</a> · <a href="zone-intervention.html" class="hover:text-zinc-300 hover:underline">Zone Lyon &amp; Ain</a> · <a href="index.html#contact" class="hover:text-zinc-300 hover:underline">Contact</a>.</p>
       </div>
       <div class="flex flex-col items-start gap-3 sm:items-end">
         <p class="text-xs text-zinc-400 uppercase tracking-wide text-left sm:text-right">Diagnostic &amp; électronique automobile — Lyon · 69 · Ain 01</p>
@@ -187,6 +234,7 @@ SERVICES = [
         "wa_text": "Bonjour%2C%20diagnostic%20%C3%A9lectronique%20Lyon",
         "img_alt": "Diagnostic électronique automobile à Lyon — valise OBD Rhône 69 et Ain 01",
         "related_links": [
+            ("service-airbag.html", "Réparation airbag — voyant airbag allumé"),
             ("service-abs.html", "Réparation bloc ABS — voyant ABS allumé"),
             ("service-ecu-clonage.html", "Calculateurs ECU/BSI"),
         ],
@@ -194,7 +242,7 @@ SERVICES = [
     {
         "file": "service-abs.html",
         "slug": "service-abs",
-        "active": "diagnostic",
+        "active": "abs",
         "parent_label": "Diagnostic électronique",
         "parent_url": "service-diagnostic.html",
         "hub_url": "service-diagnostic.html",
@@ -237,6 +285,7 @@ SERVICES = [
         "wa_text": "Bonjour%2C%20voyant%20ABS%20allum%C3%A9%20Lyon",
         "img_alt": "Réparation bloc ABS à Lyon — voyant ABS allumé, diagnostic freinage Rhône 69",
         "related_links": [
+            ("service-airbag.html", "Réparation airbag — voyant airbag allumé"),
             ("service-diagnostic.html", "Diagnostic électronique &amp; valise OBD"),
             ("zone-intervention.html", "Zone d'intervention — Lyon, 69 &amp; Ain 01"),
         ],
@@ -263,6 +312,80 @@ SERVICES = [
             "title": "Un doute sur votre freinage&nbsp;? Un appel suffit pour cadrer la réparation.",
             "text": "Décrivez les symptômes (voyant ABS, pédale dure, code défaut affiché)&nbsp;: nous vous donnons une première orientation et un créneau d'intervention — <strong class=\"font-semibold text-zinc-200\">devis gratuit avant toute dépose</strong>.",
             "points": ["Devis gratuit", "Garantie de réparation", "Rapidité d'intervention", "À domicile Lyon &amp; 69"],
+        },
+    },
+    {
+        "file": "service-airbag.html",
+        "slug": "service-airbag",
+        "active": "diagnostic",
+        "parent_label": "Diagnostic électronique",
+        "parent_url": "service-diagnostic.html",
+        "hub_url": "service-diagnostic.html",
+        "hub_label": "Diagnostic électronique",
+        "breadcrumb": "Réparation airbag — Lyon",
+        "badge": "réparation airbag Lyon — voyant airbag 69 / Ain 01",
+        "icon": "shield-check",
+        "h1": "Réparation airbag &amp; voyant airbag allumé à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Réparation airbag Lyon</strong>&nbsp;: <strong class=\"font-semibold text-zinc-200\">voyant airbag allumé</strong>, contacteur rotatif de volant ou connecteur sous siège — diagnostic du système SRS, test des prétensionneurs et réparation à domicile sur Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Réparation Airbag Lyon — Voyant airbag allumé | Mecanoo",
+        "description": "Voyant airbag allumé à Lyon ? Diagnostic SRS, contacteur rotatif et prétensionneurs — réparation airbag à domicile, Rhône (69) et Ain (01).",
+        "keywords": "réparation airbag Lyon, voyant airbag allumé, contacteur rotatif volant Lyon, prétensionneur 69, diagnostic SRS Lyon, airbag Ain 01",
+        "og_title": "Réparation Airbag Lyon — Voyant airbag allumé | Mecanoo",
+        "og_description": "Voyant airbag allumé à Lyon ? Diagnostic SRS et contacteur rotatif — réparation airbag à domicile, Rhône (69) et Ain (01).",
+        "service_name": "Réparation airbag Lyon",
+        "service_type": "Réparation airbag, contacteur rotatif & prétensionneurs — diagnostic système SRS",
+        "step3": "Remplacement de la pièce défaillante, effacement des codes SRS et contrôle du voyant airbag.",
+        "problem_title": "Voyant airbag allumé — les causes fréquentes",
+        "problem_intro": "Contacteur rotatif, connecteur sous siège, prétensionneur ou capteur de choc&nbsp;: le témoin SRS s'allume dès qu'un défaut est enregistré dans le calculateur d'airbag. Le diagnostic valise SRS passe avant toute dépose.",
+        "problems": [
+            ("Voyant airbag allumé", "Défaut enregistré dans le calculateur SRS — codes B0xxx à lire en priorité.", "alert-triangle"),
+            ("Contacteur rotatif de volant", "Courant porté sur les touchez-commandes et l'airbag volant : contact intermittent.", "rotate-cw"),
+            ("Connecteur sous siège", "Connecteur mal positionné ou corrodé — cause la plus fréquente et la moins onéreuse.", "plug"),
+            ("Capteur de choc / prétensionneur", "Élément pyrotechnique ou capteur hors service : remplacement pièce par pièce.", "shield-alert"),
+        ],
+        "solution_title": "Réparation airbag &amp; contrôle du système SRS",
+        "solution_intro": "Lecture des codes défaut airbag, test des prétensionneurs et de la connectique (volant, sièges, portières), remplacement ciblé de la pièce défaillante — devis avant toute intervention.",
+        "solution_points": [
+            "Lecture et effacement des codes défaut airbag / SRS (B0xxx)",
+            "Test du contacteur rotatif et de la connectique volant, sièges, portières",
+            "Remplacement du contacteur, capteur ou prétensionneur défaillant",
+            "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
+        ],
+        "faq_intro": "« voyant airbag allumé Lyon », « réparation airbag 69 », « contacteur rotatif volant Lyon »",
+        "faqs": [
+            ("Pourquoi mon voyant airbag est-il allumé ?", "Défaut sur le système SRS : contacteur rotatif du volant, connecteur sous siège, prétensionneur, capteur de choc ou bougie pyrotechnique. La valise lit les codes B0xxx pour cibler la panne avant toute dépose."),
+            ("Est-il risqué de rouler avec le voyant airbag allumé ?", "L'airbag peut ne pas se déclencher en cas de choc et certains prétensionneurs sont concernés : roulez prudemment et faites diagnostiquer le système SRS rapidement. Le circuit pyrotechnique n'est jamais manipulé sans consigne constructeur (batterie débranchée, délai de vidage respecté)."),
+            ("Combien coûte une réparation d'airbag à Lyon ?", "Contacteur rotatif : pièce et pose généralement abordables. Capteur, déclencheur ou prétensionneur : selon la marque et la disponibilité de la pièce — devis après diagnostic sur Lyon, le 69 et l'Ain (01)."),
+        ],
+        "wa_text": "Bonjour%2C%20voyant%20airbag%20allum%C3%A9%20Lyon",
+        "img_alt": "Réparation airbag à Lyon — voyant airbag allumé, diagnostic système SRS Rhône 69",
+        "related_links": [
+            ("service-diagnostic.html", "Diagnostic électronique &amp; valise OBD"),
+            ("service-abs.html", "Réparation bloc ABS — voyant ABS allumé"),
+        ],
+        # --- Habillage UI spécifique à la page Airbag (sections optionnelles) ---
+        "cards_modern": True,
+        "sticky_cta": True,
+        "reassurance": [
+            ("shield-check", "Circuit pyrotechnique sécurisé", "Consignes constructeur appliquées — aucune pièce déposée sans précaution."),
+            ("timer", "Intervention rapide", "Diagnostic SRS ciblé le jour même si disponible, réponse sous 24 h."),
+            ("file-text", "Devis gratuit", "Chiffrage validé par vous avant toute dépose de pièce."),
+            ("map-pin", "Intervention à domicile", "Lyon, Rhône (69) et Ain (01) — on vient à vous."),
+        ],
+        "process_kicker": "Notre méthode",
+        "process_title": "La réparation d'airbag en 4 étapes",
+        "process_intro": "Aucun élément pyrotechnique n'est déposé à l'aveugle&nbsp;: le calculateur SRS est diagnostiqué d'abord, et chaque étape est validée avec vous avant de passer à la suivante.",
+        "process": [
+            ("Diagnostic SRS", "scan-line", "Lecture des codes défaut airbag / SRS (B0xxx), vérification des prétensionneurs, du contacteur rotatif et des connecteurs&nbsp;: la cause réelle est identifiée avant toute dépose."),
+            ("Mise en sécurité", "shield-check", "Batterie débranchée et délai de vidage respecté avant toute intervention sur le circuit pyrotechnique, conformément aux consignes constructeur."),
+            ("Remplacement ciblé", "wrench", "Dépose du contacteur rotatif, du capteur ou du prétensionneur défaillant, remplacement compatible, repose et contrôle des connecteurs."),
+            ("Effacement &amp; contrôle", "activity", "Effacement des codes défaut, vérification du voyant airbag au contacteur puis contrôle final&nbsp;: le témoin SRS reste éteint."),
+        ],
+        "cta": {
+            "kicker": "Voyant airbag allumé&nbsp;? Appelez maintenant",
+            "title": "Un doute sur votre sécurité passive&nbsp;? Un appel suffit pour cadrer l'intervention.",
+            "text": "Décrivez les symptômes (voyant airbag, contacteur de volant, code défaut affiché)&nbsp;: nous vous donnons une première orientation et un créneau d'intervention — <strong class=\"font-semibold text-zinc-200\">devis gratuit avant toute dépose</strong>.",
+            "points": ["Devis gratuit", "Circuit pyrotechnique sécurisé", "Rapidité d'intervention", "À domicile Lyon &amp; 69"],
         },
     },
     {
@@ -308,6 +431,10 @@ SERVICES = [
         ],
         "wa_text": "Bonjour%2C%20clonage%20ECU%20Lyon",
         "img_alt": "Clonage ECU Lyon — programmation calculateur ECU/BSI Rhône 69",
+        "related_links": [
+            ("service-cle-voiture.html", "Clé de voiture — duplication &amp; programmation"),
+            ("service-suppression-options.html", "Suppression d'options — codage BSI / ECU"),
+        ],
     },
     {
         "file": "service-immo-off.html",
@@ -573,6 +700,154 @@ SERVICES = [
         "wa_text": "Bonjour%2C%20probl%C3%A8me%20AdBlue%20Lyon",
         "img_alt": "Problème AdBlue Lyon — diagnostic SCR Rhône 69",
     },
+    {
+        "file": "service-cle-voiture.html",
+        "slug": "service-cle-voiture",
+        "active": "ecu",
+        "parent_label": None,
+        "parent_url": None,
+        "hub_url": "service-ecu-clonage.html",
+        "hub_label": "Calculateurs ECU/BSI &amp; immobiliseur",
+        "breadcrumb": "Clé de voiture — Lyon",
+        "badge": "clé de voiture Lyon — duplication &amp; programmation 69 / Ain 01",
+        "icon": "key-round",
+        "h1": "Clé de voiture — duplication &amp; programmation à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Clé de voiture Lyon</strong>&nbsp;: clé perdue, boîtier cassé ou clé non détectée — <strong class=\"font-semibold text-zinc-200\">duplication</strong>, programmation d'une clé de rechange et appairage avec l'<strong class=\"font-semibold text-zinc-200\">immobiliseur</strong> à domicile sur Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Clé de voiture Lyon — Duplication &amp; programmation | Mecanoo",
+        "description": "Clé de voiture perdue ou cassée à Lyon ? Duplication et programmation de clé de rechange, décodage transpondeur — Rhône (69) et Ain (01).",
+        "keywords": "clé de voiture Lyon, duplication clé auto 69, programmer clé rechange Lyon, clé pliante cassée, transpondeur immobiliseur Ain 01",
+        "og_title": "Clé de voiture Lyon — Duplication & programmation | Mecanoo",
+        "og_description": "Clé perdue ou cassée à Lyon ? Duplication et programmation de clé de rechange, décodage transpondeur — Rhône (69) et Ain (01).",
+        "service_name": "Clé de voiture Lyon",
+        "service_type": "Duplication, programmation & codage de clé automobile — décodage transpondeur et immobiliseur",
+        "step3": "Programmation de la clé, appairage avec l'immobiliseur et test de démarrage avant restitution.",
+        "problem_title": "Clé de voiture en panne — les cas fréquents",
+        "problem_intro": "Perte, casse du boîtier ou clé non reconnue par le véhicule&nbsp;: la majorité des interventions clé se résouvent sans concession, à condition de lire le transpondeur avant de remplacer quoi que ce soit.",
+        "problems": [
+            ("Clé perdue ou unique", "Plus aucune clé en état de marche — situation bloquante, même à distance.", "key-round"),
+            ("Boîtier cassé / gâchette usée", "Télécommande fissurée ou gâchette fatiguée : la clé fonctionne mal mécaniquement.", "tool"),
+            ("Clé non détectée", "Le véhicule ne démarre plus — erreur d'immobiliseur ou transpondeur non lu.", "alert-triangle"),
+            ("Aucune clé de rechange", "Une seule clé fournie d'origine : en programmer une seconde avant l'urgence.", "copy"),
+        ],
+        "solution_title": "Duplication &amp; programmation de clé automobile",
+        "solution_intro": "Lecture du transpondeur, réparation ou remplacement du boîtier, appairage avec le calculateur d'immobiliseur et test complet — la clé démarre le véhicule avant notre départ.",
+        "solution_points": [
+            "Duplication de clé simple, clé pliante ou télécommande",
+            "Programmation et appairage avec l'immobiliseur (transpondeur)",
+            "Réparation de boîtier, gâchette et batterie sur clé existante",
+            "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
+        ],
+        "faq_intro": "« duplication clé voiture Lyon », « programmer clé de rechange 69 », « clé non détectée Lyon »",
+        "faqs": [
+            ("Combien coûte une clé de voiture supplémentaire à Lyon ?", "Une clé de rechange simple reste abordable ; une clé pliante multimarque avec codage est plus onéreuse — devis après marque et modèle. Duplier avant la casse revient toujours moins cher qu'une urgence sans aucune clé."),
+            ("Peut-on programmer une clé si toutes les clés sont perdues ?", "Dans la plupart des cas, oui : le transpondeur est lu ou reprogrammé puis appairé avec l'immobiliseur. Selon la marque et le niveau de sécurité, une réinitialisation peut être nécessaire — diagnostic préalable sur Lyon et le 69."),
+            ("Le véhicule ne détecte plus ma clé : que faire ?", "Essayez une seconde clé, contrôlez la pile puis le boîtier. Si le démarrage reste impossible, le défaut vient de la clé ou du capteur de lecture — dépannage à domicile sur Lyon, Rhône (69) et Ain (01)."),
+        ],
+        "wa_text": "Bonjour%2C%20programmation%20cl%C3%A9%20voiture%20Lyon",
+        "img_alt": "Duplication et programmation de clé de voiture à Lyon — immobiliseur Rhône 69",
+        "related_links": [
+            ("service-ecu-clonage.html", "Clonage ECU/BSI &amp; codage VIN"),
+            ("service-immo-off.html", "Suppression d'immobiliseur"),
+        ],
+        # --- Habillage UI spécifique à la page clé (sections optionnelles) ---
+        "cards_modern": True,
+        "sticky_cta": True,
+        "reassurance": [
+            ("key-round", "Toutes marques", "Clé simple, pliante ou télécommande — essence, diesel, hybride."),
+            ("timer", "Intervention rapide", "Diagnostic ciblé le jour même si disponible, réponse sous 24 h."),
+            ("file-text", "Devis gratuit", "Tarif annoncé avant toute programmation ou commande de clé."),
+            ("map-pin", "Intervention à domicile", "Lyon, Rhône (69) et Ain (01) — on vient à vous."),
+        ],
+        "process_kicker": "Notre méthode",
+        "process_title": "Intervenir sur une clé de voiture en 4 étapes",
+        "process_intro": "Aucune programmation à l'aveugle&nbsp;: la clé d'origine est lue d'abord, et chaque étape est validée avec vous avant de passer à la suivante.",
+        "process": [
+            ("Lecture &amp; diagnostic", "scan-line", "Identification du véhicule et lecture du transpondeur&nbsp;: type de clé, niveau de sécurité et état de l'immobiliseur sont connus avant toute commande."),
+            ("Préparation de la clé", "key-round", "Clé de rechange ou boîtier neuf compatible, copie du tracé mécanique si nécessaire, gâchette et batterie contrôlées."),
+            ("Programmation", "cpu", "Appairage de la clé avec le calculateur d'immobiliseur&nbsp;: transpondeur accepté, télécommande mémorisée, verrouillage à distance fonctionnel."),
+            ("Test &amp; livraison", "activity", "Démarrage, fermeture centralisée et essai complet avec vous — la clé est remise fonctionnelle, sauf mauvaise surprise."),
+        ],
+        "cta": {
+            "kicker": "Clé perdue ou cassée&nbsp;? Appelez maintenant",
+            "title": "Une clé bloquante ne s'arrange pas seule — un appel suffit pour cadrer l'intervention.",
+            "text": "Indiquez la marque, le modèle et l'année&nbsp;: nous vous confirmons si la clé peut être programmée à distance de l'atelier et fixons un créneau — <strong class=\"font-semibold text-zinc-200\">devis gratuit avant toute intervention</strong>.",
+            "points": ["Devis gratuit", "Clé testée avant départ", "Rapidité d'intervention", "À domicile Lyon &amp; 69"],
+        },
+    },
+    {
+        "file": "service-suppression-options.html",
+        "slug": "service-suppression-options",
+        "active": "ecu",
+        "parent_label": None,
+        "parent_url": None,
+        "hub_url": "service-ecu-clonage.html",
+        "hub_label": "Calculateurs ECU/BSI",
+        "breadcrumb": "Suppression d'options — Lyon",
+        "badge": "suppression d'options Lyon — codage BSI / ECU 69 / Ain 01",
+        "icon": "sliders-horizontal",
+        "h1": "Suppression d'options à Lyon — limiteur, start/stop &amp; feux",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Suppression d'options Lyon</strong>&nbsp;: <strong class=\"font-semibold text-zinc-200\">limiteur de vitesse</strong>, start/stop, feux de jour ou menu bloqué — codage de la <strong class=\"font-semibold text-zinc-200\">BSI et de l'ECU</strong> avec sauvegarde de la configuration d'origine, à domicile sur Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Suppression options — limiteur &amp; start/stop Lyon | Mecanoo",
+        "description": "Suppression d'options automobile à Lyon : limiteur de vitesse, start/stop, feux de jour, codage BSI et ECU — intervention à domicile, Rhône (69) et Ain (01).",
+        "keywords": "suppression options Lyon, désactivation limiteur vitesse 69, désactiver start stop Lyon, codage BSI ECU Ain 01, menu compteur caché",
+        "og_title": "Suppression options — limiteur & start/stop Lyon | Mecanoo",
+        "og_description": "Suppression d'options automobile à Lyon : limiteur, start/stop, feux de jour, codage BSI et ECU — Rhône (69) et Ain (01).",
+        "service_name": "Suppression d'options Lyon",
+        "service_type": "Codage et désactivation d'options automobile — limiteur, start/stop, feux, menu BSI / ECU",
+        "step3": "Vérification des options codées, sauvegarde de la configuration puis restitution du véhicule testé.",
+        "problem_title": "Quelles options désactiver ? Les plus demandées",
+        "problem_intro": "Chaque constructeur verrouille une partie de la configuration du véhicule&nbsp;: ces options se règlent dans la BSI ou l'ECU, pas par un bouton. La lecture de la configuration d'origine précède toute modification.",
+        "problems": [
+            ("Limiteur de vitesse bridant", "Vitesse plafonnée à 180 ou 200 km/h — paramètre à désactiver dans le calculateur.", "gauge"),
+            ("Start/stop toujours actif", "Coupages fréquents en ville — fonction désactivable selon le véhicule.", "power"),
+            ("Menu &amp; feux verrouillés", "Options désactivées par le constructeur : feux de jour, menu caché, langues.", "sliders-horizontal"),
+            ("Avertisseurs intrusifs", "Alerte de vitesse, chime d'avertissement ou bip à reconfigurer ou supprimer.", "monitor"),
+        ],
+        "solution_title": "Codage &amp; désactivation d'options au calculateur",
+        "solution_intro": "Connexion à la BSI ou à l'ECU, lecture de la configuration d'origine, modification des paramètres souhaités puis sauvegarde&nbsp;: chaque option codée est testée avant restitution du véhicule.",
+        "solution_points": [
+            "Sauvegarde de la configuration d'origine avant modification",
+            "Limiteur, start/stop, feux de jour, menu et langues recodés",
+            "Outils de codage multimarque — BSI, ECU, compteur",
+            "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
+        ],
+        "faq_intro": "« suppression d'options Lyon », « désactiver limiteur vitesse 69 », « désactiver start stop Lyon »",
+        "faqs": [
+            ("Quelles options peut-on désactiver à Lyon ?", "Selon la marque et le calculateur : limiteur de vitesse, start/stop, feux de jour, alerte de vitesse, menu ou langue du compteur, éclairage d'ambiance. La liste réelle est confirmée après lecture de la configuration du véhicule."),
+            ("La suppression d'options est-elle définitive ?", "Elle est enregistrée dans la configuration du calculateur et survit aux coupures de batterie. La configuration d'origine étant sauvegardée lors de l'intervention, une remise à l'état d'origine reste possible."),
+            ("Combien coûte un codage d'options à Lyon ?", "Tarif selon le nombre d'options et le véhicule — devis après marque et modèle. Intervention à domicile sur Lyon, le Rhône (69) et l'Ain (01)."),
+        ],
+        "wa_text": "Bonjour%2C%20suppression%20options%20automobile%20Lyon",
+        "img_alt": "Suppression d'options automobile à Lyon — codage BSI et ECU Rhône 69",
+        "related_links": [
+            ("service-ecu-clonage.html", "Calculateurs ECU/BSI &amp; codage VIN"),
+            ("service-reprogrammation.html", "Reprog moteur — Stage 1 &amp; E85"),
+        ],
+        # --- Habillage UI spécifique à la page options (sections optionnelles) ---
+        "cards_modern": True,
+        "sticky_cta": True,
+        "reassurance": [
+            ("shield-check", "Configuration sauvegardée", "L'état d'origine est conservé — retour possible si besoin."),
+            ("timer", "Intervention rapide", "Codage le jour même si disponible, réponse sous 24 h."),
+            ("file-text", "Devis gratuit", "Tarif annoncé avant toute modification de configuration."),
+            ("map-pin", "Intervention à domicile", "Lyon, Rhône (69) et Ain (01) — on vient à vous."),
+        ],
+        "process_kicker": "Notre méthode",
+        "process_title": "Coder ou désactiver une option en 4 étapes",
+        "process_intro": "Le calculateur n'est jamais modifié à l'aveugle&nbsp;: la configuration d'origine est lue et sauvegardée d'abord, puis chaque option est validée avec vous.",
+        "process": [
+            ("Lecture de la configuration", "scan-line", "Connexion à la BSI ou à l'ECU et lecture des paramètres d'origine&nbsp;: les options réellement codées sur votre véhicule sont listées avec vous."),
+            ("Sauvegarde", "shield-check", "Export de la configuration d'origine avant toute modification — la base d'un retour à l'état initial si vous le souhaitez."),
+            ("Codage des options", "sliders-horizontal", "Désactivation ou reparamétrage des options choisies : limiteur, start/stop, feux de jour, menu, alertes — une par une."),
+            ("Vérification", "activity", "Contrôle de chaque option au volant puis essai complet&nbsp;: rien n'est laissé en erreur et les voyants restent éteints."),
+        ],
+        "cta": {
+            "kicker": "Une option vous gêne&nbsp;? Appelez maintenant",
+            "title": "Dites-nous quelle option bloquée — nous confirmons sa désactivation en quelques minutes.",
+            "text": "Marque, modèle, année et option concernée (limiteur, start/stop, feux, menu)&nbsp;: nous vérifions la faisabilité puis fixons un créneau — <strong class=\"font-semibold text-zinc-200\">devis gratuit avant toute intervention</strong>.",
+            "points": ["Devis gratuit", "Configuration sauvegardée", "Rapidité d'intervention", "À domicile Lyon &amp; 69"],
+        },
+    },
 ]
 
 # ---------------------------------------------------------------------------
@@ -583,26 +858,6 @@ BASE_CLASS = "transition hover:text-racing"
 ACTIVE_CLASS = "font-semibold text-racing"
 MOBILE_ACTIVE_CLASS = "font-semibold text-racing"
 MOBILE_BASE_CLASS = "text-zinc-300 hover:text-racing"
-
-
-def nav_classes(active):
-    """Classes de navigation selon la page active (piliers)."""
-    def cls(key):
-        return ACTIVE_CLASS if active == key else BASE_CLASS
-
-    def mcls(key):
-        return MOBILE_ACTIVE_CLASS if active == key else MOBILE_BASE_CLASS
-
-    return {
-        "diag_class": cls("diagnostic"),
-        "ecu_class": cls("ecu"),
-        "reprog_class": cls("reprog"),
-        "anti_class": cls("antipollution"),
-        "mobile_diag_class": mcls("diagnostic"),
-        "mobile_ecu_class": mcls("ecu"),
-        "mobile_reprog_class": mcls("reprog"),
-        "mobile_anti_class": mcls("antipollution"),
-    }
 
 
 def automotive_business_node():
@@ -957,7 +1212,7 @@ def breadcrumb_html(s):
 
 def build_page(s):
     canonical = f"{SITE}/{s['file']}"
-    classes = nav_classes(s["active"])
+    nav = render_nav(s["active"])
 
     head = render_head({
         "description": s["description"], "keywords": s["keywords"], "title": s["title"],
@@ -966,7 +1221,7 @@ def build_page(s):
     })
 
     body = f"""{head}
-{NAV.format(**classes)}
+{nav}
   <main>
     <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
       <div class="mx-auto max-w-6xl">
@@ -1099,10 +1354,10 @@ def build_reprogrammation_hub():
         "og_description": "Stage 1 puissance/couple et conversion éthanol E85 flexfuel par FoxFlash — Lyon, Rhône (69) et Ain (01).",
         "schema": schema,
     })
-    classes = nav_classes("reprog")
+    nav = render_nav("reprog")
 
     return f"""{head}
-{NAV.format(**classes)}
+{nav}
   <main>
     <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
       <div class="mx-auto max-w-6xl">
@@ -1235,10 +1490,10 @@ def build_antipollution_hub():
         "og_description": "Suppression définitive FAP, EGR et AdBlue par reprogrammation FoxFlash — Lyon, Rhône (69) et Ain (01).",
         "schema": schema,
     })
-    classes = nav_classes("antipollution")
+    nav = render_nav("antipollution")
 
     return f"""{head}
-{NAV.format(**classes)}
+{nav}
   <main>
     <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
       <div class="mx-auto max-w-6xl">
@@ -1311,6 +1566,126 @@ def build_antipollution_hub():
 """
 
 
+def build_actualites():
+    """actualites.html — hub éditorial « Actualités & guides » (page non-service).
+
+    Contenu réel uniquement : chaque carte pointe vers une page existante.
+    Pas d'article daté inventé — la page se construit par ajout de guides.
+    """
+    import json
+
+    guides = [
+        ("service-cle-voiture.html", "key-round", "Clé de voiture perdue ou cassée", "Duplication, clé de rechange et appairage avec l'immobiliseur — Lyon 69 / Ain 01."),
+        ("service-airbag.html", "shield-check", "Voyant airbag allumé", "Contacteur rotatif, connecteur sous siège, prétensionneur — diagnostic SRS."),
+        ("service-abs.html", "shield-alert", "Voyant ABS allumé", "Capteur de roue ou bloc hydraulique : lire les codes C0xxx avant de remplacer."),
+        ("service-diagnostic.html", "scan-line", "Lire les codes défaut sans se tromper", "Ce que la valise OBD révèle — et pourquoi ne rien effacer à l'aveugle."),
+        ("service-suppression-options.html", "sliders-horizontal", "Limiteur &amp; start/stop : ce qui se code", "Options désactivables dans la BSI / ECU, configuration d'origine sauvegardée."),
+        ("service-fap.html", "filter", "FAP saturé : les vraies options", "Régénérations bloquées, factures qui s'accumulent — ce que dit le diagnostic."),
+    ]
+    guides_html = "\n".join(
+        HUB_CARDS.format(icon=icon, title=title, desc=desc, href=href)
+        for href, icon, title, desc in guides
+    )
+
+    news = [
+        ("service-airbag.html", "Réparation airbag (SRS) — nouvelle prestation"),
+        ("service-cle-voiture.html", "Duplication &amp; programmation de clé de voiture"),
+        ("service-suppression-options.html", "Suppression d'options — codage BSI / ECU"),
+        ("service-abs.html", "Bloc ABS — capteurs de roue, pompe hydraulique"),
+    ]
+    news_html = "\n".join(
+        f'          <li><a href="{href}" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-racing">{label}<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a></li>'
+        for href, label in news
+    )
+
+    schema = json.dumps({"@context": "https://schema.org", "@graph": [
+        automotive_business_node(),
+        {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/",
+         "name": "Mecanoo Lyon", "inLanguage": "fr-FR",
+         "publisher": {"@id": f"{SITE}/#localbusiness"}},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
+            {"@type": "ListItem", "position": 2, "name": "Actualités & guides", "item": f"{SITE}/actualites.html"},
+        ]},
+        {"@type": ["WebPage", "CollectionPage"], "@id": f"{SITE}/actualites.html#webpage",
+         "url": f"{SITE}/actualites.html", "name": "Actualités & guides — Mecanoo Lyon",
+         "inLanguage": "fr-FR", "isPartOf": {"@id": f"{SITE}/#website"},
+         "description": "Guides, conseils et nouveautés de Mecanoo Lyon : clé de voiture, voyant airbag, bloc ABS, suppression FAP et codage d'options — Rhône (69) et Ain (01)."},
+    ]}, ensure_ascii=False)
+
+    head = render_head({
+        "description": "Guides, conseils et nouveautés de Mecanoo Lyon : clé de voiture, voyant airbag, bloc ABS, suppression FAP et codage d'options — Rhône (69) et Ain (01).",
+        "keywords": "actualités auto Lyon, guides diagnostic automobile, conseils entretien 69, électronique automobile Ain 01",
+        "title": "Actualités &amp; guides auto Lyon | Mecanoo",
+        "canonical": f"{SITE}/actualites.html",
+        "og_title": "Actualités & guides auto Lyon | Mecanoo",
+        "og_description": "Guides, conseils et nouveautés de Mecanoo Lyon — clé de voiture, airbag, ABS, FAP, codage options. Rhône (69) et Ain (01).",
+        "schema": schema,
+    })
+    nav = render_nav(None)
+
+    return f"""{head}
+{nav}
+  <main>
+    <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
+      <div class="mx-auto max-w-6xl">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="index.html" class="text-zinc-400 transition hover:text-racing">Accueil</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-zinc-300">Actualités &amp; guides</li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="relative overflow-hidden bg-gradient-to-b from-zinc-950 to-ink pb-16 pt-12 sm:pb-24 sm:pt-16 noise-bg">
+      <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="newspaper" class="h-3.5 w-3.5"></i>&nbsp;guides &amp; nouveautés</p>
+        <h1 class="mb-6 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Actualités &amp; guides — électronique automobile à Lyon</h1>
+        <p class="max-w-3xl text-lg text-zinc-400">Conseils de diagnostic, explications de pannes et nouveautés de nos prestations&nbsp;: de quoi comprendre le problème avant d'ouvrir le capot — <strong class="font-semibold text-zinc-200">Mecanoo</strong> intervient à domicile sur Lyon, Rhône <strong class="font-semibold text-zinc-200">(69)</strong> et Ain <strong class="font-semibold text-zinc-200">(01)</strong>.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="index.html#services" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Toutes nos prestations<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/5 bg-zinc-950 py-14 sm:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Nos guides pratiques</h2>
+        <p class="mt-4 max-w-2xl text-zinc-400">Un guide par symptôme ou par prestation — rédigé à partir de nos interventions réelles sur Lyon et le 69.</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+{guides_html}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-white/5 bg-ink py-14 sm:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Nouveautés du site</h2>
+        <p class="mt-4 max-w-2xl text-zinc-400">Les dernières prestations ajoutées à notre catalogue — chacune dispose de sa page dédiée.</p>
+        <ul class="mt-8 flex flex-wrap gap-3">
+{news_html}
+        </ul>
+      </div>
+    </section>
+{LEGAL}
+    <section class="py-14 sm:py-20">
+      <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <p class="text-lg font-medium text-white">Une question sur votre véhicule ?</p>
+        <p class="mt-3 text-zinc-400">Marque, modèle, année, symptôme — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="tel:+33603439954" class="inline-flex items-center justify-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text=Bonjour%2C%20%C3%A9lectronique%20automobile%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+          <a href="index.html#contact" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+{FOOTER.format(wa_text="Bonjour%2C%20%C3%A9lectronique%20automobile%20Lyon", fab_pos="bottom-5")}
+"""
+
+
 if __name__ == "__main__":
     for svc in SERVICES:
         out = BASE / svc["file"]
@@ -1322,3 +1697,7 @@ if __name__ == "__main__":
     anti = BASE / "service-antipollution.html"
     anti.write_text(build_antipollution_hub(), encoding="utf-8")
     print(f"Generated {anti.name}")
+    act = BASE / "actualites.html"
+    act.write_text(build_actualites(), encoding="utf-8")
+    print(f"Generated {act.name}")
+    sync_nav_pages()

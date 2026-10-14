@@ -1,5 +1,6 @@
 # https://mecanolyon.fr/ (domaine canonique — pas de www)
 User-agent: *
 Allow: /
+Disallow: /partials/
 
 Sitemap: https://mecanolyon.fr/sitemap.xml

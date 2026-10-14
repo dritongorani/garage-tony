@@ -2,7 +2,8 @@
 
 Site **100 % statique** (HTML / CSS / JS) pour *Mecanoo Lyon*, électronique automobile
 et diagnostic à Lyon : diagnostic valise OBD, clonage ECU/BSI, reprogrammation Stage 1
-& Éthanol E85, solutions anti-pollution (FAP / EGR / AdBlue) et réparation de bloc ABS.
+& Éthanol E85, solutions anti-pollution (FAP / EGR / AdBlue), réparation de bloc ABS,
+réparation airbag, duplication de clé, suppression d'options et hub de guides.
 
 > **Pas de backend.** Aucun Node.js, Express, Python à l'exécution, ni base de données.
 > Le site est composé de fichiers statiques servis tels quels.
@@ -27,6 +28,7 @@ et diagnostic à Lyon : diagnostic valise OBD, clonage ECU/BSI, reprogrammation 
 mecanolyon/
 ├── index.html                    # Accueil
 ├── service-abs.html              # Réparation bloc ABS
+├── service-airbag.html           # Réparation airbag (SRS / voyant airbag)
 ├── service-diagnostic.html       # Diagnostic électronique (pilier)
 ├── service-ecu-clonage.html      # Clonage / programmation ECU-BSI
 ├── service-reprogrammation.html  # Reprog Stage 1 & Éthanol E85 (hub)
@@ -37,19 +39,27 @@ mecanolyon/
 ├── service-egr.html              # Suppression vanne EGR
 ├── service-adblue.html           # Dépannage / suppression AdBlue
 ├── service-immo-off.html         # Suppression d'immobiliseur
+├── service-cle-voiture.html      # Duplication / programmation de clé
+├── service-suppression-options.html  # Codage & désactivation d'options
+├── actualites.html               # Guides & nouveautés (hub éditorial)
 ├── zone-intervention.html        # Zone d'intervention (Rhône / Ain)
 ├── thank-you.html                # Page de remerciement (noindex)
 │
-├── sitemap.xml                   # Sitemap (13 URL indexables)
+├── sitemap.xml                   # Sitemap (17 URL indexables)
 ├── robots.txt                    # + directive Sitemap
 ├── CNAME                         # Domaine personnalisé GitHub Pages
+│
+├── partials/                     # Composants partagés (markup unique)
+│   └── navbar.html               # ⚠️ Source unique de la nav — éditez ICI
 │
 ├── images/                       # Images référencées par les balises <img> / og:image
 │   └── seo-reparation-voiture-lyon_1.jpg
 ├── assets/                       # Scripts et assets partagés
-│   └── canonical-host.js         # Redirige www → domaine canonique
+│   ├── canonical-host.js         # Redirige www → domaine canonique
+│   └── nav.js                    # Dropdown « Nos services » + menu mobile
 │
 ├── generate-services.py          # ⚠️ Source de vérité des pages service-*.html
+│                                 #    + injecte partials/navbar.html (sync_nav_pages)
 ├── .agent/                       # Configuration des agents (ignorée par git)
 │
 ├── Dockerfile / nginx.conf / docker-compose.yml   # Aperçu local optionnel
@@ -94,6 +104,55 @@ python3 generate-services.py
 
 ---
 
+## Composant de navigation (`partials/navbar.html`)
+
+La nav existe **à un seul endroit** : `partials/navbar.html`. Elle est injectée à
+la génération dans **toutes** les pages :
+
+| Cible | Mécanisme |
+|---|---|
+| `service-*.html` (générées) | `render_nav(active)` dans `generate-services.py` |
+| `index.html`, `zone-intervention.html` | `sync_nav_pages()` — remplace le bloc entre les marqueurs `<!-- nav:begin -->` … `<!-- nav:end -->` |
+
+**Règles :**
+
+- ✏️ Pour changer le menu (libellés, ordre, styles, état `hover`) : éditez
+  **`partials/navbar.html`**, jamais une page.
+- ⚠️ Ne pas éditer le markup *entre* `nav:begin` et `nav:end` : il est réécrit à
+  chaque `python3 generate-services.py`.
+- Le partial utilise des tokens `str.format` : **aucune accolade littérale**
+  (`{` `}`) autorisée hors tokens (`{diag_class}`, `{abs_class}`, `{zone_class}`,
+  `{mobile_*}`, `{home_href}`, `{services_href}`, `{faq_href}`, `{contact_href}`).
+  Un token manquant → le générateur s'arrête sur `KeyError`.
+- Si les marqueurs `nav:begin` / `nav:end` sont supprimés d'une page, le
+  générateur **sort en erreur** plutôt que de réécrire hors marqueurs.
+
+**Structure actuelle du menu** (Mobile-First, `lg:` pour le desktop) :
+
+- Liens de premier niveau : `Accueil` · `Nos services` ▾ · `Actualités` ·
+  `Contact`.
+- Le déroulant « Nos services » liste **exactement 6 prestations** : Clé de
+  voiture, Diagnostic auto, Réparation Airbag *(badge « Nouveau »)*,
+  Suppression d'options, Suppression AdBlue, Clonage Calculateur Moteur —
+  plus un lien de pied « Voir toutes les prestations » (`{services_href}`).
+- Le comportement (survol/clic/`Échap`/clic extérieur, accordéon mobile,
+  icône burger `menu` ⇄ `x`) est porté par **`assets/nav.js`**, chargé en fin
+  de partial (`defer`). Il n'y a **aucune CSS custom** : les états « fermé »
+  sont des classes Tailwind statiques du partial, `nav.js` ne fait qu'écrire
+  les styles inline qui déclenchent la transition. Aucune classe générée à la
+  volée → compatible CDN Tailwind et zéro CLS (menu fermé = 0 px).
+- ⚠️ `nav.js` neutralise l'ancien listener inline qui basculait la classe
+  `hidden` sur `#mobile-menu` (présent dans le `FOOTER` de
+  `generate-services.py`, `index.html` et `zone-intervention.html`). Ce
+  listener peut être supprimé sans risque : `assets/nav.js` est devenu la
+  seule source d'état.
+
+**Liens en attente de leur page** (à créer + à ajouter dans `sitemap.xml`) :
+`actualites.html`, `service-cle-voiture.html`, `service-suppression-options.html`. Ils sont déjà en place dans le partial —
+la checklist « aucun lien mort » ne sera verte qu'après leur création.
+
+---
+
 ## Déploiement
 
 Le site se déploie automatiquement sur GitHub Pages à chaque push sur `main`.
@@ -118,11 +177,12 @@ python3 generate-services.py          # 1. Régénérer (idempotent)
 Vérifications à passer avant commit :
 
 - [ ] **Liens internes** — aucun lien mort, ancres `#...` résolues
-- [ ] **JSON-LD** — parsé sur les 14 pages (`@graph` : LocalBusiness, Breadcrumb, Service, FAQPage)
+- [ ] **JSON-LD** — parsé sur les 17 pages qui en déclarent (`@graph` : LocalBusiness, Breadcrumb, Service/WebPage, FAQPage — `thank-you.html` est `noindex`)
 - [ ] **1 seul `<h1>`** par page
 - [ ] **Méta** — title 30–60 car., description 120–160 car.
 - [ ] **`sitemap.xml`** — XML valide, toutes les URL existent, couvre les pages indexables
 - [ ] **`robots.txt`** — contient `Sitemap: https://mecanolyon.fr/sitemap.xml`
+- [ ] **Nav** — marqueurs `nav:begin` / `nav:end` intacts dans `index.html` et `zone-intervention.html`
 - [ ] **Assets** — `src` / `href` pointant vers `images/` et `assets/` existants
 
 ---

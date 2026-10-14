@@ -4,6 +4,8 @@
 .gitignore
 .dockerignore
 *.md
+# Fragments de build — déjà injectés dans les pages rendues, inutiles dans l'image
+partials
 generate-services.py
 Dockerfile
 docker-compose.yml
