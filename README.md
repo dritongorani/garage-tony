@@ -15,6 +15,8 @@ réparation airbag, duplication de clé, suppression d'options et hub de guides.
 | | |
 |---|---|
 | Front | HTML statique, CSS, JavaScript (vanilla) |
+| CSS | **Tailwind compilé en statique** (`assets/tailwind.css`) — plus de CDN JIT |
+| Icônes | **Sprite SVG local** (`assets/icons.svg`, 69 icônes Lucide) — sans JS |
 | Hébergement | **GitHub Pages** |
 | Domaine | `mecanolyon.fr` — déclaré par le fichier `CNAME` |
 | Générateur | `generate-services.py` — Python 3, **stdlib seule**, aucune dépendance |
@@ -62,7 +64,11 @@ mecanolyon/
 │   └── seo-reparation-voiture-lyon_1.jpg
 ├── assets/                       # Scripts et assets partagés
 │   ├── canonical-host.js         # Redirige www → domaine canonique
-│   └── nav.js                    # Dropdown « Nos services » + menu mobile
+│   ├── nav.js                    # Dropdown « Nos services » + menu mobile
+│   ├── tailwind.css              # ⚠️ CSS Tailwind compilé (artefact — ne pas éditer)
+│   ├── tailwind.src.css          # Source (@tailwind base/components/utilities)
+│   └── icons.svg                 # ⚠️ Sprite des 69 icônes Lucide (artefact)
+├── tailwind.config.js            # Thème Tailwind (couleurs racing/ink) pour la compilation
 │
 ├── generate-services.py          # ⚠️ Source de vérité des pages service-*.html
 │                                 #    + des pages services/ (hub + 4 clés auto)
@@ -114,6 +120,43 @@ python3 generate-services.py
   (`try_files $uri $uri/ $uri.html`). Les liens internes de ces pages sont
   préfixés via le token `prefix` (`""` à la racine, `"/"` sous `services/`).
 - Après ajout d'une page, ajoutez-la aussi dans `sitemap.xml`.
+
+### Compiler les assets (CSS Tailwind + icônes)
+
+`assets/tailwind.css` et `assets/icons.svg` sont des **artefacts versionnés** :
+GitHub Pages les sert tels quels, sans étape de build. Ils ne se régénèrent que
+si vous changez le thème ou le jeu d'icônes — sinon, aucune action n'est requise.
+
+**CSS** — Tailwind compilé en statique (plus de `cdn.tailwindcss.com`, qui était
+un script bloquant exécutant le compilateur JIT dans le navigateur) :
+
+```bash
+# 1. Télécharger le binaire standalone (sans Node) — une seule fois
+curl -sL -o /tmp/tailwind \
+  https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.17/tailwindcss-linux-x64
+chmod +x /tmp/tailwind
+
+# 2. Compiler (minifié) depuis les sources
+/tmp/tailwind build -c tailwind.config.js \
+  -i assets/tailwind.src.css -o assets/tailwind.css --minify
+```
+
+Le `content` de `tailwind.config.js` scanne **toutes** les pages (`./ *.html`,
+`./services/**/*.html`, `./assets/*.js`) : chaque classe utilisée est émise, la
+purge ne peut rien éliminer à tort. Après avoir ajouté une classe dans le HTML,
+recompilez pour qu'elle existe dans le CSS.
+
+**Icônes** — sprite SVG local, remplaçant `unpkg.com/lucide@latest` (requête
+tierce non versionnée) et l'exécution JS de `createIcons()` sur ~1 800 nœuds :
+
+- Chaque icône est un `<symbol id="nom">` dans `assets/icons.svg`, référencée par
+  `<svg class="…"><use href="/assets/icons.svg#nom"></use></svg>`.
+- `currentColor` hérite du contexte : les icônes suivent la couleur du texte
+  (`text-racing`, etc.) sans CSS dédiée. Zéro JS, zéro requête tierce, zéro CLS.
+- Pour ajouter une icône : récupérez son SVG sur `lucide-static`, ajoutez un
+  `<symbol>` (viewBox `0 0 24 24`, `fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap/linejoin="round"`), et référencez-le par `<use>`.
+  Toutes les icônes utilisées dans le site doivent exister dans ce sprite.
 
 ---
 

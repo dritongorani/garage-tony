@@ -44,8 +44,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{racing:'#FF5733',racingStrong:'#D03F14',ink:'#0a0c0f'},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="/assets/tailwind.css">
   <style>
     html{scroll-behavior:smooth;}
     section[id]{scroll-margin-top:5rem;}
@@ -178,8 +177,7 @@ FOOTER = """
     </div>
   </footer>
   <a href="https://wa.me/33603439954?text={wa_text}" target="_blank" rel="noopener noreferrer" class="fixed {fab_pos} right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-black/40 ring-2 ring-black/40 transition hover:scale-105 md:bottom-8 md:right-8" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>lucide.createIcons();document.getElementById('year').textContent=new Date().getFullYear();var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m)b.addEventListener('click',function(){{m.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!m.classList.contains('hidden')));}});</script>
+<script>document.getElementById('year').textContent=new Date().getFullYear();var b=document.getElementById('mobile-menu-btn'),m=document.getElementById('mobile-menu');if(b&&m)b.addEventListener('click',function(){{m.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!m.classList.contains('hidden')));}});</script>
 </body>
 </html>
 """
@@ -1335,13 +1333,13 @@ def problem_cards(s):
         if modern:
             cards.append(f"""          <li class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-white/[0.01] p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10">
             <span class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
-            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-6 w-6"></i></div>
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg></div>
             <h3 class="text-lg font-bold text-white">{title}</h3>
             <p class="mt-2 text-sm leading-relaxed text-zinc-400">{desc}</p>
           </li>""")
         else:
             cards.append(f"""          <li class="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-            <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-racing/10 text-racing ring-1 ring-racing/20"><i data-lucide="{icon}" class="h-5 w-5"></i></div>
+            <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-racing/10 text-racing ring-1 ring-racing/20"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg></div>
             <h3 class="font-semibold text-white">{title}</h3>
             <p class="mt-2 text-sm text-zinc-400">{desc}</p>
           </li>""")
@@ -1353,7 +1351,7 @@ def solution_points(points):
     rows = []
     for i, p in enumerate(points):
         icon = icons[i % len(icons)]
-        rows.append(f'            <li class="flex gap-3"><i data-lucide="{icon}" class="mt-1 h-5 w-5 shrink-0 text-racing"></i><span>{p}</span></li>')
+        rows.append(f'            <li class="flex gap-3"><svg class="mt-1 h-5 w-5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg><span>{p}</span></li>')
     return "\n".join(rows)
 
 
@@ -1369,7 +1367,7 @@ def reassurance_block(s):
     rows = []
     for icon, title, desc in items:
         rows.append(f"""          <li class="group flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition duration-300 hover:-translate-y-0.5 hover:border-racing/40 hover:bg-racing/[0.07] sm:items-center">
-            <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-5 w-5"></i></span>
+            <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg></span>
             <span class="min-w-0">
               <span class="block font-semibold leading-tight text-white">{title}</span>
               <span class="mt-1 block text-sm leading-snug text-zinc-400">{desc}</span>
@@ -1439,13 +1437,13 @@ def guarantees_block():
     for icon, title, desc in KEY_GUARANTEES:
         items.append(f"""          <li class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10">
             <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
-            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-6 w-6"></i></span>
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg></span>
             <h3 class="text-lg font-bold text-white">{title}</h3>
             <p class="mt-2 text-sm leading-relaxed text-zinc-400">{desc}</p>
           </li>""")
     return f"""    <section id="garanties" class="border-b border-white/5 bg-ink py-14 sm:py-20" aria-labelledby="garanties-heading">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="shield-check" class="h-3.5 w-3.5"></i>&nbsp;Garanties &amp; compétences</p>
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#shield-check"></use></svg>&nbsp;Garanties &amp; compétences</p>
         <h2 id="garanties-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">Précision, méthode et contrôle — à chaque intervention</h2>
         <p class="mt-4 max-w-3xl text-zinc-400">Nos compétences reposent sur un équipement électronique de précision, un taillage laser informatisé et un diagnostic adapté à chaque constructeur — sans dégât sur votre véhicule.</p>
         <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -1461,14 +1459,14 @@ def why_choose_block():
     items = []
     for icon, title, desc in WHY_CHOOSE:
         items.append(f"""          <li class="group flex flex-col items-center text-center">
-            <span class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-racing/15 text-racing ring-1 ring-racing/30 transition duration-300 group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-7 w-7"></i></span>
+            <span class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-racing/15 text-racing ring-1 ring-racing/30 transition duration-300 group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-7 w-7" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg></span>
             <h3 class="text-base font-bold text-white">{title}</h3>
             <p class="mt-2 max-w-[16rem] text-sm leading-relaxed text-zinc-400">{desc}</p>
           </li>""")
     return f"""    <section id="pourquoi-nous-choisir" class="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-zinc-950 to-ink py-16 sm:py-24" aria-labelledby="pourquoi-heading">
       <div class="absolute left-1/2 top-0 h-64 w-[46rem] -translate-x-1/2 rounded-full bg-racing/10 blur-3xl" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="badge-check" class="h-3.5 w-3.5"></i>&nbsp;Pourquoi nous choisir</p>
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#badge-check"></use></svg>&nbsp;Pourquoi nous choisir</p>
         <h2 id="pourquoi-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">Des engagements clairs, pas des promesses</h2>
         <p class="mt-4 max-w-3xl text-zinc-400">Rapidité, transparence du devis, garantie du travail et précision du matériel — voici sur quoi vous pouvez compter, à Lyon et en agglomération.</p>
         <ul class="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -1487,15 +1485,15 @@ def problems_resolved_block():
         items.append(f"""          <li>
             <a href="{href}" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
               <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
-              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-5 w-5"></i></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg></span>
               <p class="text-base font-semibold italic text-zinc-200">{quote}</p>
               <p class="mt-2 text-sm leading-relaxed text-zinc-400">{desc}</p>
-              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">{label}<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">{label}<svg class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></span>
             </a>
           </li>""")
     return f"""    <section id="problemes-resolus" class="border-b border-white/5 bg-zinc-950 py-14 sm:py-20" aria-labelledby="problemes-heading">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="life-buoy" class="h-3.5 w-3.5"></i>&nbsp;Problèmes résolus</p>
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#life-buoy"></use></svg>&nbsp;Problèmes résolus</p>
         <h2 id="problemes-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">Vous reconnaissez-vous&nbsp;? Nous avons la solution.</h2>
         <p class="mt-4 max-w-3xl text-zinc-400">Quatre situations fréquentes — chacune renvoie vers la prestation qui la traite, avec devis avant intervention.</p>
         <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -1514,7 +1512,7 @@ def solution_section(s):
     single = '      <div class="mx-auto max-w-6xl px-4 sm:px-6">'
 
     deroulement = "" if has_process else """        <div class="rounded-2xl border border-racing/20 bg-racing/5 p-6">
-          <h3 class="flex items-center gap-2 font-semibold text-white"><i data-lucide="wrench" class="h-5 w-5 text-racing"></i>Déroulement</h3>
+          <h3 class="flex items-center gap-2 font-semibold text-white"><svg class="h-5 w-5 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#wrench"></use></svg>Déroulement</h3>
           <ol class="mt-4 space-y-3 text-sm text-zinc-400">
             <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">1</span><span>Diagnostic valise OBD — marque, modèle, motorisation, codes défaut.</span></li>
             <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-racing/20 text-xs font-bold text-racing">2</span><span>Devis transparent avant intervention.</span></li>
@@ -1534,8 +1532,8 @@ def solution_section(s):
 {solution_points(s['solution_points'])}
           </ul>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="{P}{s['hub_url']}" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s['hub_label']}<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+            <a href="{P}{s['hub_url']}" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s['hub_label']}<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
           </div>
         </div>
 {deroulement}      </div>
@@ -1552,19 +1550,19 @@ def process_block(s):
     for i, (title, icon, desc) in enumerate(steps, start=1):
         cards.append(f"""          <li class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.07] via-white/[0.03] to-white/[0.01] p-6 transition duration-300 hover:-translate-y-1.5 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10">
             <span class="pointer-events-none absolute right-4 top-3 select-none text-5xl font-extrabold leading-none text-white/[0.07] transition group-hover:text-racing/30" aria-hidden="true">0{i}</span>
-            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-6 w-6"></i></span>
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg></span>
             <h3 class="pr-8 text-lg font-bold text-white">{title}</h3>
             <p class="mt-2 text-sm leading-relaxed text-zinc-400">{desc}</p>
           </li>""")
     return f"""    <section id="process" class="border-b border-white/5 bg-zinc-950 py-14 sm:py-20" aria-labelledby="process-heading">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="list-checks" class="h-3.5 w-3.5"></i>&nbsp;{s['process_kicker']}</p>
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#list-checks"></use></svg>&nbsp;{s['process_kicker']}</p>
         <h2 id="process-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">{s['process_title']}</h2>
         <p class="mt-4 max-w-3xl text-zinc-400">{s['process_intro']}</p>
         <ol class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 {chr(10).join(cards)}
         </ol>
-        <p class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-zinc-400"><i data-lucide="info" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Chaque étape fait l'objet d'un point avec vous&nbsp;: rien n'est déposé ni remplacé sans votre accord.</p>
+        <p class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-zinc-400"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#info"></use></svg>Chaque étape fait l'objet d'un point avec vous&nbsp;: rien n'est déposé ni remplacé sans votre accord.</p>
       </div>
     </section>
 """
@@ -1576,8 +1574,8 @@ def sticky_cta(s):
         return ""
     return f"""    <div class="fixed inset-x-0 bottom-0 z-[55] border-t border-white/10 bg-ink/95 px-3 py-3 backdrop-blur-md md:hidden" role="region" aria-label="Contact rapide">
       <div class="mx-auto flex max-w-6xl gap-3">
-        <a href="tel:+33603439954" class="flex flex-1 items-center justify-center gap-2 rounded-xl bg-racing-strong px-4 py-3 text-sm font-bold text-white shadow-lg shadow-racing/30 transition active:scale-95"><i data-lucide="phone" class="h-4 w-4" aria-hidden="true"></i>Appeler</a>
-        <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/15 px-4 py-3 text-sm font-bold text-emerald-300 transition active:scale-95"><i data-lucide="message-circle" class="h-4 w-4" aria-hidden="true"></i>WhatsApp</a>
+        <a href="tel:+33603439954" class="flex flex-1 items-center justify-center gap-2 rounded-xl bg-racing-strong px-4 py-3 text-sm font-bold text-white shadow-lg shadow-racing/30 transition active:scale-95"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appeler</a>
+        <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/15 px-4 py-3 text-sm font-bold text-emerald-300 transition active:scale-95"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
       </div>
     </div>
 """
@@ -1593,22 +1591,22 @@ def final_cta(s):
         <p class="text-lg font-medium text-white">Besoin d'un devis — {s['service_name']} ?</p>
         <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-          <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+          <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
         </div>
       </div>
     </section>"""
 
     points = "\n".join(
-        f'          <li class="inline-flex items-center gap-2"><i data-lucide="circle-check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>{p}</li>'
+        f'          <li class="inline-flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#circle-check"></use></svg>{p}</li>'
         for p in cta["points"]
     )
     return f"""    <section class="relative overflow-hidden border-t border-white/5 py-16 sm:py-24" aria-labelledby="cta-heading">
       <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/70 to-transparent" aria-hidden="true"></div>
       <div class="absolute left-1/2 top-0 h-64 w-[46rem] -translate-x-1/2 rounded-full bg-racing/20 blur-3xl" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
-        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="siren" class="h-3.5 w-3.5" aria-hidden="true"></i>&nbsp;{cta['kicker']}</p>
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#siren"></use></svg>&nbsp;{cta['kicker']}</p>
         <h2 id="cta-heading" class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">{cta['title']}</h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-zinc-400">{cta['text']}</p>
         <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
@@ -1616,9 +1614,9 @@ def final_cta(s):
             <span class="relative flex h-3 w-3" aria-hidden="true"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span><span class="relative inline-flex h-3 w-3 rounded-full bg-white"></span></span>
             Appeler le 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54
           </a>
-          <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#25D366]/45 bg-[#25D366]/15 px-7 py-4 text-base font-bold text-emerald-300 transition duration-200 hover:scale-[1.03] hover:bg-[#25D366]/25 active:scale-95 sm:text-lg"><i data-lucide="message-circle" class="h-5 w-5" aria-hidden="true"></i>WhatsApp</a>
+          <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#25D366]/45 bg-[#25D366]/15 px-7 py-4 text-base font-bold text-emerald-300 transition duration-200 hover:scale-[1.03] hover:bg-[#25D366]/25 active:scale-95 sm:text-lg"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
         </div>
-        <a href="{P}index.html#contact" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-300 underline-offset-4 transition hover:text-racing hover:underline">Préférez-vous le formulaire de contact ?<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+        <a href="{P}index.html#contact" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-300 underline-offset-4 transition hover:text-racing hover:underline">Préférez-vous le formulaire de contact ?<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
         <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-medium text-zinc-300">
 {points}
         </ul>
@@ -1644,7 +1642,7 @@ def related_block(s):
     if not links:
         return ""
     items = "\n".join(
-        f'          <li><a href="{P}{href}" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-racing">{label}<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a></li>'
+        f'          <li><a href="{P}{href}" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-racing">{label}<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a></li>'
         for href, label in links
     )
     return f"""    <section class="border-b border-white/5 bg-zinc-950 py-10 sm:py-12" aria-label="Pages associées">
@@ -1738,13 +1736,13 @@ def build_page(s):
       <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12">
         <div class="lg:col-span-3">
-          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="{s['icon']}" class="h-3.5 w-3.5"></i>&nbsp;{s['badge']}</p>
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{s['icon']}"></use></svg>&nbsp;{s['badge']}</p>
           <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">{s['h1']}</h1>
           <p class="text-lg text-zinc-400">{s['hero']}</p>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s.get('hero_cta_label', 'Demander un devis')}<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+            <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s.get('hero_cta_label', 'Demander un devis')}<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
           </div>
         </div>
         <div class="mt-10 lg:col-span-2 lg:mt-0">
@@ -1781,10 +1779,10 @@ def build_page(s):
 # ---------------------------------------------------------------------------
 
 HUB_CARDS = """          <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
-            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30"><i data-lucide="{icon}" class="h-6 w-6"></i></div>
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30"><svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#{icon}"></use></svg></div>
             <h3 class="text-lg font-bold text-white">{title}</h3>
             <p class="mt-2 text-sm text-zinc-400">{desc}</p>
-            <div class="mt-auto pt-6"><a href="{href}" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4"></i></a></div>
+            <div class="mt-auto pt-6"><a href="{href}" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a></div>
           </article>"""
 
 
@@ -1867,13 +1865,13 @@ def build_reprogrammation_hub():
       <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12">
         <div class="lg:col-span-3">
-          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="zap" class="h-3.5 w-3.5"></i>&nbsp;reprogrammation moteur Lyon — Stage 1 &amp; E85</p>
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#zap"></use></svg>&nbsp;reprogrammation moteur Lyon — Stage 1 &amp; E85</p>
           <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Reprogrammation moteur — Stage 1 &amp; conversion Éthanol E85 à Lyon</h1>
           <p class="text-lg text-zinc-400"><strong class="font-semibold text-zinc-200">Reprogrammation moteur Lyon</strong>&nbsp;: <strong class="font-semibold text-zinc-200">Stage 1</strong> (gain de puissance et couple) et <strong class="font-semibold text-zinc-200">conversion Éthanol E85</strong> (flexfuel) intégrée au calculateur — sans boîtier, outils <strong class="font-semibold text-zinc-200">FoxFlash</strong>, intervention sur Lyon, Rhône <strong class="font-semibold text-zinc-200">(69)</strong> et Ain <strong class="font-semibold text-zinc-200">(01)</strong>.</p>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-            <a href="https://wa.me/33603439954?text=Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis reprog moteur<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="https://wa.me/33603439954?text=Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+            <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis reprog moteur<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
           </div>
         </div>
         <div class="mt-10 lg:col-span-2 lg:mt-0">
@@ -1918,9 +1916,9 @@ def build_reprogrammation_hub():
         <p class="text-lg font-medium text-white">Un devis Stage 1 ou E85 ?</p>
         <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="https://wa.me/33603439954?text=Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text=Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
         </div>
       </div>
     </section>
@@ -2003,13 +2001,13 @@ def build_antipollution_hub():
       <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12">
         <div class="lg:col-span-3">
-          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="filter" class="h-3.5 w-3.5"></i>&nbsp;solutions anti-pollution Lyon — FAP · EGR · AdBlue</p>
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#filter"></use></svg>&nbsp;solutions anti-pollution Lyon — FAP · EGR · AdBlue</p>
           <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Solutions anti-pollution — FAP, EGR &amp; AdBlue à Lyon</h1>
           <p class="text-lg text-zinc-400"><strong class="font-semibold text-zinc-200">Solutions anti-pollution Lyon</strong>&nbsp;: <strong class="font-semibold text-zinc-200">suppression définitive FAP, EGR et AdBlue</strong> par reprogrammation logicielle <strong class="font-semibold text-zinc-200">FoxFlash</strong> — fin des voyants, des régénérations et des frais de concession sur Lyon, Rhône <strong class="font-semibold text-zinc-200">(69)</strong> et Ain <strong class="font-semibold text-zinc-200">(01)</strong>.</p>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-            <a href="https://wa.me/33603439954?text=Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis anti-pollution<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="https://wa.me/33603439954?text=Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+            <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis anti-pollution<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
           </div>
         </div>
         <div class="mt-10 lg:col-span-2 lg:mt-0">
@@ -2054,9 +2052,9 @@ def build_antipollution_hub():
         <p class="text-lg font-medium text-white">Un devis suppression FAP, EGR ou AdBlue ?</p>
         <p class="mt-3 text-zinc-400">Marque, modèle, année, motorisation, symptômes — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="https://wa.me/33603439954?text=Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text=Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
         </div>
       </div>
     </section>
@@ -2142,13 +2140,13 @@ def build_services_hub():
       <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12">
         <div class="lg:col-span-3">
-          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="key-round" class="h-3.5 w-3.5"></i>&nbsp;services clés auto &amp; électronique — Lyon 69 / Ain 01</p>
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-round"></use></svg>&nbsp;services clés auto &amp; électronique — Lyon 69 / Ain 01</p>
           <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Services clés auto &amp; électronique à Lyon</h1>
           <p class="text-lg text-zinc-400">Quatre prestations urgentes, un seul interlocuteur&nbsp;: <strong class="font-semibold text-zinc-200">reproduction de clés et télécommandes</strong>, <strong class="font-semibold text-zinc-200">création de clé sur place</strong> en cas de perte totale, <strong class="font-semibold text-zinc-200">ouverture de véhicule non destructive</strong> et <strong class="font-semibold text-zinc-200">programmation électronique ECU</strong> — intervention à domicile sur Lyon, Rhône <strong class="font-semibold text-zinc-200">(69)</strong> et Ain <strong class="font-semibold text-zinc-200">(01)</strong>.</p>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-            <a href="{wa}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis express à Lyon<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="{wa}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+            <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis express à Lyon<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
           </div>
         </div>
         <div class="mt-10 lg:col-span-2 lg:mt-0">
@@ -2195,9 +2193,9 @@ def build_services_hub():
         <p class="text-lg font-medium text-white">Une clé bloquante, un calculateur en panne&nbsp;?</p>
         <p class="mt-3 text-zinc-400">Marque, modèle, année et symptôme — réponse rapide sur Lyon, Rhône (69) et Ain (01).</p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="tel:+33603439954" class="inline-flex items-center justify-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="{wa}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-          <a href="{P}index.html#contact" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Devis express à Lyon<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          <a href="tel:+33603439954" class="inline-flex items-center justify-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="{wa}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+          <a href="{P}index.html#contact" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Devis express à Lyon<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
         </div>
       </div>
     </section>
@@ -2234,7 +2232,7 @@ def build_actualites():
         ("service-abs.html", "Bloc ABS — capteurs de roue, pompe hydraulique"),
     ]
     news_html = "\n".join(
-        f'          <li><a href="{href}" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-racing">{label}<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a></li>'
+        f'          <li><a href="{href}" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-racing">{label}<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a></li>'
         for href, label in news
     )
 
@@ -2280,12 +2278,12 @@ def build_actualites():
     <section class="relative overflow-hidden bg-gradient-to-b from-zinc-950 to-ink pb-16 pt-12 sm:pb-24 sm:pt-16 noise-bg">
       <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="newspaper" class="h-3.5 w-3.5"></i>&nbsp;guides &amp; nouveautés</p>
+        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#newspaper"></use></svg>&nbsp;guides &amp; nouveautés</p>
         <h1 class="mb-6 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Actualités &amp; guides — électronique automobile à Lyon</h1>
         <p class="max-w-3xl text-lg text-zinc-400">Conseils de diagnostic, explications de pannes et nouveautés de nos prestations&nbsp;: de quoi comprendre le problème avant d'ouvrir le capot — <strong class="font-semibold text-zinc-200">Mecanoo</strong> intervient à domicile sur Lyon, Rhône <strong class="font-semibold text-zinc-200">(69)</strong> et Ain <strong class="font-semibold text-zinc-200">(01)</strong>.</p>
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="index.html#services" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Toutes nos prestations<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="index.html#services" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Toutes nos prestations<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
         </div>
       </div>
     </section>
@@ -2315,9 +2313,9 @@ def build_actualites():
         <p class="text-lg font-medium text-white">Une question sur votre véhicule ?</p>
         <p class="mt-3 text-zinc-400">Marque, modèle, année, symptôme — réponse sous 24 h en général sur Lyon, Rhône (69) et Ain (01).</p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="tel:+33603439954" class="inline-flex items-center justify-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
-          <a href="https://wa.me/33603439954?text=Bonjour%2C%20%C3%A9lectronique%20automobile%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-          <a href="index.html#contact" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          <a href="tel:+33603439954" class="inline-flex items-center justify-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="https://wa.me/33603439954?text=Bonjour%2C%20%C3%A9lectronique%20automobile%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#message-circle"></use></svg>WhatsApp</a>
+          <a href="index.html#contact" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
         </div>
       </div>
     </section>

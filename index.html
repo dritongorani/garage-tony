@@ -60,22 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            racing: '#FF5733',
-            ink: '#0a0c0f',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
+  <link rel="stylesheet" href="/assets/tailwind.css">
 
   <style>
     html {
@@ -390,7 +375,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <header class="glass-nav sticky top-0 z-50">
     <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6" aria-label="Navigation principale">
       <a href="index.html#hero" class="flex shrink-0 items-center gap-2 rounded-lg text-lg font-bold tracking-tight text-white transition hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
-        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-racing/15 text-racing ring-1 ring-racing/30" aria-hidden="true"><i data-lucide="cpu" class="h-5 w-5"></i></span>
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-racing/15 text-racing ring-1 ring-racing/30" aria-hidden="true"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#cpu"></use></svg></span>
         Mecanoo Lyon
       </a>
 
@@ -403,9 +388,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Dropdown « Nos services » -->
         <li id="nav-dd" data-nav-dd class="relative">
           <button type="button" id="nav-dd-btn" data-nav-dd-btn aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true" class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 font-medium text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:active:scale-100">
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35 transition group-hover:bg-racing/25 group-hover:ring-racing/60 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key-round" class="h-3.5 w-3.5"></i></span>
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35 transition group-hover:bg-racing/25 group-hover:ring-racing/60 motion-reduce:transition-none" aria-hidden="true"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-round"></use></svg></span>
             Nos services
-            <span id="nav-dd-chev" data-nav-dd-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500 transition group-hover:text-racing"></i></span>
+            <span id="nav-dd-chev" data-nav-dd-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4 text-zinc-500 transition group-hover:text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-down"></use></svg></span>
           </button>
 
           <div id="nav-dd-panel" data-nav-dd-panel role="group" aria-labelledby="nav-dd-btn" class="invisible absolute left-0 top-full z-10 w-[20rem] origin-top-left -translate-y-1 scale-[0.97] pt-3 opacity-0 pointer-events-none transition-all duration-200 ease-out motion-reduce:transition-none sm:w-[21.5rem]">
@@ -417,27 +402,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <ul class="space-y-0.5 p-2">
                 <li>
                   <a href="service-cle-voiture.html" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Clé de voiture</span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Duplication &amp; programmation de clé</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
                 <li>
                   <a href="service-diagnostic.html" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="scan-line" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#scan-line"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Diagnostic auto</span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Valise OBD multimarque</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
                 <li>
                   <a href="service-airbag.html" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="shield" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#shield"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="flex flex-wrap items-center gap-1.5 text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">
                         Réparation Airbag
@@ -445,44 +430,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       </span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Voyant airbag &amp; module</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
                 <li>
                   <a href="service-suppression-options.html" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="sliders-horizontal" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#sliders-horizontal"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Suppression d'options</span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Limiteur, start &amp; stop, feux…</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
                 <li>
                   <a href="service-adblue.html" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="droplet" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#droplet"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Suppression AdBlue</span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Défaut SCR &amp; dosage</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
                 <li>
                   <a href="service-ecu-clonage.html" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="cpu" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#cpu"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Clonage Calculateur Moteur</span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Copie ECU / BSI &amp; codage VIN</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
               </ul>
               <div class="border-t border-white/5 p-2">
                 <a href="#services" class="group flex items-center justify-between gap-2 rounded-xl bg-white/[0.03] px-3 py-2.5 text-xs font-semibold text-zinc-300 transition hover:bg-racing/10 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
                   Voir toutes les prestations
-                  <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true"></i>
+                  <svg class="h-4 w-4 transition group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg>
                 </a>
               </div>
             </div>
@@ -492,9 +477,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Dropdown « Clés & électronique » — Services clés auto (pilier dédié) -->
         <li id="nav-keys" data-nav-dd class="relative">
           <button type="button" id="nav-keys-btn" data-nav-dd-btn aria-expanded="false" aria-controls="nav-keys-panel" aria-haspopup="true" class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 font-medium text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:active:scale-100">
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35 transition group-hover:bg-racing/25 group-hover:ring-racing/60 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="car" class="h-3.5 w-3.5"></i></span>
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35 transition group-hover:bg-racing/25 group-hover:ring-racing/60 motion-reduce:transition-none" aria-hidden="true"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#car"></use></svg></span>
             Clés &amp; électronique
-            <span id="nav-keys-chev" data-nav-dd-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500 transition group-hover:text-racing"></i></span>
+            <span id="nav-keys-chev" data-nav-dd-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4 text-zinc-500 transition group-hover:text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-down"></use></svg></span>
           </button>
 
           <div id="nav-keys-panel" data-nav-dd-panel role="group" aria-labelledby="nav-keys-btn" class="invisible absolute left-0 top-full z-10 w-[20rem] origin-top-left -translate-y-1 scale-[0.97] pt-3 opacity-0 pointer-events-none transition-all duration-200 ease-out motion-reduce:transition-none sm:w-[21.5rem]">
@@ -506,27 +491,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <ul class="space-y-0.5 p-2">
                 <li>
                   <a href="services/reproduction-cles-auto/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Reproduction de clés auto</span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Doubles, télécommandes &amp; réfection de cartes</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
                 <li>
                   <a href="services/perte-totale-cles-lyon/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key-round" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-round"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Perte totale de clés</span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Création de clé sur place à Lyon</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
                 <li>
                   <a href="services/ouverture-vehicule-sans-cle/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="unlock" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#unlock"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="flex flex-wrap items-center gap-1.5 text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">
                         Ouverture de véhicule
@@ -534,24 +519,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       </span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Dépannage, ouverture non destructive</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
                 <li>
                   <a href="services/programmation-electronique-ecu/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
-                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="circuit-board" class="h-4 w-4"></i></span>
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#circuit-board"></use></svg></span>
                     <span class="min-w-0 flex-1">
                       <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Programmation électronique ECU</span>
                       <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Clonage, boîtiers &amp; réparation sur table</span>
                     </span>
-                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                    <svg class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
                   </a>
                 </li>
               </ul>
               <div class="border-t border-white/5 p-2">
                 <a href="services/" class="group flex items-center justify-between gap-2 rounded-xl bg-white/[0.03] px-3 py-2.5 text-xs font-semibold text-zinc-300 transition hover:bg-racing/10 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
                   Les 4 services clés auto
-                  <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true"></i>
+                  <svg class="h-4 w-4 transition group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg>
                 </a>
               </div>
             </div>
@@ -567,15 +552,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </ul>
 
       <div class="ml-auto flex items-center gap-2 sm:gap-3">
-        <a href="tel:+33603439954" class="hidden items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-semibold text-zinc-200 transition hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink xl:inline-flex" aria-label="Appeler le 06 03 43 99 54"><i data-lucide="phone" class="h-4 w-4 text-racing" aria-hidden="true"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+        <a href="tel:+33603439954" class="hidden items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-semibold text-zinc-200 transition hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink xl:inline-flex" aria-label="Appeler le 06 03 43 99 54"><svg class="h-4 w-4 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
         <a href="https://wa.me/33603439954" target="_blank" rel="noopener noreferrer" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/30 ring-2 ring-black/30 transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-100 motion-reduce:transform-none" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
         <a href="#contact" class="hidden rounded-lg bg-racing-strong px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-racing/25 transition hover:bg-racing-strong/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:inline-flex">Devis gratuit</a>
       </div>
 
       <!-- Bouton burger (mobile / tablette) -->
       <button type="button" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu" class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:transform-none lg:hidden">
-        <span data-burger="open" class="inline-flex" aria-hidden="true"><i data-lucide="menu" class="h-6 w-6"></i></span>
-        <span data-burger="close" class="hidden inline-flex" aria-hidden="true"><i data-lucide="x" class="h-6 w-6"></i></span>
+        <span data-burger="open" class="inline-flex" aria-hidden="true"><svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#menu"></use></svg></span>
+        <span data-burger="close" class="hidden inline-flex" aria-hidden="true"><svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#x"></use></svg></span>
       </button>
     </nav>
 
@@ -585,7 +570,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ul class="flex flex-col gap-1 text-sm font-medium">
           <li>
             <a href="index.html#hero" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-              <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 text-zinc-400 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="home" class="h-3.5 w-3.5"></i></span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 text-zinc-400 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#home"></use></svg></span>
               Accueil
             </a>
           </li>
@@ -593,48 +578,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li id="m-services-item" data-nav-acc>
             <button type="button" id="m-services-btn" data-nav-acc-btn aria-expanded="false" aria-controls="m-services-panel" class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
               <span class="flex items-center gap-3">
-                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35" aria-hidden="true"><i data-lucide="wrench" class="h-3.5 w-3.5"></i></span>
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35" aria-hidden="true"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#wrench"></use></svg></span>
                 Nos services
               </span>
-              <span id="m-services-chev" data-nav-acc-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500"></i></span>
+              <span id="m-services-chev" data-nav-acc-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4 text-zinc-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-down"></use></svg></span>
             </button>
 
             <div id="m-services-panel" data-nav-acc-panel class="max-h-0 overflow-hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out motion-reduce:transition-none">
               <ul class="ml-3 flex flex-col gap-1 border-l-2 border-white/10 py-1 pl-3">
                 <li>
                   <a href="service-cle-voiture.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="key" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key"></use></svg></span>
                     Clé de voiture
                   </a>
                 </li>
                 <li>
                   <a href="service-diagnostic.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="scan-line" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#scan-line"></use></svg></span>
                     Diagnostic auto
                   </a>
                 </li>
                 <li>
                   <a href="service-airbag.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="shield" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#shield"></use></svg></span>
                     Réparation Airbag
                     <span class="ml-auto rounded-full bg-racing/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-racing ring-1 ring-racing/45">Nouveau</span>
                   </a>
                 </li>
                 <li>
                   <a href="service-suppression-options.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="sliders-horizontal" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#sliders-horizontal"></use></svg></span>
                     Suppression d'options
                   </a>
                 </li>
                 <li>
                   <a href="service-adblue.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="droplet" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#droplet"></use></svg></span>
                     Suppression AdBlue
                   </a>
                 </li>
                 <li>
                   <a href="service-ecu-clonage.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="cpu" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#cpu"></use></svg></span>
                     Clonage Calculateur Moteur
                   </a>
                 </li>
@@ -645,36 +630,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li id="m-keys-item" data-nav-acc>
             <button type="button" id="m-keys-btn" data-nav-acc-btn aria-expanded="false" aria-controls="m-keys-panel" class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
               <span class="flex items-center gap-3">
-                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35" aria-hidden="true"><i data-lucide="car" class="h-3.5 w-3.5"></i></span>
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35" aria-hidden="true"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#car"></use></svg></span>
                 Clés &amp; électronique
               </span>
-              <span id="m-keys-chev" data-nav-acc-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500"></i></span>
+              <span id="m-keys-chev" data-nav-acc-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><svg class="h-4 w-4 text-zinc-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-down"></use></svg></span>
             </button>
 
             <div id="m-keys-panel" data-nav-acc-panel class="max-h-0 overflow-hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out motion-reduce:transition-none">
               <ul class="ml-3 flex flex-col gap-1 border-l-2 border-white/10 py-1 pl-3">
                 <li>
                   <a href="services/reproduction-cles-auto/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="key" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key"></use></svg></span>
                     Reproduction de clés auto
                   </a>
                 </li>
                 <li>
                   <a href="services/perte-totale-cles-lyon/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="key-round" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-round"></use></svg></span>
                     Perte totale de clés
                   </a>
                 </li>
                 <li>
                   <a href="services/ouverture-vehicule-sans-cle/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="unlock" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#unlock"></use></svg></span>
                     Ouverture de véhicule
                     <span class="ml-auto rounded-full bg-racing/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-racing ring-1 ring-racing/45">Urgence</span>
                   </a>
                 </li>
                 <li>
                   <a href="services/programmation-electronique-ecu/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="circuit-board" class="h-3 w-3"></i></span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#circuit-board"></use></svg></span>
                     Programmation électronique ECU
                   </a>
                 </li>
@@ -684,18 +669,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
           <li>
             <a href="actualites.html" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-              <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 text-zinc-400 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="newspaper" class="h-3.5 w-3.5"></i></span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 text-zinc-400 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#newspaper"></use></svg></span>
               Actualités
             </a>
           </li>
           <li>
             <a href="#contact" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
-              <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 text-zinc-400 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="mail" class="h-3.5 w-3.5"></i></span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 text-zinc-400 ring-1 ring-white/10" aria-hidden="true"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#mail"></use></svg></span>
               Contact
             </a>
           </li>
           <li class="flex flex-col gap-2 pt-2">
-            <a href="tel:+33603439954" class="flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 py-3 font-semibold text-zinc-100 transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:bg-white/15"><i data-lucide="phone" class="h-5 w-5 text-racing" aria-hidden="true"></i>Appeler — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="tel:+33603439954" class="flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/5 py-3 font-semibold text-zinc-100 transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:bg-white/15"><svg class="h-5 w-5 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appeler — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
             <a href="https://wa.me/33603439954" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-lg border border-[#25D366]/35 bg-[#25D366]/15 py-3 pl-3 pr-4 font-semibold text-emerald-300 transition hover:bg-[#25D366]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:bg-[#25D366]/30"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>WhatsApp — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
           </li>
         </ul>
@@ -720,11 +705,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         >
           <p id="hero-badge-row" class="mb-4 inline-flex flex-wrap items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing">
             <span id="hero-badge-icons" class="relative inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true">
-              <span class="hero-badge-slot"><i data-lucide="scan-line" class="h-3.5 w-3.5"></i></span>
-              <span class="hero-badge-slot hidden"><i data-lucide="cpu" class="h-3.5 w-3.5"></i></span>
-              <span class="hero-badge-slot hidden"><i data-lucide="zap" class="h-3.5 w-3.5"></i></span>
-              <span class="hero-badge-slot hidden"><i data-lucide="filter" class="h-3.5 w-3.5"></i></span>
-              <span class="hero-badge-slot hidden"><i data-lucide="key-round" class="h-3.5 w-3.5"></i></span>
+              <span class="hero-badge-slot"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#scan-line"></use></svg></span>
+              <span class="hero-badge-slot hidden"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#cpu"></use></svg></span>
+              <span class="hero-badge-slot hidden"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#zap"></use></svg></span>
+              <span class="hero-badge-slot hidden"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#filter"></use></svg></span>
+              <span class="hero-badge-slot hidden"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-round"></use></svg></span>
             </span>
             <span id="hero-badge-text">Diagnostic &amp; électronique automobile — Lyon</span>
           </p>
@@ -741,11 +726,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div id="hero-cta-row" class="flex flex-col gap-4 sm:flex-row sm:items-center">
             <a id="hero-cta-primary" href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-racing px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-racing/30 transition hover:-translate-y-0.5 hover:bg-racing/90 hover:shadow-racing/40">
               <span id="hero-cta-primary-label">Demander un devis gratuit</span>
-              <i data-lucide="arrow-right" class="h-5 w-5 shrink-0" aria-hidden="true"></i>
+              <svg class="h-5 w-5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg>
             </a>
             <a id="hero-cta-secondary" href="service-diagnostic.html" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3.5 text-base font-semibold text-zinc-200 transition hover:border-racing/50 hover:bg-white/10">
               <span id="hero-cta-secondary-label">Voir nos prestations</span>
-              <i data-lucide="chevron-right" class="h-5 w-5 shrink-0" aria-hidden="true"></i>
+              <svg class="h-5 w-5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
             </a>
           </div>
 
@@ -755,7 +740,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               href="tel:+33603439954"
               class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10"
             >
-              <i data-lucide="phone" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>
+              <svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>
               Appeler — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54
             </a>
             <a
@@ -768,7 +753,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               WhatsApp — réponse rapide
             </a>
             <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-racing/90 px-5 py-3 text-sm font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing">
-              <i data-lucide="file-text" class="h-4 w-4 shrink-0" aria-hidden="true"></i>
+              <svg class="h-4 w-4 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>
               Demande de devis en ligne
             </a>
           </div>
@@ -783,19 +768,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
               <dt class="text-xs uppercase tracking-wide text-zinc-500">Rappel gratuit</dt>
               <dd class="mt-1 flex items-center gap-2 font-semibold text-white">
-                <i data-lucide="phone" class="h-4 w-4 text-racing"></i> Sous 24h
+                <svg class="h-4 w-4 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg> Sous 24h
               </dd>
             </div>
             <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
               <dt class="text-xs uppercase tracking-wide text-zinc-500">Outils</dt>
               <dd class="mt-1 flex items-center gap-2 font-semibold text-white">
-                <i data-lucide="shield-check" class="h-4 w-4 text-racing"></i> Valise OBD &amp; FoxFlash
+                <svg class="h-4 w-4 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#shield-check"></use></svg> Valise OBD &amp; FoxFlash
               </dd>
             </div>
             <div class="col-span-2 rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:col-span-1">
               <dt class="text-xs uppercase tracking-wide text-zinc-500">Couverture</dt>
               <dd class="mt-1 flex items-center gap-2 font-semibold text-white">
-                <i data-lucide="navigation" class="h-4 w-4 text-racing"></i> Lyon · 69 · Ain 01
+                <svg class="h-4 w-4 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#navigation"></use></svg> Lyon · 69 · Ain 01
               </dd>
             </div>
           </dl>
@@ -811,27 +796,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-10">
             <div class="flex flex-1 items-start gap-4 sm:gap-5">
               <div class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-racing/20 text-racing ring-1 ring-racing/40 transition group-hover:scale-105 group-hover:bg-racing group-hover:text-ink" aria-hidden="true">
-                <i data-lucide="shield-alert" class="h-7 w-7"></i>
+                <svg class="h-7 w-7" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#shield-alert"></use></svg>
               </div>
               <div class="min-w-0">
                 <p class="mb-3 flex flex-wrap items-center gap-2">
-                  <span class="inline-flex items-center gap-1.5 rounded-full border border-racing/45 bg-racing/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-racing"><i data-lucide="sparkles" class="h-3 w-3" aria-hidden="true"></i>Nouvelle prestation</span>
-                  <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-200 ring-1 ring-white/15"><i data-lucide="award" class="h-3 w-3" aria-hidden="true"></i>Spécialité freinage</span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full border border-racing/45 bg-racing/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-racing"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#sparkles"></use></svg>Nouvelle prestation</span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-200 ring-1 ring-white/15"><svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#award"></use></svg>Spécialité freinage</span>
                 </p>
                 <h2 id="specialite-abs-heading" class="text-xl font-bold tracking-tight text-white sm:text-2xl">Réparation Bloc ABS — voyant ABS allumé</h2>
                 <p class="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base"><strong class="font-medium text-zinc-300">Réparation bloc ABS Lyon</strong>&nbsp;: lecture des codes défaut C0xxx, test des capteurs de vitesse de roue, bloc ou pompe de frein — <strong class="font-medium text-zinc-300">devis gratuit</strong> et intervention à domicile sur Lyon, Rhône (69) et Ain (01).</p>
                 <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-zinc-400">
-                  <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Voyant ABS / ESP</li>
-                  <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Capteur de roue &amp; bloc ABS</li>
-                  <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Codes défaut freinage</li>
+                  <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Voyant ABS / ESP</li>
+                  <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Capteur de roue &amp; bloc ABS</li>
+                  <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Codes défaut freinage</li>
                 </ul>
               </div>
             </div>
             <div class="flex shrink-0 flex-col gap-3 sm:flex-row lg:w-60 lg:flex-col">
-              <a href="service-abs.html" class="inline-flex items-center justify-center gap-1.5 rounded-xl bg-racing px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-racing/25 ring-1 ring-racing/40 transition hover:-translate-y-0.5 hover:bg-racing/90">Réparation bloc ABS<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="service-abs.html" class="inline-flex items-center justify-center gap-1.5 rounded-xl bg-racing px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-racing/25 ring-1 ring-racing/40 transition hover:-translate-y-0.5 hover:bg-racing/90">Réparation bloc ABS<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="flex flex-wrap gap-2" role="group" aria-label="Actions rapides — réparation bloc ABS">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — réparation bloc ABS">
-                  <i data-lucide="phone" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20voyant%20ABS%20allum%C3%A9%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-4 py-3 text-sm font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — réparation bloc ABS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
@@ -852,104 +837,104 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
-              <i data-lucide="scan-line" class="h-6 w-6"></i>
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#scan-line"></use></svg>
             </div>
             <h3 class="text-lg font-bold text-white">Diagnostic électronique &amp; valise OBD</h3>
             <p class="mt-2 text-sm text-zinc-400">Lecture des codes défaut moteur, boîte, ABS et airbag avec <strong class="font-medium text-zinc-300">valise OBD multimarque</strong> — rapport écrit et devis avant intervention.</p>
             <ul class="mt-4 space-y-2 text-sm text-zinc-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Codes défaut moteur / boîte</li>
-              <li class="flex flex-wrap items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i><a href="service-abs.html" class="hover:text-racing hover:underline">Voyant ABS allumé — réparation bloc ABS</a><span class="rounded-full bg-racing/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-racing ring-1 ring-racing/30">Spécialité</span></li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Essence, diesel, hybride</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Codes défaut moteur / boîte</li>
+              <li class="flex flex-wrap items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg><a href="service-abs.html" class="hover:text-racing hover:underline">Voyant ABS allumé — réparation bloc ABS</a><span class="rounded-full bg-racing/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-racing ring-1 ring-racing/30">Spécialité</span></li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Essence, diesel, hybride</li>
             </ul>
             <div class="mt-auto pt-6">
-              <a href="service-diagnostic.html" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="service-diagnostic.html" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — diagnostic électronique / valise OBD">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — diagnostic électronique / valise OBD">
-                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20diagnostic%20%C3%A9lectronique%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — diagnostic électronique / valise OBD">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
                 <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — diagnostic électronique / valise OBD">
-                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                  <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>Devis
                 </a>
               </div>
             </div>
           </article>
           <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
-              <i data-lucide="cpu" class="h-6 w-6"></i>
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#cpu"></use></svg>
             </div>
             <h3 class="text-lg font-bold text-white">Clonage &amp; programmation ECU/BSI</h3>
             <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Clonage ECU Lyon</strong>&nbsp;: copie intégrale du firmware sur calculateur neuf ou d'occasion, codage VIN, synchronisation immobiliseur.</p>
             <ul class="mt-4 space-y-2 text-sm text-zinc-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Copie Flash + EEPROM</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Codage VIN &amp; immo off</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Calculateur HS / noyé</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Copie Flash + EEPROM</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Codage VIN &amp; immo off</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Calculateur HS / noyé</li>
             </ul>
             <div class="mt-auto pt-6">
-              <a href="service-ecu-clonage.html" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="service-ecu-clonage.html" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — clonage & programmation ECU/BSI">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — clonage & programmation ECU/BSI">
-                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20clonage%20ECU%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — clonage & programmation ECU/BSI">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
                 <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — clonage & programmation ECU/BSI">
-                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                  <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>Devis
                 </a>
               </div>
             </div>
           </article>
           <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
-              <i data-lucide="zap" class="h-6 w-6"></i>
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#zap"></use></svg>
             </div>
             <h3 class="text-lg font-bold text-white">Reprogrammation moteur — Stage 1 &amp; E85</h3>
             <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Stage 1</strong> puissance/couple et <strong class="font-medium text-zinc-300">conversion Éthanol E85</strong> (flexfuel) intégrée au calculateur — sans boîtier, outils FoxFlash.</p>
             <ul class="mt-4 space-y-2 text-sm text-zinc-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>+20 à +40 ch typique</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>E85 / SP95 indifféremment</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Économies à la pompe</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>+20 à +40 ch typique</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>E85 / SP95 indifféremment</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Économies à la pompe</li>
             </ul>
             <div class="mt-auto pt-6">
-              <a href="service-reprogrammation.html" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="service-reprogrammation.html" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — reprogrammation Stage 1 & E85">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — reprogrammation Stage 1 & E85">
-                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — reprogrammation Stage 1 & E85">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
                 <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — reprogrammation Stage 1 & E85">
-                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                  <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>Devis
                 </a>
               </div>
             </div>
           </article>
           <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
-              <i data-lucide="filter" class="h-6 w-6"></i>
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#filter"></use></svg>
             </div>
             <h3 class="text-lg font-bold text-white">Solutions anti-pollution — FAP, EGR, AdBlue</h3>
             <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Suppression définitive FAP, EGR et AdBlue</strong> par reprogrammation logicielle FoxFlash — fin des voyants et des régénérations.</p>
             <ul class="mt-4 space-y-2 text-sm text-zinc-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>FAP / DPF saturé</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Vanne EGR bloquée</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Défaut AdBlue / SCR</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>FAP / DPF saturé</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Vanne EGR bloquée</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Défaut AdBlue / SCR</li>
             </ul>
             <div class="mt-auto pt-6">
-              <a href="service-antipollution.html" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="service-antipollution.html" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — solutions FAP / EGR / AdBlue">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — solutions FAP / EGR / AdBlue">
-                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — solutions FAP / EGR / AdBlue">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
                 <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — solutions FAP / EGR / AdBlue">
-                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                  <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>Devis
                 </a>
               </div>
             </div>
@@ -961,7 +946,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Services clés auto & électronique -->
     <section id="services-cles" class="py-20 sm:py-28" aria-labelledby="services-cles-heading">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="key-round" class="h-3.5 w-3.5" aria-hidden="true"></i>Services clés auto &amp; électronique</p>
+        <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-round"></use></svg>Services clés auto &amp; électronique</p>
         <h2 id="services-cles-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Clés de voiture, ouverture &amp; programmation — à Lyon</h2>
         <p class="mt-4 max-w-2xl text-lg text-zinc-400">
           Quatre prestations dédiées à votre clé et à votre calculateur&nbsp;: <strong class="font-medium text-zinc-300">reproduction de clés</strong>, <strong class="font-medium text-zinc-300">remise en état après perte totale</strong>, <strong class="font-medium text-zinc-300">ouverture de véhicule sans clé</strong> et <strong class="font-medium text-zinc-300">programmation électronique ECU/BSI</strong> — devis express, intervention sur Lyon, Rhône (69) et Ain (01).
@@ -969,104 +954,104 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
-              <i data-lucide="key-round" class="h-6 w-6"></i>
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-round"></use></svg>
             </div>
             <h3 class="text-lg font-bold text-white">Reproduction de clés auto</h3>
             <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Reproduction clé voiture Lyon</strong>&nbsp;: coupe du nez, perçage, pose du boîtier et programmation de la puce — clés pliantes, digicode et télécommandes.</p>
             <ul class="mt-4 space-y-2 text-sm text-zinc-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Toutes marques</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Puce &amp; transpondeur</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>SAV 12 mois</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Toutes marques</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Puce &amp; transpondeur</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>SAV 12 mois</li>
             </ul>
             <div class="mt-auto pt-6">
-              <a href="services/reproduction-cles-auto" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="services/reproduction-cles-auto" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — reproduction de clés auto">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — reproduction de clés auto">
-                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20reproduction%20de%20cl%C3%A9%20voiture%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — reproduction de clés auto">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
                 <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — reproduction de clés auto">
-                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                  <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>Devis
                 </a>
               </div>
             </div>
           </article>
           <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
-              <i data-lucide="key-square" class="h-6 w-6"></i>
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-square"></use></svg>
             </div>
             <h3 class="text-lg font-bold text-white">Perte totale de clés</h3>
             <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Toutes clés perdues Lyon</strong>&nbsp;: ouverture du véhicule, fabrication d'une clé neuve et reprogrammation de l'immobiliseur — remise en état complète.</p>
             <ul class="mt-4 space-y-2 text-sm text-zinc-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Ouverture incluse</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Reprog immobiliseur</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Anciens codes effacés</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Ouverture incluse</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Reprog immobiliseur</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Anciens codes effacés</li>
             </ul>
             <div class="mt-auto pt-6">
-              <a href="services/perte-totale-cles-lyon" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="services/perte-totale-cles-lyon" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — perte totale de clés">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — perte totale de clés">
-                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20perte%20totale%20de%20cl%C3%A9s%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — perte totale de clés">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
                 <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — perte totale de clés">
-                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                  <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>Devis
                 </a>
               </div>
             </div>
           </article>
           <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
-              <i data-lucide="door-open" class="h-6 w-6"></i>
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#door-open"></use></svg>
             </div>
             <h3 class="text-lg font-bold text-white">Ouverture de véhicule</h3>
             <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Ouverture voiture sans clé Lyon</strong>&nbsp;: déverrouillage non destructif des portes et du coffre — clé enfermée à l'intérieur ou perte en cours de route.</p>
             <ul class="mt-4 space-y-2 text-sm text-zinc-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Sans dégât</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Portes &amp; coffre</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Urgence 7j/7</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Sans dégât</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Portes &amp; coffre</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Urgence 7j/7</li>
             </ul>
             <div class="mt-auto pt-6">
-              <a href="services/ouverture-vehicule-sans-cle" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="services/ouverture-vehicule-sans-cle" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — ouverture de véhicule">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — ouverture de véhicule">
-                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20ouverture%20de%20v%C3%A9hicule%20sans%20cl%C3%A9%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — ouverture de véhicule">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
                 <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — ouverture de véhicule">
-                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                  <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>Devis
                 </a>
               </div>
             </div>
           </article>
           <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
-              <i data-lucide="microchip" class="h-6 w-6"></i>
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#microchip"></use></svg>
             </div>
             <h3 class="text-lg font-bold text-white">Programmation électronique</h3>
             <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Programmation ECU Lyon</strong>&nbsp;: calculateur HS ou remplacement — copie du firmware, codage VIN, synchronisation immobiliseur et reprog des clés associées.</p>
             <ul class="mt-4 space-y-2 text-sm text-zinc-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Copie firmware</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Codage VIN</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Clés synchronisées</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Copie firmware</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Codage VIN</li>
+              <li class="flex items-center gap-2"><svg class="h-4 w-4 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check"></use></svg>Clés synchronisées</li>
             </ul>
             <div class="mt-auto pt-6">
-              <a href="services/programmation-electronique-ecu" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <a href="services/programmation-electronique-ecu" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></a>
               <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — programmation électronique">
                 <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — programmation électronique">
-                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                  <svg class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>Appel
                 </a>
                 <a href="https://wa.me/33603439954?text=Bonjour%2C%20programmation%20%C3%A9lectronique%20ECU%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — programmation électronique">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
                 </a>
                 <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — programmation électronique">
-                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                  <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#file-text"></use></svg>Devis
                 </a>
               </div>
             </div>
@@ -1079,44 +1064,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Problèmes résolus — chaque symptôme client renvoie vers la prestation concernée -->
     <section id="problemes-resolus" class="border-b border-white/5 bg-zinc-950 py-14 sm:py-20" aria-labelledby="problemes-heading">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="life-buoy" class="h-3.5 w-3.5"></i>&nbsp;Problèmes résolus</p>
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><svg class="h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#life-buoy"></use></svg>&nbsp;Problèmes résolus</p>
         <h2 id="problemes-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">Vous reconnaissez-vous&nbsp;? Nous avons la solution.</h2>
         <p class="mt-4 max-w-3xl text-zinc-400">Quatre situations fréquentes — chacune renvoie vers la prestation qui la traite, avec devis avant intervention.</p>
         <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <li>
             <a href="/services/perte-totale-cles-lyon/" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
               <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
-              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="key-round" class="h-5 w-5"></i></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#key-round"></use></svg></span>
               <p class="text-base font-semibold italic text-zinc-200">«&nbsp;J'ai perdu ma seule clé&nbsp;»</p>
               <p class="mt-2 text-sm leading-relaxed text-zinc-400">Plus aucun exemplaire en main&nbsp;: nous recréons une clé sur place et reprogrammons l'immobiliseur.</p>
-              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Perte totale de clés<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Perte totale de clés<svg class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></span>
             </a>
           </li>
           <li>
             <a href="/services/reproduction-cles-auto/" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
               <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
-              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="copy" class="h-5 w-5"></i></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#copy"></use></svg></span>
               <p class="text-base font-semibold italic text-zinc-200">«&nbsp;Je veux un double, vite&nbsp;»</p>
               <p class="mt-2 text-sm leading-relaxed text-zinc-400">Double de clé ou télécommande taillé et programmé dans la foulée, quand la copie de référence est présente.</p>
-              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Reproduction de clés<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Reproduction de clés<svg class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></span>
             </a>
           </li>
           <li>
             <a href="/services/ouverture-vehicule-sans-cle/" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
               <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
-              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="lock" class="h-5 w-5"></i></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#lock"></use></svg></span>
               <p class="text-base font-semibold italic text-zinc-200">«&nbsp;Mes clés sont bloquées à l'intérieur&nbsp;»</p>
               <p class="mt-2 text-sm leading-relaxed text-zinc-400">Portes verrouillées avec les clés dedans&nbsp;: ouverture non destructive sur place.</p>
-              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Ouverture de véhicule<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Ouverture de véhicule<svg class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></span>
             </a>
           </li>
           <li>
             <a href="/services/programmation-electronique-ecu/" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
               <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
-              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="cpu" class="h-5 w-5"></i></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#cpu"></use></svg></span>
               <p class="text-base font-semibold italic text-zinc-200">«&nbsp;Mon calculateur moteur est en panne&nbsp;»</p>
               <p class="mt-2 text-sm leading-relaxed text-zinc-400">Diagnostic, remplacement ou clonage de calculateur pour repartir avec un boîtier fonctionnel.</p>
-              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Programmation électronique<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Programmation électronique<svg class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#arrow-right"></use></svg></span>
             </a>
           </li>
         </ul>
@@ -1187,20 +1172,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               Spécialiste <strong class="font-semibold text-zinc-200">électronique automobile &amp; diagnostic à Lyon</strong>, nous nous déplaçons chez vous dans le <strong class="font-semibold text-zinc-200">Rhône (69)</strong> et l'<strong class="font-semibold text-zinc-200">Ain (01)</strong>&nbsp;: diagnostic valise, clonage ECU/BSI, reprogrammation moteur et solutions anti-pollution.
             </p>
             <ul class="mt-8 space-y-3 text-zinc-300">
-              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-racing"></i> Lyon &amp; métropole — Villeurbanne, Vénissieux, Bron, Saint-Priest, Caluire, Oullins…</li>
-              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-racing"></i> Rhône (69) — Villefranche-sur-Saône, Givors, Tarare…</li>
-              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-racing"></i> Ain (01) — Bourg-en-Bresse, Ambérieu-en-Bugey, Nantua, Gex, Miribel, Belley…</li>
-              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-racing"></i> Commune hors liste&nbsp;: contactez-nous pour confirmer la faisabilité.</li>
+              <li class="flex items-center gap-3"><svg class="h-5 w-5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check-circle"></use></svg> Lyon &amp; métropole — Villeurbanne, Vénissieux, Bron, Saint-Priest, Caluire, Oullins…</li>
+              <li class="flex items-center gap-3"><svg class="h-5 w-5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check-circle"></use></svg> Rhône (69) — Villefranche-sur-Saône, Givors, Tarare…</li>
+              <li class="flex items-center gap-3"><svg class="h-5 w-5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check-circle"></use></svg> Ain (01) — Bourg-en-Bresse, Ambérieu-en-Bugey, Nantua, Gex, Miribel, Belley…</li>
+              <li class="flex items-center gap-3"><svg class="h-5 w-5 shrink-0 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#check-circle"></use></svg> Commune hors liste&nbsp;: contactez-nous pour confirmer la faisabilité.</li>
             </ul>
           </div>
           <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 to-zinc-950 p-8 ring-1 ring-white/10">
-            <i data-lucide="map" class="absolute -right-4 -bottom-4 h-48 w-48 text-racing/10" aria-hidden="true"></i>
+            <svg class="absolute -right-4 -bottom-4 h-48 w-48 text-racing/10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#map"></use></svg>
             <p class="relative text-sm font-medium uppercase tracking-wider text-racing">Intervention mobile</p>
             <p class="relative mt-2 text-2xl font-bold text-white">Lyon · Rhône 69 · Ain 01</p>
             <p class="relative mt-2 text-zinc-400">Diagnostic et reprogrammation à votre domicile, sur votre lieu de travail ou en parking — selon la prestation.</p>
             <a href="zone-intervention.html" class="relative mt-6 inline-flex items-center gap-2 rounded-xl bg-racing px-5 py-3 text-sm font-semibold text-white transition hover:bg-racing/90">
               Voir communes desservies
-              <i data-lucide="chevron-right" class="h-4 w-4"></i>
+              <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#chevron-right"></use></svg>
             </a>
           </div>
         </div>
@@ -1235,7 +1220,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-white"
               >
-                <i data-lucide="map-pin" class="h-4 w-4 text-racing" aria-hidden="true"></i>
+                <svg class="h-4 w-4 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#map-pin"></use></svg>
                 Voir sur Google Maps
               </a>
               <a
@@ -1253,7 +1238,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-sm font-semibold text-amber-200 transition hover:bg-amber-500/20"
               >
-                <i data-lucide="star" class="h-4 w-4" aria-hidden="true"></i>
+                <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#star"></use></svg>
                 Laisser un avis Google
               </a>
             </div>
@@ -1342,7 +1327,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               href="tel:+33603439954"
               class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-zinc-100 transition hover:border-racing/50 hover:text-white"
             >
-              <i data-lucide="phone" class="h-4 w-4 text-racing" aria-hidden="true"></i>
+              <svg class="h-4 w-4 text-racing" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#phone"></use></svg>
               Appeler — 06&nbsp;03&nbsp;43&nbsp;99&nbsp;54
             </a>
             <a
@@ -1384,7 +1369,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="sm:col-span-2">
               <button type="submit" id="contact-submit-btn" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-racing px-6 py-3.5 font-semibold text-white transition hover:bg-racing/90 disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto">
                 <span id="contact-submit-text">Envoyer la demande de devis</span>
-                <i data-lucide="send" class="h-5 w-5"></i>
+                <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="/assets/icons.svg#send"></use></svg>
               </button>
               <p id="form-feedback" class="mt-4 hidden text-sm" role="status" aria-live="polite"></p>
             </div>
@@ -1426,10 +1411,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
-
+<script>
     (function () {
       var root = document.getElementById('hero-rotator');
       if (!root) return;

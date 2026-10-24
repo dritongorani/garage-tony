@@ -1,0 +1,5 @@
+/* Source CSS — compilée vers assets/tailwind.css via le binaire Tailwind standalone.
+   On importe les préfixes Tailwind + la balise @apply des composants réutilisés. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
