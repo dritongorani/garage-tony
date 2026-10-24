@@ -157,14 +157,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </li>
 
         <!-- Dropdown « Nos services » -->
-        <li id="nav-dd" class="relative">
-          <button type="button" id="nav-dd-btn" aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true" class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 font-medium text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:active:scale-100">
+        <li id="nav-dd" data-nav-dd class="relative">
+          <button type="button" id="nav-dd-btn" data-nav-dd-btn aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true" class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 font-medium text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:active:scale-100">
             <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35 transition group-hover:bg-racing/25 group-hover:ring-racing/60 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key-round" class="h-3.5 w-3.5"></i></span>
             Nos services
-            <span id="nav-dd-chev" class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500 transition group-hover:text-racing"></i></span>
+            <span id="nav-dd-chev" data-nav-dd-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500 transition group-hover:text-racing"></i></span>
           </button>
 
-          <div id="nav-dd-panel" role="group" aria-labelledby="nav-dd-btn" class="invisible absolute left-0 top-full z-10 w-[20rem] origin-top-left -translate-y-1 scale-[0.97] pt-3 opacity-0 pointer-events-none transition-all duration-200 ease-out motion-reduce:transition-none sm:w-[21.5rem]">
+          <div id="nav-dd-panel" data-nav-dd-panel role="group" aria-labelledby="nav-dd-btn" class="invisible absolute left-0 top-full z-10 w-[20rem] origin-top-left -translate-y-1 scale-[0.97] pt-3 opacity-0 pointer-events-none transition-all duration-200 ease-out motion-reduce:transition-none sm:w-[21.5rem]">
             <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/95 shadow-2xl shadow-black/60 ring-1 ring-white/10 backdrop-blur-xl">
               <p class="flex items-center justify-between gap-2 border-b border-white/5 bg-white/[0.03] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">
                 <span>Nos prestations</span>
@@ -245,6 +245,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </li>
 
+        <!-- Dropdown « Clés & électronique » — Services clés auto (pilier dédié) -->
+        <li id="nav-keys" data-nav-dd class="relative">
+          <button type="button" id="nav-keys-btn" data-nav-dd-btn aria-expanded="false" aria-controls="nav-keys-panel" aria-haspopup="true" class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 font-medium text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:active:scale-100">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35 transition group-hover:bg-racing/25 group-hover:ring-racing/60 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="car" class="h-3.5 w-3.5"></i></span>
+            Clés &amp; électronique
+            <span id="nav-keys-chev" data-nav-dd-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500 transition group-hover:text-racing"></i></span>
+          </button>
+
+          <div id="nav-keys-panel" data-nav-dd-panel role="group" aria-labelledby="nav-keys-btn" class="invisible absolute left-0 top-full z-10 w-[20rem] origin-top-left -translate-y-1 scale-[0.97] pt-3 opacity-0 pointer-events-none transition-all duration-200 ease-out motion-reduce:transition-none sm:w-[21.5rem]">
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/95 shadow-2xl shadow-black/60 ring-1 ring-white/10 backdrop-blur-xl">
+              <p class="flex items-center justify-between gap-2 border-b border-white/5 bg-white/[0.03] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">
+                <span>Services clés auto</span>
+                <span class="text-racing">4 services</span>
+              </p>
+              <ul class="space-y-0.5 p-2">
+                <li>
+                  <a href="services/reproduction-cles-auto/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key" class="h-4 w-4"></i></span>
+                    <span class="min-w-0 flex-1">
+                      <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Reproduction de clés auto</span>
+                      <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Doubles, télécommandes &amp; réfection de cartes</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="services/perte-totale-cles-lyon/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key-round" class="h-4 w-4"></i></span>
+                    <span class="min-w-0 flex-1">
+                      <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Perte totale de clés</span>
+                      <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Création de clé sur place à Lyon</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="services/ouverture-vehicule-sans-cle/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="unlock" class="h-4 w-4"></i></span>
+                    <span class="min-w-0 flex-1">
+                      <span class="flex flex-wrap items-center gap-1.5 text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">
+                        Ouverture de véhicule
+                        <span class="rounded-full bg-racing/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-racing ring-1 ring-racing/45">Urgence</span>
+                      </span>
+                      <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Dépannage, ouverture non destructive</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="services/programmation-electronique-ecu/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="circuit-board" class="h-4 w-4"></i></span>
+                    <span class="min-w-0 flex-1">
+                      <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Programmation électronique ECU</span>
+                      <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Clonage, boîtiers &amp; réparation sur table</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+              <div class="border-t border-white/5 p-2">
+                <a href="services/" class="group flex items-center justify-between gap-2 rounded-xl bg-white/[0.03] px-3 py-2.5 text-xs font-semibold text-zinc-300 transition hover:bg-racing/10 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                  Les 4 services clés auto
+                  <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
         <li>
           <a href="actualites.html" class="rounded-lg px-3 py-2 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:bg-white/10">Actualités</a>
         </li>
@@ -277,16 +346,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </a>
           </li>
 
-          <li id="m-services-item">
-            <button type="button" id="m-services-btn" aria-expanded="false" aria-controls="m-services-panel" class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+          <li id="m-services-item" data-nav-acc>
+            <button type="button" id="m-services-btn" data-nav-acc-btn aria-expanded="false" aria-controls="m-services-panel" class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
               <span class="flex items-center gap-3">
                 <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35" aria-hidden="true"><i data-lucide="wrench" class="h-3.5 w-3.5"></i></span>
                 Nos services
               </span>
-              <span id="m-services-chev" class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500"></i></span>
+              <span id="m-services-chev" data-nav-acc-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500"></i></span>
             </button>
 
-            <div id="m-services-panel" class="max-h-0 overflow-hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out motion-reduce:transition-none">
+            <div id="m-services-panel" data-nav-acc-panel class="max-h-0 overflow-hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out motion-reduce:transition-none">
               <ul class="ml-3 flex flex-col gap-1 border-l-2 border-white/10 py-1 pl-3">
                 <li>
                   <a href="service-cle-voiture.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
@@ -323,6 +392,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <a href="service-ecu-clonage.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
                     <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="cpu" class="h-3 w-3"></i></span>
                     Clonage Calculateur Moteur
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li id="m-keys-item" data-nav-acc>
+            <button type="button" id="m-keys-btn" data-nav-acc-btn aria-expanded="false" aria-controls="m-keys-panel" class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+              <span class="flex items-center gap-3">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35" aria-hidden="true"><i data-lucide="car" class="h-3.5 w-3.5"></i></span>
+                Clés &amp; électronique
+              </span>
+              <span id="m-keys-chev" data-nav-acc-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500"></i></span>
+            </button>
+
+            <div id="m-keys-panel" data-nav-acc-panel class="max-h-0 overflow-hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out motion-reduce:transition-none">
+              <ul class="ml-3 flex flex-col gap-1 border-l-2 border-white/10 py-1 pl-3">
+                <li>
+                  <a href="services/reproduction-cles-auto/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="key" class="h-3 w-3"></i></span>
+                    Reproduction de clés auto
+                  </a>
+                </li>
+                <li>
+                  <a href="services/perte-totale-cles-lyon/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="key-round" class="h-3 w-3"></i></span>
+                    Perte totale de clés
+                  </a>
+                </li>
+                <li>
+                  <a href="services/ouverture-vehicule-sans-cle/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="unlock" class="h-3 w-3"></i></span>
+                    Ouverture de véhicule
+                    <span class="ml-auto rounded-full bg-racing/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-racing ring-1 ring-racing/45">Urgence</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="services/programmation-electronique-ecu/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="circuit-board" class="h-3 w-3"></i></span>
+                    Programmation électronique ECU
                   </a>
                 </li>
               </ul>
@@ -421,7 +530,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </main>
 
   <footer class="border-t border-white/10 bg-black/40 py-10">
-    <div class="mx-auto max-w-6xl px-4 text-center text-sm text-zinc-500 sm:px-6">© <span id="year"></span> Mecanoo Lyon — <a href="index.html#contact" class="text-racing hover:underline">Contact</a></div>
+    <div class="mx-auto max-w-6xl px-4 text-center text-sm text-zinc-500 sm:px-6">© <span id="year"></span> Mecanoo Lyon — <a href="index.html#contact" class="text-racing hover:underline">Contact</a><br class="sm:hidden" /> <span class="hidden sm:inline">·</span> <a href="services/reproduction-cles-auto" class="hover:text-zinc-300 hover:underline">Reproduction de clés</a> · <a href="services/perte-totale-cles-lyon" class="hover:text-zinc-300 hover:underline">Perte totale de clés</a> · <a href="services/ouverture-vehicule-sans-cle" class="hover:text-zinc-300 hover:underline">Ouverture de véhicule</a> · <a href="services/programmation-electronique-ecu" class="hover:text-zinc-300 hover:underline">Programmation électronique</a> · <a href="services/" class="text-racing hover:underline">Services clés auto</a></div>
   </footer>
   <a href="https://wa.me/33603439954?text=Zone%20Lyon%20%2F%20Rhône%20%2F%20Ain%20Mecanoo" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl hover:scale-105 md:bottom-8 md:right-8" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
   <script src="https://unpkg.com/lucide@latest"></script>

@@ -233,6 +233,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 "areaServed": ["Lyon", "Rhône", "Ain"],
                 "url": "https://mecanolyon.fr/service-abs.html"
               }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Reproduction de clés de voiture à Lyon",
+                "serviceType": "Reproduction de clés auto, digicode & télécommandes — Lyon, Rhône (69) et Ain (01)",
+                "description": "Clé usée, digicode ou télécommande : coupe du nez, perçage, pose du boîtier, programmation de la puce et du transpondeur — marques françaises, allemandes, Coréennes et japonaises.",
+                "areaServed": ["Lyon", "Rhône", "Ain"],
+                "url": "https://mecanolyon.fr/services/reproduction-cles-auto/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Perte totale de clés de voiture à Lyon",
+                "serviceType": "Remise en état après perte totale de clés — Lyon, Rhône (69) et Ain (01)",
+                "description": "Toutes les clés perdues ou détruites : ouverture du véhicule, fabrication d'une clé neuve, reprogrammation de l'immobiliseur et effacement des anciens codes dans le calculateur.",
+                "areaServed": ["Lyon", "Rhône", "Ain"],
+                "url": "https://mecanolyon.fr/services/perte-totale-cles-lyon/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Ouverture de véhicule sans clé à Lyon",
+                "serviceType": "Ouverture de voiture verrouillée sans clé — Lyon, Rhône (69) et Ain (01)",
+                "description": "Clé enfermée ou perte en cours de route : ouverture non destructive du véhicule, déverrouillage des portes et du coffre, en journée comme en urgence sur Lyon et sa périphérie.",
+                "areaServed": ["Lyon", "Rhône", "Ain"],
+                "url": "https://mecanolyon.fr/services/ouverture-vehicule-sans-cle/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Programmation électronique & clonage calculateurs à Lyon",
+                "serviceType": "Programmation électronique, clonage ECU/BSI & codage VIN — Lyon, Rhône (69) et Ain (01)",
+                "description": "Calculateur HS, remplacement ou migration : copie intégrale du firmware, codage VIN, synchronisation de l'immobiliseur et reprogrammation des clés associées — outils FoxFlash.",
+                "areaServed": ["Lyon", "Rhône", "Ain"],
+                "url": "https://mecanolyon.fr/services/programmation-electronique-ecu/"
+              }
             }
           ]
         }
@@ -357,14 +401,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </li>
 
         <!-- Dropdown « Nos services » -->
-        <li id="nav-dd" class="relative">
-          <button type="button" id="nav-dd-btn" aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true" class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 font-medium text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:active:scale-100">
+        <li id="nav-dd" data-nav-dd class="relative">
+          <button type="button" id="nav-dd-btn" data-nav-dd-btn aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true" class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 font-medium text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:active:scale-100">
             <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35 transition group-hover:bg-racing/25 group-hover:ring-racing/60 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key-round" class="h-3.5 w-3.5"></i></span>
             Nos services
-            <span id="nav-dd-chev" class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500 transition group-hover:text-racing"></i></span>
+            <span id="nav-dd-chev" data-nav-dd-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500 transition group-hover:text-racing"></i></span>
           </button>
 
-          <div id="nav-dd-panel" role="group" aria-labelledby="nav-dd-btn" class="invisible absolute left-0 top-full z-10 w-[20rem] origin-top-left -translate-y-1 scale-[0.97] pt-3 opacity-0 pointer-events-none transition-all duration-200 ease-out motion-reduce:transition-none sm:w-[21.5rem]">
+          <div id="nav-dd-panel" data-nav-dd-panel role="group" aria-labelledby="nav-dd-btn" class="invisible absolute left-0 top-full z-10 w-[20rem] origin-top-left -translate-y-1 scale-[0.97] pt-3 opacity-0 pointer-events-none transition-all duration-200 ease-out motion-reduce:transition-none sm:w-[21.5rem]">
             <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/95 shadow-2xl shadow-black/60 ring-1 ring-white/10 backdrop-blur-xl">
               <p class="flex items-center justify-between gap-2 border-b border-white/5 bg-white/[0.03] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">
                 <span>Nos prestations</span>
@@ -445,6 +489,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </li>
 
+        <!-- Dropdown « Clés & électronique » — Services clés auto (pilier dédié) -->
+        <li id="nav-keys" data-nav-dd class="relative">
+          <button type="button" id="nav-keys-btn" data-nav-dd-btn aria-expanded="false" aria-controls="nav-keys-panel" aria-haspopup="true" class="group inline-flex items-center gap-2 rounded-lg px-3 py-2 font-medium text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-95 motion-reduce:active:scale-100">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35 transition group-hover:bg-racing/25 group-hover:ring-racing/60 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="car" class="h-3.5 w-3.5"></i></span>
+            Clés &amp; électronique
+            <span id="nav-keys-chev" data-nav-dd-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500 transition group-hover:text-racing"></i></span>
+          </button>
+
+          <div id="nav-keys-panel" data-nav-dd-panel role="group" aria-labelledby="nav-keys-btn" class="invisible absolute left-0 top-full z-10 w-[20rem] origin-top-left -translate-y-1 scale-[0.97] pt-3 opacity-0 pointer-events-none transition-all duration-200 ease-out motion-reduce:transition-none sm:w-[21.5rem]">
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/95 shadow-2xl shadow-black/60 ring-1 ring-white/10 backdrop-blur-xl">
+              <p class="flex items-center justify-between gap-2 border-b border-white/5 bg-white/[0.03] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">
+                <span>Services clés auto</span>
+                <span class="text-racing">4 services</span>
+              </p>
+              <ul class="space-y-0.5 p-2">
+                <li>
+                  <a href="services/reproduction-cles-auto/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key" class="h-4 w-4"></i></span>
+                    <span class="min-w-0 flex-1">
+                      <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Reproduction de clés auto</span>
+                      <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Doubles, télécommandes &amp; réfection de cartes</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="services/perte-totale-cles-lyon/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="key-round" class="h-4 w-4"></i></span>
+                    <span class="min-w-0 flex-1">
+                      <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Perte totale de clés</span>
+                      <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Création de clé sur place à Lyon</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="services/ouverture-vehicule-sans-cle/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="unlock" class="h-4 w-4"></i></span>
+                    <span class="min-w-0 flex-1">
+                      <span class="flex flex-wrap items-center gap-1.5 text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">
+                        Ouverture de véhicule
+                        <span class="rounded-full bg-racing/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-racing ring-1 ring-racing/45">Urgence</span>
+                      </span>
+                      <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Dépannage, ouverture non destructive</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="services/programmation-electronique-ecu/" class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition hover:bg-racing/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                    <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 text-zinc-300 ring-1 ring-white/10 transition group-hover:bg-racing/20 group-hover:text-racing group-hover:ring-racing/45 motion-reduce:transition-none" aria-hidden="true"><i data-lucide="circuit-board" class="h-4 w-4"></i></span>
+                    <span class="min-w-0 flex-1">
+                      <span class="block text-sm font-semibold text-zinc-100 transition group-hover:text-white motion-reduce:transition-none">Programmation électronique ECU</span>
+                      <span class="mt-0.5 block truncate text-xs text-zinc-400 transition group-hover:text-zinc-300 motion-reduce:transition-none">Clonage, boîtiers &amp; réparation sur table</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="mt-1.5 h-4 w-4 shrink-0 text-zinc-600 opacity-0 transition group-hover:text-racing group-hover:opacity-100 motion-reduce:transition-none" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+              <div class="border-t border-white/5 p-2">
+                <a href="services/" class="group flex items-center justify-between gap-2 rounded-xl bg-white/[0.03] px-3 py-2.5 text-xs font-semibold text-zinc-300 transition hover:bg-racing/10 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-racing/15">
+                  Les 4 services clés auto
+                  <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
         <li>
           <a href="actualites.html" class="rounded-lg px-3 py-2 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-racing/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:bg-white/10">Actualités</a>
         </li>
@@ -477,16 +590,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </a>
           </li>
 
-          <li id="m-services-item">
-            <button type="button" id="m-services-btn" aria-expanded="false" aria-controls="m-services-panel" class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+          <li id="m-services-item" data-nav-acc>
+            <button type="button" id="m-services-btn" data-nav-acc-btn aria-expanded="false" aria-controls="m-services-panel" class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
               <span class="flex items-center gap-3">
                 <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35" aria-hidden="true"><i data-lucide="wrench" class="h-3.5 w-3.5"></i></span>
                 Nos services
               </span>
-              <span id="m-services-chev" class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500"></i></span>
+              <span id="m-services-chev" data-nav-acc-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500"></i></span>
             </button>
 
-            <div id="m-services-panel" class="max-h-0 overflow-hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out motion-reduce:transition-none">
+            <div id="m-services-panel" data-nav-acc-panel class="max-h-0 overflow-hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out motion-reduce:transition-none">
               <ul class="ml-3 flex flex-col gap-1 border-l-2 border-white/10 py-1 pl-3">
                 <li>
                   <a href="service-cle-voiture.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
@@ -523,6 +636,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <a href="service-ecu-clonage.html" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
                     <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="cpu" class="h-3 w-3"></i></span>
                     Clonage Calculateur Moteur
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li id="m-keys-item" data-nav-acc>
+            <button type="button" id="m-keys-btn" data-nav-acc-btn aria-expanded="false" aria-controls="m-keys-panel" class="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-zinc-300 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+              <span class="flex items-center gap-3">
+                <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-racing/15 text-racing ring-1 ring-racing/35" aria-hidden="true"><i data-lucide="car" class="h-3.5 w-3.5"></i></span>
+                Clés &amp; électronique
+              </span>
+              <span id="m-keys-chev" data-nav-acc-chev class="inline-flex transition-transform motion-reduce:transition-none" aria-hidden="true"><i data-lucide="chevron-down" class="h-4 w-4 text-zinc-500"></i></span>
+            </button>
+
+            <div id="m-keys-panel" data-nav-acc-panel class="max-h-0 overflow-hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out motion-reduce:transition-none">
+              <ul class="ml-3 flex flex-col gap-1 border-l-2 border-white/10 py-1 pl-3">
+                <li>
+                  <a href="services/reproduction-cles-auto/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="key" class="h-3 w-3"></i></span>
+                    Reproduction de clés auto
+                  </a>
+                </li>
+                <li>
+                  <a href="services/perte-totale-cles-lyon/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="key-round" class="h-3 w-3"></i></span>
+                    Perte totale de clés
+                  </a>
+                </li>
+                <li>
+                  <a href="services/ouverture-vehicule-sans-cle/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="unlock" class="h-3 w-3"></i></span>
+                    Ouverture de véhicule
+                    <span class="ml-auto rounded-full bg-racing/15 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-racing ring-1 ring-racing/45">Urgence</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="services/programmation-electronique-ecu/" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] text-zinc-400 transition hover:bg-white/5 hover:text-racing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-racing/70 active:bg-white/10">
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white/5 text-zinc-500 ring-1 ring-white/10" aria-hidden="true"><i data-lucide="circuit-board" class="h-3 w-3"></i></span>
+                    Programmation électronique ECU
                   </a>
                 </li>
               </ul>
@@ -571,6 +724,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <span class="hero-badge-slot hidden"><i data-lucide="cpu" class="h-3.5 w-3.5"></i></span>
               <span class="hero-badge-slot hidden"><i data-lucide="zap" class="h-3.5 w-3.5"></i></span>
               <span class="hero-badge-slot hidden"><i data-lucide="filter" class="h-3.5 w-3.5"></i></span>
+              <span class="hero-badge-slot hidden"><i data-lucide="key-round" class="h-3.5 w-3.5"></i></span>
             </span>
             <span id="hero-badge-text">Diagnostic &amp; électronique automobile — Lyon</span>
           </p>
@@ -801,6 +955,171 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- Services clés auto & électronique -->
+    <section id="services-cles" class="py-20 sm:py-28" aria-labelledby="services-cles-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="key-round" class="h-3.5 w-3.5" aria-hidden="true"></i>Services clés auto &amp; électronique</p>
+        <h2 id="services-cles-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Clés de voiture, ouverture &amp; programmation — à Lyon</h2>
+        <p class="mt-4 max-w-2xl text-lg text-zinc-400">
+          Quatre prestations dédiées à votre clé et à votre calculateur&nbsp;: <strong class="font-medium text-zinc-300">reproduction de clés</strong>, <strong class="font-medium text-zinc-300">remise en état après perte totale</strong>, <strong class="font-medium text-zinc-300">ouverture de véhicule sans clé</strong> et <strong class="font-medium text-zinc-300">programmation électronique ECU/BSI</strong> — devis express, intervention sur Lyon, Rhône (69) et Ain (01).
+        </p>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
+              <i data-lucide="key-round" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Reproduction de clés auto</h3>
+            <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Reproduction clé voiture Lyon</strong>&nbsp;: coupe du nez, perçage, pose du boîtier et programmation de la puce — clés pliantes, digicode et télécommandes.</p>
+            <ul class="mt-4 space-y-2 text-sm text-zinc-400">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Toutes marques</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Puce &amp; transpondeur</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>SAV 12 mois</li>
+            </ul>
+            <div class="mt-auto pt-6">
+              <a href="services/reproduction-cles-auto" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — reproduction de clés auto">
+                <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — reproduction de clés auto">
+                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                </a>
+                <a href="https://wa.me/33603439954?text=Bonjour%2C%20reproduction%20de%20cl%C3%A9%20voiture%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — reproduction de clés auto">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
+                </a>
+                <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — reproduction de clés auto">
+                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
+              <i data-lucide="key-square" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Perte totale de clés</h3>
+            <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Toutes clés perdues Lyon</strong>&nbsp;: ouverture du véhicule, fabrication d'une clé neuve et reprogrammation de l'immobiliseur — remise en état complète.</p>
+            <ul class="mt-4 space-y-2 text-sm text-zinc-400">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Ouverture incluse</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Reprog immobiliseur</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Anciens codes effacés</li>
+            </ul>
+            <div class="mt-auto pt-6">
+              <a href="services/perte-totale-cles-lyon" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — perte totale de clés">
+                <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — perte totale de clés">
+                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                </a>
+                <a href="https://wa.me/33603439954?text=Bonjour%2C%20perte%20totale%20de%20cl%C3%A9s%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — perte totale de clés">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
+                </a>
+                <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — perte totale de clés">
+                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
+              <i data-lucide="door-open" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Ouverture de véhicule</h3>
+            <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Ouverture voiture sans clé Lyon</strong>&nbsp;: déverrouillage non destructif des portes et du coffre — clé enfermée à l'intérieur ou perte en cours de route.</p>
+            <ul class="mt-4 space-y-2 text-sm text-zinc-400">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Sans dégât</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Portes &amp; coffre</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Urgence 7j/7</li>
+            </ul>
+            <div class="mt-auto pt-6">
+              <a href="services/ouverture-vehicule-sans-cle" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — ouverture de véhicule">
+                <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — ouverture de véhicule">
+                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                </a>
+                <a href="https://wa.me/33603439954?text=Bonjour%2C%20ouverture%20de%20v%C3%A9hicule%20sans%20cl%C3%A9%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — ouverture de véhicule">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
+                </a>
+                <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — ouverture de véhicule">
+                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/40 hover:shadow-xl hover:shadow-racing/10">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-105 group-hover:bg-racing/25">
+              <i data-lucide="microchip" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Programmation électronique</h3>
+            <p class="mt-2 text-sm text-zinc-400"><strong class="font-medium text-zinc-300">Programmation ECU Lyon</strong>&nbsp;: calculateur HS ou remplacement — copie du firmware, codage VIN, synchronisation immobiliseur et reprog des clés associées.</p>
+            <ul class="mt-4 space-y-2 text-sm text-zinc-400">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Copie firmware</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Codage VIN</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-racing" aria-hidden="true"></i>Clés synchronisées</li>
+            </ul>
+            <div class="mt-auto pt-6">
+              <a href="services/programmation-electronique-ecu" class="inline-flex items-center gap-1 text-sm font-semibold text-racing hover:underline">En savoir plus<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+              <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Actions rapides — programmation électronique">
+                <a href="tel:+33603439954" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:border-racing/50 hover:bg-white/10" aria-label="Appeler Mecanoo Lyon — programmation électronique">
+                  <i data-lucide="phone" class="h-3.5 w-3.5 shrink-0 text-racing" aria-hidden="true"></i>Appel
+                </a>
+                <a href="https://wa.me/33603439954?text=Bonjour%2C%20programmation%20%C3%A9lectronique%20ECU%20Lyon" target="_blank" rel="noopener noreferrer" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-2 text-xs font-semibold text-emerald-300 transition hover:border-[#25D366]/55 hover:bg-[#25D366]/18" aria-label="WhatsApp — programmation électronique">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
+                </a>
+                <a href="#contact" class="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-racing px-3 py-2 text-xs font-semibold text-white ring-1 ring-racing/40 transition hover:bg-racing/90" aria-label="Demander un devis — programmation électronique">
+                  <i data-lucide="file-text" class="h-3.5 w-3.5 shrink-0" aria-hidden="true"></i>Devis
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="mt-8 text-sm text-zinc-500"><a href="services/" class="font-semibold text-racing hover:underline">Voir les 4 services clés auto &amp; électronique →</a></p>
+      </div>
+    </section>
+
+    <!-- Problèmes résolus — chaque symptôme client renvoie vers la prestation concernée -->
+    <section id="problemes-resolus" class="border-b border-white/5 bg-zinc-950 py-14 sm:py-20" aria-labelledby="problemes-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="life-buoy" class="h-3.5 w-3.5"></i>&nbsp;Problèmes résolus</p>
+        <h2 id="problemes-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">Vous reconnaissez-vous&nbsp;? Nous avons la solution.</h2>
+        <p class="mt-4 max-w-3xl text-zinc-400">Quatre situations fréquentes — chacune renvoie vers la prestation qui la traite, avec devis avant intervention.</p>
+        <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <li>
+            <a href="/services/perte-totale-cles-lyon/" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
+              <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="key-round" class="h-5 w-5"></i></span>
+              <p class="text-base font-semibold italic text-zinc-200">«&nbsp;J'ai perdu ma seule clé&nbsp;»</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">Plus aucun exemplaire en main&nbsp;: nous recréons une clé sur place et reprogrammons l'immobiliseur.</p>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Perte totale de clés<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="/services/reproduction-cles-auto/" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
+              <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="copy" class="h-5 w-5"></i></span>
+              <p class="text-base font-semibold italic text-zinc-200">«&nbsp;Je veux un double, vite&nbsp;»</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">Double de clé ou télécommande taillé et programmé dans la foulée, quand la copie de référence est présente.</p>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Reproduction de clés<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="/services/ouverture-vehicule-sans-cle/" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
+              <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="lock" class="h-5 w-5"></i></span>
+              <p class="text-base font-semibold italic text-zinc-200">«&nbsp;Mes clés sont bloquées à l'intérieur&nbsp;»</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">Portes verrouillées avec les clés dedans&nbsp;: ouverture non destructive sur place.</p>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Ouverture de véhicule<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="/services/programmation-electronique-ecu/" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
+              <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="cpu" class="h-5 w-5"></i></span>
+              <p class="text-base font-semibold italic text-zinc-200">«&nbsp;Mon calculateur moteur est en panne&nbsp;»</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">Diagnostic, remplacement ou clonage de calculateur pour repartir avec un boîtier fonctionnel.</p>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">Programmation électronique<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -1080,6 +1399,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div>
         <p class="text-sm text-zinc-500">© <span id="year"></span> Mecanoo Lyon. Tous droits réservés.</p>
         <p class="mt-2 text-sm text-zinc-600"><a href="service-diagnostic.html" class="text-racing hover:underline">Diagnostic</a> · <a href="service-abs.html" class="hover:text-zinc-400 hover:underline">Bloc ABS</a> · <a href="service-ecu-clonage.html" class="hover:text-zinc-400 hover:underline">Calculateurs ECU/BSI</a> · <a href="service-reprogrammation.html" class="hover:text-zinc-400 hover:underline">Reprog moteur</a> · <a href="service-antipollution.html" class="hover:text-zinc-400 hover:underline">Anti-pollution</a> · <a href="zone-intervention.html" class="hover:text-zinc-400 hover:underline">Zone Lyon &amp; Ain</a>.</p>
+        <p class="mt-2 text-sm text-zinc-600"><a href="services/reproduction-cles-auto" class="hover:text-zinc-400 hover:underline">Reproduction de clés</a> · <a href="services/perte-totale-cles-lyon" class="hover:text-zinc-400 hover:underline">Perte totale de clés</a> · <a href="services/ouverture-vehicule-sans-cle" class="hover:text-zinc-400 hover:underline">Ouverture de véhicule</a> · <a href="services/programmation-electronique-ecu" class="hover:text-zinc-400 hover:underline">Programmation électronique</a> · <a href="services/" class="text-racing hover:underline">Tous les services clés auto</a>.</p>
       </div>
       <div class="flex flex-col items-start gap-3 sm:items-end">
         <p class="text-xs text-zinc-600 uppercase tracking-wide text-left sm:text-right">Diagnostic &amp; électronique automobile — Lyon · 69 · Ain 01</p>
@@ -1152,6 +1472,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             '<strong class="font-semibold text-zinc-200">Suppression FAP, EGR, AdBlue Lyon</strong>&nbsp;: reprogrammation logicielle définitive FoxFlash — fin des voyants, des régénérations et des frais de concession sur Lyon, 69 et 01.',
           primary: { href: '#contact', text: 'Devis anti-pollution' },
           secondary: { href: 'service-antipollution.html', text: 'Voir les solutions' },
+        },
+        {
+          badge: 'Clés auto & électronique',
+          title: 'Perte totale de clés & programmation',
+          html:
+            '<strong class="font-semibold text-zinc-200">Clés perdues Lyon</strong>&nbsp;: ouverture du véhicule, fabrication d\'une clé neuve, reprogrammation de l\'immobiliseur et du clonage ECU/BSI — remise en état complète sur Lyon, 69 et Ain.',
+          primary: { href: '#contact', text: 'Devis clés auto' },
+          secondary: { href: 'services/', text: 'Services clés & électronique' },
         },
       ];
 

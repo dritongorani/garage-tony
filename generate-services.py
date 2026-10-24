@@ -11,7 +11,7 @@ HEAD = """<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <script src="assets/canonical-host.js"></script>
+  <script src="{prefix}assets/canonical-host.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NPKTDZMM4"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6NPKTDZMM4');</script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TMZK9J9X');</script>
@@ -83,13 +83,16 @@ NAV_PAGES = {
 }
 
 
-def nav_tokens(active=None, on_home=False):
+def nav_tokens(active=None, on_home=False, prefix=""):
     """Tokens du partial navbar.html : lien surligné par pilier + ancres de page.
 
     active   : pilier courant — "diagnostic" | "abs" | "ecu" | "reprog"
-               | "antipollution" | "zone" | None (aucun).
+               | "antipollution" | "keys" | "zone" | None (aucun).
     on_home  : True sur index.html — les liens #services/#faq/#contact restent
                sur la page courante au lieu de rebondir vers index.html.
+    prefix   : préfixe des liens internes — "" à la racine, "/" depuis un
+               sous-dossier (services/…). Les pages d'un sous-dossier ne
+               peuvent pas porter de liens relatifs (assets/, images/…).
     """
     def cls(key):
         return ACTIVE_CLASS if active == key else BASE_CLASS
@@ -97,8 +100,8 @@ def nav_tokens(active=None, on_home=False):
     def mcls(key):
         return MOBILE_ACTIVE_CLASS if active == key else MOBILE_BASE_CLASS
 
-    home_href = "index.html#hero" if on_home else "index.html"
-    anchor = "" if on_home else "index.html"
+    home_href = prefix + ("index.html#hero" if on_home else "index.html")
+    anchor = "" if on_home else prefix + "index.html"
 
     return {
         "diag_class": cls("diagnostic"),
@@ -113,6 +116,12 @@ def nav_tokens(active=None, on_home=False):
         "mobile_reprog_class": mcls("reprog"),
         "mobile_anti_class": mcls("antipollution"),
         "mobile_zone_class": mcls("zone"),
+        # Pilier « Clés & électronique » : classe de remplacement (pas de
+        # conflit de précédence avec la couleur statique du bouton).
+        "keys_class": ACTIVE_CLASS if active == "keys" else "font-medium text-zinc-300",
+        "mobile_keys_class": MOBILE_ACTIVE_CLASS if active == "keys" else "text-zinc-300",
+        "keys_hub_href": f"{prefix}services/",
+        "prefix": prefix,
         "home_href": home_href,
         "services_href": f"{anchor}#services",
         "faq_href": f"{anchor}#faq",
@@ -120,9 +129,9 @@ def nav_tokens(active=None, on_home=False):
     }
 
 
-def render_nav(active=None, on_home=False):
+def render_nav(active=None, on_home=False, prefix=""):
     """Rend le partial de nav (str.format lève KeyError si un token manque)."""
-    return NAV.format(**nav_tokens(active, on_home))
+    return NAV.format(**nav_tokens(active, on_home, prefix))
 
 
 def sync_nav_pages():
@@ -156,7 +165,8 @@ FOOTER = """
     <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-6">
       <div>
         <p class="text-sm text-zinc-400">© <span id="year"></span> Mecanoo Lyon. Tous droits réservés.</p>
-        <p class="mt-2 text-sm text-zinc-400"><a href="service-diagnostic.html" class="text-racing hover:underline">Diagnostic</a> · <a href="service-abs.html" class="hover:text-zinc-300 hover:underline">Bloc ABS</a> · <a href="service-airbag.html" class="hover:text-zinc-300 hover:underline">Airbag</a> · <a href="service-ecu-clonage.html" class="hover:text-zinc-300 hover:underline">Calculateurs ECU/BSI</a> · <a href="service-reprogrammation.html" class="hover:text-zinc-300 hover:underline">Reprog moteur</a> · <a href="service-antipollution.html" class="hover:text-zinc-300 hover:underline">Anti-pollution</a> · <a href="zone-intervention.html" class="hover:text-zinc-300 hover:underline">Zone Lyon &amp; Ain</a> · <a href="index.html#contact" class="hover:text-zinc-300 hover:underline">Contact</a>.</p>
+        <p class="mt-2 text-sm text-zinc-400"><a href="{prefix}service-diagnostic.html" class="text-racing hover:underline">Diagnostic</a> · <a href="{prefix}service-abs.html" class="hover:text-zinc-300 hover:underline">Bloc ABS</a> · <a href="{prefix}service-airbag.html" class="hover:text-zinc-300 hover:underline">Airbag</a> · <a href="{prefix}service-ecu-clonage.html" class="hover:text-zinc-300 hover:underline">Calculateurs ECU/BSI</a> · <a href="{prefix}service-reprogrammation.html" class="hover:text-zinc-300 hover:underline">Reprog moteur</a> · <a href="{prefix}service-antipollution.html" class="hover:text-zinc-300 hover:underline">Anti-pollution</a> · <a href="{prefix}zone-intervention.html" class="hover:text-zinc-300 hover:underline">Zone Lyon &amp; Ain</a> · <a href="{prefix}index.html#contact" class="hover:text-zinc-300 hover:underline">Contact</a>.</p>
+        <p class="mt-2 text-sm text-zinc-400"><span class="font-medium text-zinc-300">Services clés auto &amp; électronique&nbsp;:</span> <a href="{prefix}services/reproduction-cles-auto/" class="hover:text-zinc-300 hover:underline">Reproduction de clés</a> · <a href="{prefix}services/perte-totale-cles-lyon/" class="hover:text-zinc-300 hover:underline">Perte totale de clés</a> · <a href="{prefix}services/ouverture-vehicule-sans-cle/" class="hover:text-zinc-300 hover:underline">Ouverture de véhicule</a> · <a href="{prefix}services/programmation-electronique-ecu/" class="hover:text-zinc-300 hover:underline">Programmation ECU</a> · <a href="{prefix}services/" class="hover:text-zinc-300 hover:underline">Tous les services clés</a>.</p>
       </div>
       <div class="flex flex-col items-start gap-3 sm:items-end">
         <p class="text-xs text-zinc-400 uppercase tracking-wide text-left sm:text-right">Diagnostic &amp; électronique automobile — Lyon · 69 · Ain 01</p>
@@ -434,6 +444,7 @@ SERVICES = [
         "related_links": [
             ("service-cle-voiture.html", "Clé de voiture — duplication &amp; programmation"),
             ("service-suppression-options.html", "Suppression d'options — codage BSI / ECU"),
+            ("services/programmation-electronique-ecu/", "Programmation électronique ECU — clonage &amp; réparation"),
         ],
     },
     {
@@ -748,6 +759,8 @@ SERVICES = [
         "related_links": [
             ("service-ecu-clonage.html", "Clonage ECU/BSI &amp; codage VIN"),
             ("service-immo-off.html", "Suppression d'immobiliseur"),
+            ("services/reproduction-cles-auto/", "Reproduction de clés &amp; télécommandes"),
+            ("services/perte-totale-cles-lyon/", "Perte totale de clés — création sur place"),
         ],
         # --- Habillage UI spécifique à la page clé (sections optionnelles) ---
         "cards_modern": True,
@@ -851,6 +864,338 @@ SERVICES = [
 ]
 
 # ---------------------------------------------------------------------------
+# Pilier « Services Clés Auto & Électronique » — routes /services/<slug>/
+#
+# Pages générées par le MÊME moteur build_page(), mais servies dans un
+# sous-dossier : `prefix = "/"` (liens internes racine) et `route` (URL
+# publique sans .html, compatible GitHub Pages via <dossier>/index.html).
+# `legal = False` : la mention « hors voie publique » porte sur la reprog
+# moteur / l'antipollution, sans objet sur ces prestations.
+# ---------------------------------------------------------------------------
+
+KEY_SERVICES = [
+    {
+        # --- /services/reproduction-cles-auto/ -----------------------------
+        "file": "services/reproduction-cles-auto/index.html",
+        "route": "services/reproduction-cles-auto/",
+        "slug": "reproduction-cles-auto",
+        "prefix": "/",
+        "active": "keys",
+        "legal": False,
+        "pillar_blocks": True,
+        "parent_label": "Services clés auto",
+        "parent_url": "services/",
+        "hub_url": "services/",
+        "hub_label": "Services clés auto",
+        "breadcrumb": "Reproduction de clés auto — Lyon",
+        "badge": "reproduction clés auto Lyon — doubles &amp; télécommandes 69 / Ain 01",
+        "icon": "key",
+        "h1": "Reproduction de clés auto — doubles, télécommandes &amp; réfection de cartes à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Reproduction de clés auto Lyon</strong>&nbsp;: double de clé, télécommande usée ou <strong class=\"font-semibold text-zinc-200\">carte à réparer</strong> — décodage du tracé, copie du transpondeur et programmation à domicile sur Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Double clé &amp; carte auto — reproduction Lyon | Mecanoo",
+        "description": "Double de clé voiture à Lyon et reproduction de carte auto à Villeurbanne : réfection, télécommande, programmation à domicile — devis gratuit, Rhône (69).",
+        "keywords": "reproduction clé voiture Lyon, double clé auto 69, réfection carte clé Lyon, réparer télécommande voiture, dupliquer clé pliante Ain 01",
+        "og_title": "Double clé & carte auto — reproduction Lyon | Mecanoo",
+        "og_description": "Double de clé voiture à Lyon et reproduction de carte auto à Villeurbanne : réfection, télécommande, programmation à domicile — devis gratuit.",
+        "service_name": "Reproduction de clés auto Lyon",
+        "service_type": "Reproduction de clés automobiles, doubles, télécommandes & réfection de cartes / boîtiers",
+        "step3": "Programmation de la copie, appairage avec l'immobiliseur et test de démarrage.",
+        "problem_title": "Clé abîmée ou simple exemplaire — les cas fréquents",
+        "problem_intro": "Boîtier fatigué, télécommande qui ne répond plus ou absence de double de sécurité&nbsp;: la plupart des clés se réparent ou se dupliquent sans concession, à condition de lire le transpondeur avant de commander une pièce.",
+        "problems": [
+            ("Une seule clé", "Aucun double de secours : une casse ou une perte et le véhicule est immobilisé.", "copy"),
+            ("Carte / boîtier usé", "Gâchette fatiguée, coque fissurée, touches décollées — la clé fonctionne mal.", "tool"),
+            ("Télécommande muette", "Boutons mous, portée réduite ou code radio à reprogrammer.", "radio"),
+            ("Clé pliante chère en concession", "Pièce d'origine et codage à plusieurs centaines d'euros, délais longs.", "euro"),
+        ],
+        "solution_title": "Double, réfection de carte &amp; programmation de clé",
+        "solution_intro": "Lecture du transpondeur, recopie du tracé mécanique, reconditionnement du boîtier puis appairage avec l'immobiliseur&nbsp;: la copie est testée avant notre départ, pas seulement à la remise.",
+        "solution_points": [
+            "Double de clé simple, clé pliante ou télécommande multimarque",
+            "Réfection de carte : coque, gâchette, touches et batterie",
+            "Décodage du tracé mécanique et lecture / copie du transpondeur",
+            "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
+        ],
+        "faq_intro": "« reproduction clé voiture Lyon », « double clé auto 69 », « réfection carte clé Lyon »",
+        "faqs": [
+            ("Pouvez-vous réparer ma clé au lieu d'en acheter une nouvelle ?", "Souvent oui : gâchette, coque, touches, batterie ou câblage se remplacent pièce par pièce sur de nombreuses marques. Si l'électronique est morte, une clé de rechange compatible est programmée — le point est fait avant toute commande."),
+            ("Dupliquez-vous les clés pliantes et les clés cartes ?", "Oui : clé pliante, clé cartes et télécommandes se dupliquent, avec décodage du tracé et copie du transpondeur. Devis après marque, modèle et année sur Lyon, Rhône (69) et Ain (01)."),
+            ("Combien de temps prend une reproduction de clé à Lyon ?", "Généralement le jour même quand la clé de référence est présente, sinon sur rendez-vous après commande du boîtier compatible. La clé est appairée puis testée au démarrage avant restitution."),
+        ],
+        "wa_text": "Bonjour%2C%20reproduction%20de%20cl%C3%A9s%20auto%20Lyon",
+        "img_alt": "Reproduction de clés auto à Lyon — doubles, télécommandes et réfection de cartes Rhône 69",
+        "related_links": [
+            ("service-cle-voiture.html", "Clé de voiture — programmation &amp; immobiliseur"),
+            ("services/perte-totale-cles-lyon/", "Perte totale de clés — création sur place"),
+            ("services/ouverture-vehicule-sans-cle/", "Ouverture de véhicule sans clé"),
+        ],
+        "cards_modern": True,
+        "sticky_cta": True,
+        "reassurance": [
+            ("key-round", "Toutes les clés", "Simple, pliante, cartes ou télécommande — multimarque."),
+            ("timer", "Intervention rapide", "Créneau le jour même si disponible, réponse sous 24 h."),
+            ("file-text", "Devis gratuit", "Tarif annoncé avant toute commande ou programmation."),
+            ("map-pin", "Intervention à domicile", "Lyon, Rhône (69) et Ain (01) — on vient à vous."),
+        ],
+        "process_kicker": "Notre méthode",
+        "process_title": "Reproduire une clé en 4 étapes",
+        "process_intro": "La clé d'origine est lue avant toute commande&nbsp;: pas de boîtier acheté à l'aveugle, et chaque étape est validée avec vous.",
+        "process": [
+            ("Lecture &amp; diagnostic", "scan-line", "Identification du véhicule et lecture du transpondeur&nbsp;: type de clé, niveau de sécurité et état de l'immobiliseur sont connus avant de commander quoi que ce soit."),
+            ("Décodage &amp; préparation", "key", "Copie du tracé mécanique de la lame, mise en forme de la copie, contrôle du boîtier, de la gâchette et de la batterie."),
+            ("Programmation", "cpu", "Appairage de la copie avec l'immobiliseur&nbsp;: transpondeur accepté, télécommande mémorisée, verrouillage à distance fonctionnel."),
+            ("Test &amp; livraison", "activity", "Démarrage, fermeture centralisée et essai complet avec vous — la clé est remise fonctionnelle."),
+        ],
+        "cta": {
+            "kicker": "Clé abîmée ou sans double&nbsp;? Appelez maintenant",
+            "title": "Un double se prépare avant la panne — un appel suffit pour cadrer l'intervention.",
+            "text": "Indiquez la marque, le modèle et l'année&nbsp;: nous confirmons le type de clé et fixons un créneau — <strong class=\"font-semibold text-zinc-200\">devis express à Lyon avant toute intervention</strong>.",
+            "points": ["Devis express à Lyon", "Clé testée avant départ", "Rapidité d'intervention", "À domicile Lyon &amp; 69"],
+        },
+    },
+    {
+        # --- /services/perte-totale-cles-lyon/ -----------------------------
+        "file": "services/perte-totale-cles-lyon/index.html",
+        "route": "services/perte-totale-cles-lyon/",
+        "slug": "perte-totale-cles-lyon",
+        "prefix": "/",
+        "active": "keys",
+        "legal": False,
+        "pillar_blocks": True,
+        "parent_label": "Services clés auto",
+        "parent_url": "services/",
+        "hub_url": "services/",
+        "hub_label": "Services clés auto",
+        "breadcrumb": "Perte totale de clés — Lyon",
+        "badge": "perte totale de clés Lyon — création de clé sur place 69 / Ain 01",
+        "icon": "key-round",
+        "h1": "Perte totale de clés — création de clé sur place à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Toutes vos clés sont perdues</strong>&nbsp;? Nous créons une clé neuve <strong class=\"font-semibold text-zinc-200\">sur place</strong>, même sans aucun exemplaire restant&nbsp;: lecture ou reprogrammation de l'immobiliseur, décodage mécanique et appairage à domicile sur Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Perte totale clé Lyon — refaire clé sans double | Mecanoo",
+        "description": "Perte totale de clé de voiture à Lyon : refaire une clé sans aucun double, reprogrammation de l'immobiliseur sur place — devis gratuit, Rhône (69).",
+        "keywords": "perte totale clé voiture Lyon, créer clé sans exemplaire 69, clé perdue toutes Lyon, programme clé perdue immobiliseur Ain 01",
+        "og_title": "Perte totale clé Lyon — refaire clé sans double | Mecanoo",
+        "og_description": "Perte totale de clé de voiture à Lyon : refaire une clé sans aucun double, reprogrammation de l'immobiliseur sur place — devis gratuit.",
+        "service_name": "Création de clé sur place — perte totale Lyon",
+        "service_type": "Création de clé automobile quand toutes les clés sont perdues — reprogrammation immobiliseur & décodage mécanique",
+        "step3": "Appairage de la clé créée avec l'immobiliseur et test complet de démarrage et de verrouillage.",
+        "problem_title": "Quand plus aucune clé n'existe",
+        "problem_intro": "Perte des deux clés, clé unique égarée ou volée&nbsp;: le véhicule ne redémarre pas et la concession n'est pas la seule issue. La faisabilité se vérifie par marque, modèle et niveau de sécurité avant tout déplacement.",
+        "problems": [
+            ("Aucun exemplaire restant", "Plus rien à programmer « à partir de » : la clé doit être créée, pas dupliquée.", "key-round"),
+            ("Véhicule immobilisé", "Voiture bloquée sur la voie, au parking ou devant chez vous.", "lock"),
+            ("Clé unique d'origine", "Beaucoup de véhicules sortent avec une seule clé — aucun secours.", "copy"),
+            ("Devis concession élevé", "Recodage et clé d'origine très chers, avec délais d'attente.", "euro"),
+        ],
+        "solution_title": "Création de clé sur place, sans exemplaire",
+        "solution_intro": "Connexion au calculateur d'immobiliseur pour lire ou reprogrammer les autorisations, décodage du tracé mécanique sur place puis appairage&nbsp;: la clé créée démarre le véhicule avant notre départ.",
+        "solution_points": [
+            "Création d'une clé neuve quand plus aucune clé n'existe",
+            "Lecture ou reprogrammation du calculateur d'immobiliseur",
+            "Décodage du tracé mécanique sur place — pas d'aller-retour concession",
+            "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
+        ],
+        "faq_intro": "« perte totale clé voiture Lyon », « créer clé sans exemplaire 69 », « toutes les clés perdues Lyon »",
+        "faqs": [
+            ("Peut-on créer une clé quand toutes les clés sont perdues ?", "Dans la plupart des cas oui : les autorisations sont lues ou reprogrammées dans l'immobiliseur, la clé est décodée puis appairée. Certaines marques et certains niveaux de sécurité imposent une procédure particulière — diagnostic préalable sur Lyon et le 69."),
+            ("Faut-il aller en concession pour une clé perdue ?", "Pas nécessairement : l'intervention se fait à domicile sur Lyon, le Rhône (69) et l'Ain (01), avec devis avant de commencer. La concession reste une option si le constructeur verrouille fortement la procédure — nous vous le disons clairement."),
+            ("Combien de temps pour recréer une clé à Lyon ?", "Selon marque et sécurité : souvent à la journée une fois le véhicule identifié, parfois après commande d'un boîtier compatible. Un créneau vous est confirmé au téléphone ou par WhatsApp."),
+        ],
+        "wa_text": "Bonjour%2C%20perte%20totale%20de%20cl%C3%A9s%20Lyon",
+        "img_alt": "Création de clé sur place à Lyon — perte totale de clés, immobiliseur Rhône 69",
+        "related_links": [
+            ("service-cle-voiture.html", "Clé de voiture — duplication &amp; programmation"),
+            ("services/reproduction-cles-auto/", "Reproduction de clés &amp; télécommandes"),
+            ("services/ouverture-vehicule-sans-cle/", "Ouverture de véhicule sans clé"),
+        ],
+        "cards_modern": True,
+        "sticky_cta": True,
+        "reassurance": [
+            ("key-round", "Même sans aucune clé", "Création sur place quand plus rien n'existe."),
+            ("timer", "Réponse rapide", "Orientation téléphonique immédiate, créneau le jour même si disponible."),
+            ("file-text", "Devis gratuit", "Tarif confirmé avant toute programmation ou commande."),
+            ("map-pin", "Intervention à domicile", "Lyon, Rhône (69) et Ain (01) — on vient à vous."),
+        ],
+        "process_kicker": "Notre méthode",
+        "process_title": "Recréer une clé perdue en 4 étapes",
+        "process_intro": "Aucun codage à l'aveugle&nbsp;: l'immobiliseur est d'abord interrogé, puis chaque étape est validée avec vous avant de passer à la suivante.",
+        "process": [
+            ("Diagnostic immobiliseur", "scan-line", "Lecture du calculateur et du système antidémarrage&nbsp;: nous déterminons si la clé est créable sur place et quelle procédure de sécurité s'applique à votre marque."),
+            ("Préparation de la clé", "key-round", "Clé neuve compatible, mise en forme du tracé mécanique sur place, contrôle de la gâchette et de la batterie."),
+            ("Programmation &amp; appairage", "cpu", "Autorisation de démarrage enregistrée dans l'immobiliseur, télécommande mémorisée, verrouillage à distance opérationnel."),
+            ("Test complet", "activity", "Démarrage, verrouillage, déverrouillage et essai avec vous — la clé est remise fonctionnelle, avec ses consignes d'utilisation."),
+        ],
+        "cta": {
+            "kicker": "Plus aucune clé&nbsp;? Appelez maintenant",
+            "title": "Sans aucune clé, rien ne s'arrange tout seul — un appel suffit pour débloquer la situation.",
+            "text": "Marque, modèle, année et motorisation&nbsp;: nous confirmons la faisabilité et fixons un créneau d'intervention — <strong class=\"font-semibold text-zinc-200\">devis express à Lyon, gratuit et sans engagement</strong>.",
+            "points": ["Devis express à Lyon", "Création même sans exemplaire", "Réponse rapide", "À domicile Lyon &amp; 69"],
+        },
+    },
+    {
+        # --- /services/ouverture-vehicule-sans-cle/ ------------------------
+        "file": "services/ouverture-vehicule-sans-cle/index.html",
+        "route": "services/ouverture-vehicule-sans-cle/",
+        "slug": "ouverture-vehicule-sans-cle",
+        "prefix": "/",
+        "active": "keys",
+        "legal": False,
+        "pillar_blocks": True,
+        "parent_label": "Services clés auto",
+        "parent_url": "services/",
+        "hub_url": "services/",
+        "hub_label": "Services clés auto",
+        "breadcrumb": "Ouverture de véhicule sans clé — Lyon",
+        "badge": "ouverture de véhicule Lyon — dépannage d'urgence non destructif 69 / Ain 01",
+        "icon": "unlock",
+        "h1": "Ouverture de véhicule sans clé — dépannage d'urgence à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Clé fermée à l'intérieur</strong> ou télécommande bloquée&nbsp;? Ouverture <strong class=\"font-semibold text-zinc-200\">non destructive</strong> du véhicule&nbsp;: la carrosserie, le joint et la porte restent intacts — dépannage sur Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Ouverture voiture bloquée Lyon — sans dégât, 69 | Mecanoo",
+        "description": "Porte de voiture bloquée avec clé à l'intérieur à Lyon ? Ouverture sans dégât, non destructive, en urgence — dépannage à domicile, Rhône (69).",
+        "keywords": "ouverture voiture sans clé Lyon, dépannage auto urgence 69, clé fermée à l'intérieur Lyon, ouverture non destructive voiture Ain 01",
+        "og_title": "Ouverture voiture bloquée Lyon — sans dégât, 69 | Mecanoo",
+        "og_description": "Porte de voiture bloquée avec clé à l'intérieur à Lyon ? Ouverture sans dégât, non destructive, en urgence — dépannage à domicile.",
+        "service_name": "Ouverture de véhicule sans clé Lyon",
+        "service_type": "Ouverture non destructive de véhicule, dépannage d'urgence sans clé — intervention à domicile",
+        "step3": "Contrôle du verrouillage, test de la fermeture et remise en service du véhicule.",
+        "problem_title": "Véhicule fermé — les situations d'urgence",
+        "problem_intro": "Clé inaccessible à l'intérieur, pile de télécommande morte ou portière verrouillée sans recours&nbsp;: une ouverture propre évite la casse, la dépose de cylindre et la réparation qui suit.",
+        "problems": [
+            ("Clé fermée à l'intérieur", "Clé sur le siège ou dans le coffre, porte verrouillée — situation la plus fréquente.", "lock"),
+            ("Télécommande hors batterie", "Pile morte ou code radio perdu : plus aucune façon d'ouvrir.", "battery-warning"),
+            ("Objets ou passagers bloqués", "Bagages, animal ou enfant à l'intérieur — urgence à traiter vite.", "siren"),
+            ("Ouverture par la force", "Porte forcée ou cylindre percé : réparation carrosserie et serrure à plusieurs centaines d'euros.", "shield-alert"),
+        ],
+        "solution_title": "Ouverture non destructive, sans dégât",
+        "solution_intro": "Outils d'ouverture dédiés et méthode adaptée au modèle du véhicule&nbsp;: la porte s'ouvre sans forcer, puis le verrouillage et la fermeture sont contrôlés avec vous avant notre départ.",
+        "solution_points": [
+            "Ouverture non destructive — carrosserie, joint et porte préservés",
+            "Méthode adaptée au modèle : ni percement ni déformation",
+            "Contrôle du verrouillage et essai de fermeture après intervention",
+            "Intervention à domicile Lyon, Rhône (69) et Ain (01)",
+        ],
+        "faq_intro": "« ouverture voiture sans clé Lyon », « dépannage auto urgence 69 », « clé fermée à l'intérieur Lyon »",
+        "faqs": [
+            ("L'ouverture d'une voiture abîme-t-elle la porte ?", "Non, quand elle est faite avec les bons outils : l'ouverture non destructive ne force ni le joint, ni la carrosserie, ni la serrure. C'est précisément ce qui la distingue d'une effraction improvisée."),
+            ("Intervenez-vous en urgence à Lyon et dans le 69 ?", "Oui — Lyon, la métropole, le Rhône (69) et l'Ain (01). Appelez ou écrivez sur WhatsApp : le créneau est confirmé immédiatement et le dépannage est planifié au plus tôt selon la disponibilité du jour."),
+            ("Que faire si ma télécommande de clé ne répond plus ?", "Contrôlez d'abord la pile et essayez la seconde clé. Si le verrouillage reste impossible, l'ouverture du véhicule puis la réparation de la télécommande (ou une clé de rechange) se font sur place — Lyon, Rhône (69) et Ain (01)."),
+        ],
+        "wa_text": "Bonjour%2C%20ouverture%20de%20v%C3%A9hicule%20sans%20cl%C3%A9%20Lyon",
+        "img_alt": "Ouverture de véhicule sans clé à Lyon — dépannage d'urgence non destructif Rhône 69",
+        "related_links": [
+            ("services/perte-totale-cles-lyon/", "Perte totale de clés — création sur place"),
+            ("services/reproduction-cles-auto/", "Reproduction de clés &amp; télécommandes"),
+            ("service-cle-voiture.html", "Clé de voiture — programmation &amp; immobiliseur"),
+        ],
+        "cards_modern": True,
+        "sticky_cta": True,
+        "reassurance": [
+            ("unlock", "Ouverture non destructive", "Carrosserie, joint et porte intacts."),
+            ("siren", "Dépannage d'urgence", "Réponse immédiate, créneau le jour même si disponible."),
+            ("shield-check", "Aucun percement", "Ni dépose de cylindre, ni déformation — contrôle final."),
+            ("map-pin", "Intervention à domicile", "Lyon, Rhône (69) et Ain (01) — on vient à vous."),
+        ],
+        "process_kicker": "Notre méthode",
+        "process_title": "Ouvrir un véhicule en 4 étapes",
+        "process_intro": "Aucune porte n'est forcée&nbsp;: la méthode est choisie selon le modèle, puis le verrouillage est recontrôlé avec vous avant notre départ.",
+        "process": [
+            ("Diagnostic du verrou", "scan-line", "Identification du véhicule et du type de fermeture (centralisée, à distance, antivol) — la méthode d'ouverture dépend du modèle."),
+            ("Choix de la méthode", "settings", "Outils d'ouverture dédiés sélectionnés selon la portière et la serrure : aucune intervention au hasard sur la carrosserie."),
+            ("Ouverture non destructive", "unlock", "Ouverture de la porte sans forcer, sans percement ni déformation — le joint et la peinture restent intacts."),
+            ("Contrôle &amp; remise en service", "activity", "Test du verrouillage, fermeture et réouverture avec vous, vérification de la centrale — puis, si besoin, réparation de la télécommande sur place."),
+        ],
+        "cta": {
+            "kicker": "Véhicule fermé&nbsp;? Appelez maintenant",
+            "title": "Une clé bloquante ne s'ouvre pas seule — un appel débloque la situation en quelques minutes.",
+            "text": "Précisez le modèle et l'endroit où se trouve le véhicule&nbsp;: nous confirmons l'intervention et le créneau — <strong class=\"font-semibold text-zinc-200\">dépannage d'urgence avec devis express à Lyon</strong>.",
+            "points": ["Devis express à Lyon", "Ouverture non destructive", "Réponse immédiate", "Lyon, 69 &amp; Ain 01"],
+        },
+    },
+    {
+        # --- /services/programmation-electronique-ecu/ ----------------------
+        "file": "services/programmation-electronique-ecu/index.html",
+        "route": "services/programmation-electronique-ecu/",
+        "slug": "programmation-electronique-ecu",
+        "prefix": "/",
+        "active": "keys",
+        "legal": False,
+        "pillar_blocks": True,
+        "parent_label": "Services clés auto",
+        "parent_url": "services/",
+        "hub_url": "services/",
+        "hub_label": "Services clés auto",
+        "breadcrumb": "Programmation électronique ECU — Lyon",
+        "badge": "programmation électronique ECU Lyon — clonage &amp; réparation 69 / Ain 01",
+        "icon": "circuit-board",
+        "h1": "Programmation électronique ECU — clonage, réinitialisation &amp; réparation sur table à Lyon",
+        "hero": "<strong class=\"font-semibold text-zinc-200\">Programmation électronique Lyon</strong>&nbsp;: clonage de calculateurs, <strong class=\"font-semibold text-zinc-200\">réinitialisation de boîtiers</strong> (BSI, compteur, module immo) et <strong class=\"font-semibold text-zinc-200\">réparation électronique sur table</strong> — lecture / écriture des firmware et codage à Lyon, Rhône <strong class=\"font-semibold text-zinc-200\">(69)</strong> et Ain <strong class=\"font-semibold text-zinc-200\">(01)</strong>.",
+        "title": "Clonage calculateur Lyon — électronique auto 69 | Mecanoo",
+        "description": "Clonage de calculateur moteur à Lyon et réparation électronique auto dans le Rhône : clonage ECU, codage, réparation sur table — devis gratuit.",
+        "keywords": "programmation électronique ECU Lyon, clonage calculateur 69, réinitialisation boîtier BSI Lyon, réparation calculateur sur table Ain 01",
+        "og_title": "Clonage calculateur Lyon — électronique auto 69 | Mecanoo",
+        "og_description": "Clonage de calculateur moteur à Lyon et réparation électronique auto dans le Rhône : clonage ECU, codage, réparation sur table — devis gratuit.",
+        "service_name": "Programmation électronique ECU Lyon",
+        "service_type": "Programmation électronique automobile — clonage de calculateurs, réinitialisation de boîtiers & réparation sur table",
+        "step3": "Écriture, codage puis contrôle du calculateur sur le véhicule et essai avant restitution.",
+        "problem_title": "Calculateur en panne ou boîtier à reprogrammer",
+        "problem_intro": "ECU noyé, BSI remplacé sans codage, compteur verrouillé ou composant grillé&nbsp;: la panne électronique se traite au calculateur, après lecture et sauvegarde des données d'origine.",
+        "problems": [
+            ("Calculateur moteur HS", "ECU noyé, court-circuit, composants grillés — le véhicule ne démarre plus.", "cpu"),
+            ("Boîtier à réinitialiser", "BSI, compteur ou module remplacé et non synchronisé avec le véhicule.", "refresh-cw"),
+            ("Données d'origine perdues", "Effacement accidentel, mise à jour interrompue, calculateur vierge.", "hard-drive"),
+            ("Devis concession", "Remplacement complet et codage à plusieurs milliers d'euros, délais longs.", "euro"),
+        ],
+        "solution_title": "Clonage, réinitialisation &amp; réparation sur table",
+        "solution_intro": "Lecture et sauvegarde du firmware (Flash + EEPROM), copie sur un calculateur compatible, réinitialisation des boîtiers codés puis, si la panne est matérielle, reprise des composants à l'établi.",
+        "solution_points": [
+            "Clonage de calculateurs : copie Flash + EEPROM sur ECU compatible",
+            "Réinitialisation et codage de BSI, compteur et module immobiliseur",
+            "Réparation électronique sur table : composants, connectique, alimentation",
+            "Peugeot, Citroën, Renault, VAG, BMW… — Lyon, 69 et Ain 01",
+        ],
+        "faq_intro": "« programmation électronique ECU Lyon », « clonage calculateur 69 », « réparation calculateur sur table Lyon »",
+        "faqs": [
+            ("Quelle différence entre clonage et réinitialisation d'un calculateur ?", "Le clonage copie intégralement les données d'un calculateur d'origine vers un autre (remplacement). La réinitialisation remet un boîtier codé — BSI, compteur — à un état permettant de le recoder au véhicule. Selon la panne, l'une ou l'autre est nécessaire."),
+            ("Réparez-vous les calculateurs sur table ?", "Oui : quand la panne est matérielle (composant grillé, alimentation, connectique), la carte est reprise à l'établi après diagnostic. Si le calculateur est irréparable, le clonage vers un élément compatible reste la solution."),
+            ("Combien de temps pour programmer un calculateur à Lyon ?", "Lecture et écriture : souvent à la journée selon l'accès et la marque. Réparation sur table : délai annoncé après inspection du module — devis avant toute intervention sur Lyon, le 69 et l'Ain (01)."),
+        ],
+        "wa_text": "Bonjour%2C%20programmation%20%C3%A9lectronique%20ECU%20Lyon",
+        "img_alt": "Programmation électronique ECU à Lyon — clonage de calculateurs et réparation sur table Rhône 69",
+        "related_links": [
+            ("service-ecu-clonage.html", "Clonage ECU/BSI &amp; codage VIN"),
+            ("service-immo-off.html", "Immo off — antidémarrage ECU/BSI"),
+            ("services/reproduction-cles-auto/", "Reproduction de clés &amp; télécommandes"),
+        ],
+        "cards_modern": True,
+        "sticky_cta": True,
+        "reassurance": [
+            ("cpu", "Clonage &amp; réinitialisation", "ECU, BSI, compteur et module immobiliseur."),
+            ("wrench", "Réparation sur table", "Composants et connectique repris à l'atelier."),
+            ("file-text", "Devis gratuit", "Tarif annoncé avant toute lecture ou écriture."),
+            ("map-pin", "Intervention à domicile", "Lyon, Rhône (69) et Ain (01) — on vient à vous."),
+        ],
+        "process_kicker": "Notre méthode",
+        "process_title": "Programmer un calculateur en 4 étapes",
+        "process_intro": "Aucun calculateur n'est écrit sans lecture préalable&nbsp;: la sauvegarde des données d'origine précède toujours la modification.",
+        "process": [
+            ("Diagnostic &amp; identification", "scan-line", "Connexion au véhicule et au module concerné&nbsp;: le type de calculateur, l'origine de la panne et la faisabilité sont établis avant toute écriture."),
+            ("Lecture &amp; sauvegarde", "shield-check", "Extraction complète du firmware (Flash, EEPROM) et sauvegarde des données d'origine — la base d'un retour en arrière."),
+            ("Programmation ou réparation", "cpu", "Copie vers le calculateur compatible, réinitialisation du boîtier codé, ou reprise des composants sur table si la panne est matérielle."),
+            ("Codage &amp; essai", "activity", "Codage VIN et synchronisation immobiliseur si nécessaire, puis contrôle sur véhicule et essai — le module est restitué en état de marche."),
+        ],
+        "cta": {
+            "kicker": "Calculateur en panne&nbsp;? Appelez maintenant",
+            "title": "Un calculateur se diagnostique avant de s'écrire — un appel suffit pour cadrer la réparation.",
+            "text": "Marque, modèle et symptôme (ne démarre plus, boîtier remplacé, voyant)&nbsp;: nous donnons une première orientation et fixons un créneau — <strong class=\"font-semibold text-zinc-200\">devis express à Lyon avant toute écriture</strong>.",
+            "points": ["Devis express à Lyon", "Sauvegarde d'origine systématique", "Réponse rapide", "Lyon, 69 &amp; Ain 01"],
+        },
+    },
+]
+
+# Pages de service à générer (pilier historique + pilier « clés auto »).
+ALL_SERVICES = SERVICES + KEY_SERVICES
+
+# ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
@@ -872,10 +1217,9 @@ def automotive_business_node():
         "telephone": "+33603439954",
         "priceRange": "€€",
         "description": (
-            "Mecanoo Lyon — spécialiste électronique automobile & diagnostic à Lyon, Rhône (69) et Ain (01) : "
-            "diagnostic valise OBD multimarque, clonage & programmation calculateurs ECU/BSI, reprogrammation "
-            "moteur Stage 1 & conversion Éthanol E85, suppression définitive FAP, EGR et AdBlue — outils FoxFlash, "
-            "intervention à domicile."
+            "Mecanoo Lyon — spécialiste serrurerie automobile & électronique à Lyon, Rhône (69) et Ain (01) : "
+            "double et reproduction de clés, création de clé sur place en cas de perte totale, ouverture de véhicule "
+            "non destructive, clonage et programmation de calculateurs ECU/BSI — intervention à domicile, devis gratuit."
         ),
         "address": {
             "@type": "PostalAddress",
@@ -948,6 +1292,7 @@ def offer_node(url):
 
 def schema_json(s):
     import json
+    route = s.get("route", s["file"])  # URL publique : "services/<slug>/" pour le pilier clés
     faqs = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in s["faqs"]]
     breadcrumbs = [
         {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
@@ -956,11 +1301,11 @@ def schema_json(s):
     if s.get("parent_label") and s.get("parent_url"):
         breadcrumbs.append({"@type": "ListItem", "position": pos, "name": s["parent_label"], "item": f"{SITE}/{s['parent_url']}"})
         pos += 1
-    breadcrumbs.append({"@type": "ListItem", "position": pos, "name": s["service_name"], "item": f"{SITE}/{s['file']}"})
+    breadcrumbs.append({"@type": "ListItem", "position": pos, "name": s["service_name"], "item": f"{SITE}/{route}"})
     graph = [
         automotive_business_node(),
         {"@type": "BreadcrumbList", "itemListElement": breadcrumbs},
-        {"@type": "Service", "@id": f"{SITE}/{s['file']}#service",
+        {"@type": "Service", "@id": f"{SITE}/{route}#service",
          "serviceType": s.get("service_type", s["service_name"]),
          "name": s["service_name"], "description": s["description"],
          "provider": {"@id": f"{SITE}/#localbusiness"},
@@ -968,9 +1313,15 @@ def schema_json(s):
              {"@type": "AdministrativeArea", "name": "Rhône"},
              {"@type": "AdministrativeArea", "name": "Ain"},
              {"@type": "City", "name": "Lyon"},
+             {"@type": "City", "name": "Villeurbanne"},
+             {"@type": "City", "name": "Vénissieux"},
+             {"@type": "City", "name": "Bron"},
+             {"@type": "City", "name": "Saint-Priest"},
+             {"@type": "City", "name": "Caluire-et-Cuire"},
+             {"@type": "City", "name": "Oullins"},
          ],
-         "offers": offer_node(f"{SITE}/{s['file']}"),
-         "url": f"{SITE}/{s['file']}"},
+         "offers": offer_node(f"{SITE}/{route}"),
+         "url": f"{SITE}/{route}"},
         {"@type": "FAQPage", "mainEntity": faqs},
     ]
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
@@ -1034,8 +1385,130 @@ def reassurance_block(s):
 """
 
 
+# ---------------------------------------------------------------------------
+# Composants transverses du pilier « clés auto & électronique »
+# Aucun nom d'outil ni de marque d'équipement : uniquement des garanties et
+# des compétences formulées en langage generic (SEO + conformité éditoriale).
+# Reutilisés par les 4 pages clés (spec `pillar_blocks`) et par le hub.
+# ---------------------------------------------------------------------------
+
+# Garanties & compétences — le « comment on travaille », technique et rassurant.
+KEY_GUARANTEES = [
+    ("cpu", "Équipement électronique de précision",
+     "Lecture et programmation des calculateurs sur un matériel de diagnostic haute fidélité."),
+    ("scan-line", "Taillage laser informatisé",
+     "Reproduction du tracé de la clé au laser, calquée sur la géométrie d'origine."),
+    ("stethoscope", "Diagnostic constructeur",
+     "Protocoles de diagnostic propres à chaque constructeur, avant toute intervention."),
+    ("feather", "Intervention sans dégât",
+     "Ouverture et manipulation préservant la carrosserie, la serrure et l'électronique."),
+]
+
+# Pourquoi nous choisir — le « pourquoi nous », engagements de service (assurance).
+WHY_CHOOSE = [
+    ("timer", "Intervention rapide — Lyon &amp; agglomération",
+     "Créneau le jour même quand c'est possible, sur Lyon et sa périphérie."),
+    ("file-text", "Devis gratuit et transparent",
+     "Tarif annoncé et accepté avant toute intervention, sans surprise."),
+    ("badge-check", "Travail garanti",
+     "Chaque clé et chaque calculateur sont testés avant notre départ."),
+    ("crosshair", "Matériel de taillage haute précision",
+     "Taillage laser contrôlé pour une copie fidèle du tracé d'origine."),
+]
+
+# Problèmes résolus — chaque « symptôme » client renvoie vers la page qui le traite.
+KEY_PROBLEMS_RESOLVED = [
+    ("key-round", "«&nbsp;J'ai perdu ma seule clé&nbsp;»",
+     "Plus aucun exemplaire en main&nbsp;: nous recréons une clé sur place et reprogrammons l'immobiliseur.",
+     "/services/perte-totale-cles-lyon/", "Perte totale de clés"),
+    ("copy", "«&nbsp;Je veux un double, vite&nbsp;»",
+     "Double de clé ou télécommande taillé et programmé dans la foulée, quand la copie de référence est présente.",
+     "/services/reproduction-cles-auto/", "Reproduction de clés"),
+    ("lock", "«&nbsp;Mes clés sont bloquées à l'intérieur&nbsp;»",
+     "Portes verrouillées avec les clés dedans&nbsp;: ouverture non destructive sur place.",
+     "/services/ouverture-vehicule-sans-cle/", "Ouverture de véhicule"),
+    ("cpu", "«&nbsp;Mon calculateur moteur est en panne&nbsp;»",
+     "Diagnostic, remplacement ou clonage de calculateur pour repartir avec un boîtier fonctionnel.",
+     "/services/programmation-electronique-ecu/", "Programmation électronique"),
+]
+
+
+def guarantees_block():
+    """Section « Garanties & compétences » — grille technique (bg-ink)."""
+    items = []
+    for icon, title, desc in KEY_GUARANTEES:
+        items.append(f"""          <li class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10">
+            <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-6 w-6"></i></span>
+            <h3 class="text-lg font-bold text-white">{title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-400">{desc}</p>
+          </li>""")
+    return f"""    <section id="garanties" class="border-b border-white/5 bg-ink py-14 sm:py-20" aria-labelledby="garanties-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="shield-check" class="h-3.5 w-3.5"></i>&nbsp;Garanties &amp; compétences</p>
+        <h2 id="garanties-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">Précision, méthode et contrôle — à chaque intervention</h2>
+        <p class="mt-4 max-w-3xl text-zinc-400">Nos compétences reposent sur un équipement électronique de précision, un taillage laser informatisé et un diagnostic adapté à chaque constructeur — sans dégât sur votre véhicule.</p>
+        <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+{chr(10).join(items)}
+        </ul>
+      </div>
+    </section>
+"""
+
+
+def why_choose_block():
+    """Section « Pourquoi nous choisir » — engagements de service centrés (assurance)."""
+    items = []
+    for icon, title, desc in WHY_CHOOSE:
+        items.append(f"""          <li class="group flex flex-col items-center text-center">
+            <span class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-racing/15 text-racing ring-1 ring-racing/30 transition duration-300 group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-7 w-7"></i></span>
+            <h3 class="text-base font-bold text-white">{title}</h3>
+            <p class="mt-2 max-w-[16rem] text-sm leading-relaxed text-zinc-400">{desc}</p>
+          </li>""")
+    return f"""    <section id="pourquoi-nous-choisir" class="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-zinc-950 to-ink py-16 sm:py-24" aria-labelledby="pourquoi-heading">
+      <div class="absolute left-1/2 top-0 h-64 w-[46rem] -translate-x-1/2 rounded-full bg-racing/10 blur-3xl" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="badge-check" class="h-3.5 w-3.5"></i>&nbsp;Pourquoi nous choisir</p>
+        <h2 id="pourquoi-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">Des engagements clairs, pas des promesses</h2>
+        <p class="mt-4 max-w-3xl text-zinc-400">Rapidité, transparence du devis, garantie du travail et précision du matériel — voici sur quoi vous pouvez compter, à Lyon et en agglomération.</p>
+        <ul class="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+{chr(10).join(items)}
+        </ul>
+      </div>
+    </section>
+"""
+
+
+def problems_resolved_block():
+    """Section « Problèmes résolus » — chaque symptôme client est un lien vers
+    la prestation qui le traite (liens root-relative, valables accueil + hub)."""
+    items = []
+    for icon, quote, desc, href, label in KEY_PROBLEMS_RESOLVED:
+        items.append(f"""          <li>
+            <a href="{href}" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-6 transition duration-300 hover:-translate-y-1 hover:border-racing/45 hover:shadow-xl hover:shadow-racing/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-racing/70">
+              <span class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-racing/60 to-transparent opacity-0 transition group-hover:opacity-100" aria-hidden="true"></span>
+              <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-racing/15 text-racing ring-1 ring-racing/30 transition group-hover:scale-110 group-hover:bg-racing group-hover:text-ink" aria-hidden="true"><i data-lucide="{icon}" class="h-5 w-5"></i></span>
+              <p class="text-base font-semibold italic text-zinc-200">{quote}</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">{desc}</p>
+              <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-racing">{label}<i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true"></i></span>
+            </a>
+          </li>""")
+    return f"""    <section id="problemes-resolus" class="border-b border-white/5 bg-zinc-950 py-14 sm:py-20" aria-labelledby="problemes-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="life-buoy" class="h-3.5 w-3.5"></i>&nbsp;Problèmes résolus</p>
+        <h2 id="problemes-heading" class="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">Vous reconnaissez-vous&nbsp;? Nous avons la solution.</h2>
+        <p class="mt-4 max-w-3xl text-zinc-400">Quatre situations fréquentes — chacune renvoie vers la prestation qui la traite, avec devis avant intervention.</p>
+        <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+{chr(10).join(items)}
+        </ul>
+      </div>
+    </section>
+"""
+
+
 def solution_section(s):
     """Bloc solution — carte 'Déroulement' masquée quand une section processus existe (spec `process`)."""
+    P = s.get("prefix", "")
     has_process = bool(s.get("process"))
     grid = '      <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:items-start">'
     single = '      <div class="mx-auto max-w-6xl px-4 sm:px-6">'
@@ -1062,7 +1535,7 @@ def solution_section(s):
           </ul>
           <div class="mt-8 flex flex-wrap gap-4">
             <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="{s['hub_url']}" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s['hub_label']}<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <a href="{P}{s['hub_url']}" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s['hub_label']}<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
           </div>
         </div>
 {deroulement}      </div>
@@ -1112,6 +1585,7 @@ def sticky_cta(s):
 
 def final_cta(s):
     """Bloc final de conversion — variante percutante (spec `cta`) ou standard."""
+    P = s.get("prefix", "")
     cta = s.get("cta")
     if not cta:
         return f"""    <section class="py-14 sm:py-20">
@@ -1121,7 +1595,7 @@ def final_cta(s):
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
           <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-          <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Formulaire contact<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
         </div>
       </div>
     </section>"""
@@ -1144,7 +1618,7 @@ def final_cta(s):
           </a>
           <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#25D366]/45 bg-[#25D366]/15 px-7 py-4 text-base font-bold text-emerald-300 transition duration-200 hover:scale-[1.03] hover:bg-[#25D366]/25 active:scale-95 sm:text-lg"><i data-lucide="message-circle" class="h-5 w-5" aria-hidden="true"></i>WhatsApp</a>
         </div>
-        <a href="index.html#contact" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-300 underline-offset-4 transition hover:text-racing hover:underline">Préférez-vous le formulaire de contact ?<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+        <a href="{P}index.html#contact" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-300 underline-offset-4 transition hover:text-racing hover:underline">Préférez-vous le formulaire de contact ?<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
         <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-medium text-zinc-300">
 {points}
         </ul>
@@ -1152,19 +1626,25 @@ def final_cta(s):
     </section>"""
 
 
+def render_footer(wa_text, fab_pos="bottom-5", prefix=""):
+    """Rend le FOOTER commun — `prefix` préfixe les liens internes ("" / "/")."""
+    return FOOTER.format(wa_text=wa_text, fab_pos=fab_pos, prefix=prefix)
+
+
 def footer_html(s):
     """FOOTER — position du bouton WhatsApp surélevée si une barre d'appel fixe est présente."""
     fab_pos = "bottom-20" if s.get("sticky_cta") else "bottom-5"
-    return FOOTER.format(wa_text=s["wa_text"], fab_pos=fab_pos)
+    return render_footer(s["wa_text"], fab_pos, s.get("prefix", ""))
 
 
 def related_block(s):
     """Maillage interne optionnel : liens vers les pages associées (spec 'related_links')."""
+    P = s.get("prefix", "")
     links = s.get("related_links") or []
     if not links:
         return ""
     items = "\n".join(
-        f'          <li><a href="{href}" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-racing">{label}<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a></li>'
+        f'          <li><a href="{P}{href}" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:border-racing/40 hover:text-racing">{label}<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a></li>'
         for href, label in links
     )
     return f"""    <section class="border-b border-white/5 bg-zinc-950 py-10 sm:py-12" aria-label="Pages associées">
@@ -1197,28 +1677,48 @@ def faq_block(s):
 
 
 def render_head(meta):
+    # `prefix` : préfixe des ressources internes ("" racine, "/" sous-dossier).
+    meta = {"prefix": "", **meta}
     h = HEAD
     for k, v in meta.items():
         h = h.replace("{" + k + "}", v)
     return h
 
 
-def breadcrumb_html(s):
+def breadcrumb_html(s, prefix=""):
     if s.get("parent_label") and s.get("parent_url"):
         return f"""           <li aria-hidden="true">/</li>
-           <li><a href="{s['parent_url']}" class="text-zinc-400 transition hover:text-racing">{s['parent_label']}</a></li>"""
+           <li><a href="{prefix}{s['parent_url']}" class="text-zinc-400 transition hover:text-racing">{s['parent_label']}</a></li>"""
     return ""
 
 
+def legal_block(s):
+    """Mention légale hors piste — pertinente uniquement pour ce qui touche à la
+    reprogrammation moteur / aux suppressions antipollution (spec `legal`).
+    Le "\n" de tête préserve la mise en page historique (ligne vide avant)."""
+    return "\n" + LEGAL if s.get("legal", True) else ""
+
+
 def build_page(s):
-    canonical = f"{SITE}/{s['file']}"
-    nav = render_nav(s["active"])
+    P = s.get("prefix", "")  # "" à la racine, "/" depuis services/…
+    canonical = f"{SITE}/{s.get('route', s['file'])}"
+    nav = render_nav(s["active"], prefix=P)
 
     head = render_head({
+        "prefix": P,
         "description": s["description"], "keywords": s["keywords"], "title": s["title"],
         "canonical": canonical, "og_title": s["og_title"], "og_description": s["og_description"],
         "schema": schema_json(s),
     })
+
+    # Composants transverses du pilier clés/électronique — activés par le flag
+    # `pillar_blocks` pour ne pas altérer les 14 pages historiques.
+    pillar_html = ""
+    if s.get("pillar_blocks"):
+        pillar_html = f"""
+{guarantees_block()}
+{why_choose_block()}
+"""
 
     body = f"""{head}
 {nav}
@@ -1226,8 +1726,8 @@ def build_page(s):
     <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
       <div class="mx-auto max-w-6xl">
         <ol class="flex flex-wrap items-center gap-2">
-          <li><a href="index.html" class="text-zinc-400 transition hover:text-racing">Accueil</a></li>
-{breadcrumb_html(s)}
+          <li><a href="{P}index.html" class="text-zinc-400 transition hover:text-racing">Accueil</a></li>
+{breadcrumb_html(s, P)}
           <li aria-hidden="true">/</li>
           <li class="text-zinc-300">{s['breadcrumb']}</li>
         </ol>
@@ -1244,13 +1744,13 @@ def build_page(s):
           <div class="mt-8 flex flex-wrap gap-4">
             <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
             <a href="https://wa.me/33603439954?text={s['wa_text']}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
-            <a href="index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Demander un devis<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+            <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">{s.get('hero_cta_label', 'Demander un devis')}<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
           </div>
         </div>
         <div class="mt-10 lg:col-span-2 lg:mt-0">
           <figure class="overflow-hidden rounded-2xl border border-white/10">
             <div class="aspect-[4/5] max-h-[520px] bg-zinc-900/80 sm:aspect-video sm:max-h-none">
-              <img src="images/seo-reparation-voiture-lyon_1.jpg" alt="{s['img_alt']}" width="1264" height="848" loading="eager" decoding="async" class="size-full object-cover object-center" />
+              <img src="{P}images/seo-reparation-voiture-lyon_1.jpg" alt="{s['img_alt']}" width="1264" height="848" loading="eager" decoding="async" class="size-full object-cover object-center" />
             </div>
           </figure>
         </div>
@@ -1268,8 +1768,7 @@ def build_page(s):
     </section>
 
 {solution_section(s)}{process_block(s)}
-{related_block(s)}{faq_block(s)}
-{LEGAL}
+{pillar_html}{related_block(s)}{faq_block(s)}{legal_block(s)}
 {final_cta(s)}
   </main>
 {sticky_cta(s)}{footer_html(s)}
@@ -1289,9 +1788,9 @@ HUB_CARDS = """          <article class="group flex flex-col rounded-2xl border 
           </article>"""
 
 
-def hub_breadcrumb(name):
+def hub_breadcrumb(name, prefix=""):
     return f"""<ol class="flex flex-wrap items-center gap-2">
-          <li><a href="index.html" class="text-zinc-400 transition hover:text-racing">Accueil</a></li><li aria-hidden="true">/</li>
+          <li><a href="{prefix}index.html" class="text-zinc-400 transition hover:text-racing">Accueil</a></li><li aria-hidden="true">/</li>
           <li class="text-zinc-300">{name}</li>
         </ol>"""
 
@@ -1426,7 +1925,7 @@ def build_reprogrammation_hub():
       </div>
     </section>
   </main>
-{FOOTER.format(wa_text="Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)", fab_pos="bottom-5")}
+{render_footer("Bonjour%2C%20reprog%20moteur%20Lyon%20(stage%201%20%2F%20E85)")}
 """
 
 
@@ -1562,7 +2061,148 @@ def build_antipollution_hub():
       </div>
     </section>
   </main>
-{FOOTER.format(wa_text="Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon", fab_pos="bottom-5")}
+{render_footer("Bonjour%2C%20suppression%20FAP%2FEGR%2FAdBlue%20Lyon")}
+"""
+
+
+def build_services_hub():
+    """services/index.html — Services clés auto & électronique (hub du pilier).
+
+    Servie depuis un sous-dossier : tous les liens internes sont root-relative
+    (P = "/"), comme pour les pages du pilier.
+    """
+    P = "/"
+
+    hub_items = [
+        ("/services/reproduction-cles-auto/", "key", "Reproduction de clés &amp; télécommandes", "Doubles de clés, télécommandes, réfection de cartes et boîtiers — décodage, transpondeur et programmation à domicile."),
+        ("/services/perte-totale-cles-lyon/", "key-round", "Perte totale de clés", "Création de clé sur place quand plus aucun exemplaire n'existe — immobiliseur reprogrammé, véhicule redémarrable."),
+        ("/services/ouverture-vehicule-sans-cle/", "unlock", "Ouverture de véhicule sans clé", "Dépannage d'urgence, ouverture non destructive — carrosserie, joint et serrure préservés."),
+        ("/services/programmation-electronique-ecu/", "circuit-board", "Programmation électronique ECU", "Clonage de calculateurs, réinitialisation de boîtiers (BSI, compteur) et réparation électronique sur table."),
+    ]
+    cards = [HUB_CARDS.format(icon=icon, title=title, desc=desc, href=href) for href, icon, title, desc in hub_items]
+
+    other_items = [
+        ("/service-diagnostic.html", "scan-line", "Diagnostic électronique &amp; valise OBD", "Lecture codes défaut moteur, boîte, ABS, airbag."),
+        ("/service-ecu-clonage.html", "cpu", "Clonage ECU &amp; programmation ECU/BSI", "Copie firmware, codage VIN, synchronisation immo."),
+        ("/service-cle-voiture.html", "key-round", "Clé de voiture — programmation", "Clé de rechange, appairage avec l'immobiliseur."),
+    ]
+    other = [HUB_CARDS.format(icon=icon, title=title, desc=desc, href=href) for href, icon, title, desc in other_items]
+
+    import json
+    faqs = [
+        ("Quels services pour les clés de voiture proposez-vous à Lyon ?", "Quatre prestations complémentaires : reproduction de clés et de télécommandes (doubles, réfection de cartes), création de clé sur place en cas de perte totale, ouverture de véhicule sans clé non destructive, et programmation électronique ECU (clonage, réinitialisation de boîtiers, réparation sur table)."),
+        ("Pouvez-vous intervenir quand toutes les clés sont perdues ?", "Oui : lecture ou reprogrammation de l'immobiliseur, décodage mécanique et création d'une clé neuve sur place — Lyon, Rhône (69) et Ain (01), devis avant intervention."),
+        ("L'ouverture de véhicule sans clé abîme-t-elle la voiture ?", "Non : l'ouverture non destructive préserve la carrosserie, le joint et la serrure, sans percement ni déformation. Le verrouillage est recontrôlé avec vous avant le départ."),
+        ("Clonage ECU et programmation électronique, c'est la même chose ?", "Le clonage copie les données d'un calculateur vers un autre ; la réinitialisation remet un boîtier codé à un état recodable ; la réparation sur table traite la panne matérielle. La bonne approche est choisie après diagnostic."),
+    ]
+    faq_entities = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]
+    schema = json.dumps({"@context": "https://schema.org", "@graph": [
+        automotive_business_node(),
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{SITE}/"},
+            {"@type": "ListItem", "position": 2, "name": "Services clés auto & électronique", "item": f"{SITE}/services/"},
+        ]},
+        {"@type": ["WebPage", "CollectionPage"], "@id": f"{SITE}/services/#webpage",
+         "url": f"{SITE}/services/", "name": "Services clés auto & électronique — Mecanoo Lyon",
+         "inLanguage": "fr-FR", "isPartOf": {"@id": f"{SITE}/#website"},
+         "description": "Reproduction de clés, perte totale de clés, ouverture de véhicule sans clé et programmation électronique ECU à Lyon, Rhône (69) et Ain (01)."},
+        {"@type": "FAQPage", "mainEntity": faq_entities},
+    ]}, ensure_ascii=False)
+
+    faq_items = "\n".join(
+        f"""          <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+            <dt class="font-semibold text-white">{q}</dt>
+            <dd class="mt-2 text-zinc-400">{a}</dd>
+          </div>""" for q, a in faqs
+    )
+
+    wa = "https://wa.me/33603439954?text=Bonjour%2C%20services%20cl%C3%A9s%20auto%20Lyon"
+
+    head = render_head({
+        "prefix": P,
+        "description": "Services clés auto à Lyon : reproduction de clés et télécommandes, création de clé sur place (perte totale), ouverture de véhicule non destructive, programmation électronique ECU — Rhône (69) et Ain (01).",
+        "keywords": "services clés auto Lyon, reproduction clé voiture 69, perte totale clé Lyon, ouverture véhicule sans clé, programmation ECU Rhône",
+        "title": "Services clés auto &amp; électronique Lyon — clés, ouverture, ECU | Mecanoo",
+        "canonical": f"{SITE}/services/",
+        "og_title": "Services clés auto & électronique — Lyon | Mecanoo",
+        "og_description": "Reproduction de clés, perte totale, ouverture de véhicule et programmation ECU à Lyon, Rhône (69) et Ain (01).",
+        "schema": schema,
+    })
+    nav = render_nav("keys", prefix=P)
+
+    return f"""{head}
+{nav}
+  <main>
+    <nav class="border-b border-white/5 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-500 sm:px-6" aria-label="Fil d'Ariane">
+      <div class="mx-auto max-w-6xl">
+        {hub_breadcrumb('Services clés auto &amp; électronique', P)}
+      </div>
+    </nav>
+    <section class="relative overflow-hidden bg-gradient-to-b from-zinc-950 to-ink pb-16 pt-12 sm:pb-24 sm:pt-16 noise-bg">
+      <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-racing/15 to-transparent blur-3xl" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12">
+        <div class="lg:col-span-3">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-racing/30 bg-racing/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-racing"><i data-lucide="key-round" class="h-3.5 w-3.5"></i>&nbsp;services clés auto &amp; électronique — Lyon 69 / Ain 01</p>
+          <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Services clés auto &amp; électronique à Lyon</h1>
+          <p class="text-lg text-zinc-400">Quatre prestations urgentes, un seul interlocuteur&nbsp;: <strong class="font-semibold text-zinc-200">reproduction de clés et télécommandes</strong>, <strong class="font-semibold text-zinc-200">création de clé sur place</strong> en cas de perte totale, <strong class="font-semibold text-zinc-200">ouverture de véhicule non destructive</strong> et <strong class="font-semibold text-zinc-200">programmation électronique ECU</strong> — intervention à domicile sur Lyon, Rhône <strong class="font-semibold text-zinc-200">(69)</strong> et Ain <strong class="font-semibold text-zinc-200">(01)</strong>.</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="tel:+33603439954" class="inline-flex items-center gap-2 rounded-xl bg-racing-strong px-6 py-3 font-semibold text-white shadow-xl shadow-racing/30 transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+            <a href="{wa}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-6 py-3 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+            <a href="{P}index.html#contact" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-6 py-3 font-semibold text-zinc-200 transition hover:bg-white/10">Devis express à Lyon<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+          </div>
+        </div>
+        <div class="mt-10 lg:col-span-2 lg:mt-0">
+          <figure class="overflow-hidden rounded-2xl border border-white/10">
+            <div class="aspect-[4/5] max-h-[520px] bg-zinc-900/80 sm:aspect-video sm:max-h-none">
+              <img src="{P}images/seo-reparation-voiture-lyon_1.jpg" alt="Services clés auto et électronique à Lyon — reproduction de clés, ouverture de véhicule, programmation ECU Rhône 69" width="1264" height="848" loading="eager" decoding="async" class="size-full object-cover object-center" />
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="border-y border-white/5 bg-zinc-950 py-14 sm:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Nos 4 services clés auto</h2>
+        <p class="mt-4 max-w-2xl text-zinc-400">Chaque prestation dispose de sa page dédiée — cliquez pour le détail, les prix se confirment après marque et modèle.</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+{chr(10).join(cards)}
+        </div>
+      </div>
+    </section>
+{problems_resolved_block()}
+{guarantees_block()}
+{why_choose_block()}
+    <section class="border-b border-white/5 bg-ink py-14 sm:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Autres domaines d'intervention — électronique &amp; diagnostic</h2>
+        <p class="mt-4 max-w-2xl text-zinc-400">Mecanoo Lyon couvre aussi le diagnostic valise OBD, le clonage de calculateurs et la programmation de clé de voiture sur Lyon, Rhône (69) et Ain (01).</p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+{chr(10).join(other)}
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="border-b border-white/5 bg-ink py-20 sm:py-24" aria-labelledby="keys-faq-heading">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6">
+        <h2 id="keys-faq-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Questions fréquentes — services clés auto Lyon</h2>
+        <p class="mt-4 text-lg text-zinc-400">Recherche Google : « reproduction clé voiture Lyon », « perte totale de clés 69 », « ouverture voiture sans clé Lyon ».</p>
+        <dl class="mt-10 space-y-6">
+{faq_items}
+        </dl>
+      </div>
+    </section>
+    <section class="py-14 sm:py-20">
+      <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <p class="text-lg font-medium text-white">Une clé bloquante, un calculateur en panne&nbsp;?</p>
+        <p class="mt-3 text-zinc-400">Marque, modèle, année et symptôme — réponse rapide sur Lyon, Rhône (69) et Ain (01).</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="tel:+33603439954" class="inline-flex items-center justify-center gap-2 rounded-xl bg-racing-strong px-8 py-3.5 font-semibold text-white transition hover:bg-racing-strong/90"><i data-lucide="phone" class="h-5 w-5"></i>06&nbsp;03&nbsp;43&nbsp;99&nbsp;54</a>
+          <a href="{wa}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 px-8 py-3.5 font-semibold text-emerald-300 transition hover:bg-[#25D366]/18"><i data-lucide="message-circle" class="h-5 w-5"></i>WhatsApp</a>
+          <a href="{P}index.html#contact" class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-600 bg-white/5 px-8 py-3.5 font-semibold text-zinc-200 transition hover:bg-white/10">Devis express à Lyon<i data-lucide="arrow-right" class="h-5 w-5"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+{render_footer("Bonjour%2C%20services%20cl%C3%A9s%20auto%20Lyon", "bottom-5", P)}
 """
 
 
@@ -1682,21 +2322,26 @@ def build_actualites():
       </div>
     </section>
   </main>
-{FOOTER.format(wa_text="Bonjour%2C%20%C3%A9lectronique%20automobile%20Lyon", fab_pos="bottom-5")}
+{render_footer("Bonjour%2C%20%C3%A9lectronique%20automobile%20Lyon")}
 """
 
 
 if __name__ == "__main__":
-    for svc in SERVICES:
+    for svc in ALL_SERVICES:
         out = BASE / svc["file"]
+        out.parent.mkdir(parents=True, exist_ok=True)  # services/<slug>/
         out.write_text(build_page(svc), encoding="utf-8")
-        print(f"Generated {out.name}")
+        print(f"Generated {out.relative_to(BASE)}")
     hub = BASE / "service-reprogrammation.html"
     hub.write_text(build_reprogrammation_hub(), encoding="utf-8")
     print(f"Generated {hub.name}")
     anti = BASE / "service-antipollution.html"
     anti.write_text(build_antipollution_hub(), encoding="utf-8")
     print(f"Generated {anti.name}")
+    keys_hub = BASE / "services" / "index.html"
+    keys_hub.parent.mkdir(parents=True, exist_ok=True)
+    keys_hub.write_text(build_services_hub(), encoding="utf-8")
+    print(f"Generated {keys_hub.relative_to(BASE)}")
     act = BASE / "actualites.html"
     act.write_text(build_actualites(), encoding="utf-8")
     print(f"Generated {act.name}")

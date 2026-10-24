@@ -1,7 +1,10 @@
 /* ---------------------------------------------------------------------------
  * Barre de navigation Mecanoo Lyon — assets/nav.js
  *
- * Dropdown « Nos services » (desktop ≥ lg) + menu mobile et son accordéon.
+ * Dropdowns desktop ≥ lg (data-nav-dd) + menu mobile et ses accordéons
+ * (data-nav-acc). Le script gère **N instances** : les IDs ne servent plus
+ * qu'à l'accessibilité (aria-controls / aria-labelledby), le câblage se fait
+ * par data-attributes.
  *
  * Principe : les états « fermé » sont portés par les classes Tailwind
  * STATIQUES de partials/navbar.html ; ce script écrit uniquement les styles
@@ -22,28 +25,37 @@
 
   var DESKTOP = window.matchMedia('(min-width: 1024px)');
 
-  var dd = document.getElementById('nav-dd');
-  var ddBtn = document.getElementById('nav-dd-btn');
-  var ddPanel = document.getElementById('nav-dd-panel');
-  var ddChev = document.getElementById('nav-dd-chev');
-
   var burger = document.getElementById('mobile-menu-btn');
   var menu = document.getElementById('mobile-menu');
   var burgerOpen = burger ? burger.querySelector('[data-burger="open"]') : null;
   var burgerClose = burger ? burger.querySelector('[data-burger="close"]') : null;
 
-  var accItem = document.getElementById('m-services-item');
-  var accBtn = document.getElementById('m-services-btn');
-  var accPanel = document.getElementById('m-services-panel');
-  var accChev = document.getElementById('m-services-chev');
-
   if (!burger || !menu) return;
 
-  var ddOpen = false;
   var menuOpen = false;
-  var accOpen = false;
   var hoverTimer = null;
   var touchUsed = false; // tactile : le survol n'ouvre pas, le clic seul commande
+
+  /* -- Instances (N dropdowns / N accordéons) ---------------------------- */
+
+  function instances(attr) {
+    var roots = document.querySelectorAll('[data-nav-' + attr + ']');
+    var list = [];
+    for (var i = 0; i < roots.length; i++) {
+      list.push({
+        root: roots[i],
+        btn: roots[i].querySelector('[data-nav-' + attr + '-btn]'),
+        panel: roots[i].querySelector('[data-nav-' + attr + '-panel]'),
+        chev: roots[i].querySelector('[data-nav-' + attr + '-chev]'),
+        open: false,
+        lastFocus: null
+      });
+    }
+    return list;
+  }
+
+  var dropdowns = instances('dd');
+  var accordions = instances('acc');
 
   /* -- Primitives ------------------------------------------------------- */
 
@@ -58,17 +70,30 @@
     if (btn) btn.setAttribute('aria-expanded', String(open));
   }
 
-  function setDropdown(open) {
-    ddOpen = open;
-    show(ddPanel, ddChev, ddBtn, open);
+  function setDropdown(g, open) {
+    g.open = open;
+    if (open) g.lastFocus = g.btn;
+    show(g.panel, g.chev, g.btn, open);
   }
 
-  function setAccordion(open) {
-    accOpen = open;
-    if (!accPanel) return;
-    show(accPanel, accChev, accBtn, open);
-    accPanel.style.maxHeight = open ? accPanel.scrollHeight + 'px' : '';
-    if (accItem) accItem.classList.toggle('is-open', open);
+  function closeDropdowns(except) {
+    for (var i = 0; i < dropdowns.length; i++) {
+      if (dropdowns[i] !== except && dropdowns[i].open) setDropdown(dropdowns[i], false);
+    }
+  }
+
+  function setAccordion(g, open) {
+    g.open = open;
+    if (!g.panel) return;
+    show(g.panel, g.chev, g.btn, open);
+    g.panel.style.maxHeight = open ? g.panel.scrollHeight + 'px' : '';
+    if (g.root) g.root.classList.toggle('is-open', open);
+  }
+
+  function closeAccordions() {
+    for (var i = 0; i < accordions.length; i++) {
+      if (accordions[i].open) setAccordion(accordions[i], false);
+    }
   }
 
   function setMenu(open) {
@@ -79,47 +104,52 @@
     if (burgerOpen) burgerOpen.classList.toggle('hidden', open);
     if (burgerClose) burgerClose.classList.toggle('hidden', !open);
     burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-    if (!open) setAccordion(false);
+    if (!open) closeAccordions();
   }
 
-  /* -- Dropdown desktop : survol, clic, clavier -------------------------- */
+  /* -- Dropdowns desktop : survol, clic, clavier ------------------------- */
 
-  if (dd && ddBtn && ddPanel) {
+  dropdowns.forEach(function (g) {
+    if (!g.root || !g.btn || !g.panel) return;
+
     // Sur écran tactile ≥ lg (iPad), le premier tap déclenche aussi
     // `mouseenter` : on verrouille le survol pour que le clic reste maître.
-    dd.addEventListener('touchstart', function () {
+    g.root.addEventListener('touchstart', function () {
       touchUsed = true;
     }, { passive: true });
 
-    dd.addEventListener('mouseenter', function () {
+    g.root.addEventListener('mouseenter', function () {
       if (touchUsed || !DESKTOP.matches) return;
       clearTimeout(hoverTimer);
-      setDropdown(true);
+      closeDropdowns(g);
+      setDropdown(g, true);
     });
 
-    dd.addEventListener('mouseleave', function () {
+    g.root.addEventListener('mouseleave', function () {
       if (touchUsed || !DESKTOP.matches) return;
       clearTimeout(hoverTimer);
       hoverTimer = setTimeout(function () {
-        setDropdown(false);
+        setDropdown(g, false);
       }, 140);
     });
 
-    ddBtn.addEventListener('click', function () {
+    g.btn.addEventListener('click', function () {
       clearTimeout(hoverTimer);
-      setDropdown(!ddOpen);
+      var next = !g.open;
+      closeDropdowns(g);
+      setDropdown(g, next);
     });
 
     // Fermeture quand le focus quitte le composant (navigation au clavier).
-    dd.addEventListener('focusout', function (e) {
-      if (!dd.contains(e.relatedTarget)) setDropdown(false);
+    g.root.addEventListener('focusout', function (e) {
+      if (!g.root.contains(e.relatedTarget)) setDropdown(g, false);
     });
 
     // Un clic sur un lien du panneau referme (utile pour les ancres #…).
-    ddPanel.addEventListener('click', function (e) {
-      if (e.target.closest && e.target.closest('a[href]')) setDropdown(false);
+    g.panel.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('a[href]')) setDropdown(g, false);
     });
-  }
+  });
 
   /* -- Menu mobile ------------------------------------------------------- */
 
@@ -131,24 +161,32 @@
     if (e.target.closest && e.target.closest('a[href]')) setMenu(false);
   });
 
-  if (accBtn && accPanel) {
-    accBtn.addEventListener('click', function () {
-      setAccordion(!accOpen);
+  accordions.forEach(function (g) {
+    if (!g.btn || !g.panel) return;
+    g.btn.addEventListener('click', function () {
+      var next = !g.open;
+      closeAccordions();
+      setAccordion(g, next);
     });
-  }
+  });
 
   /* -- Global : clic extérieur, Échap, passage en desktop ---------------- */
 
   document.addEventListener('click', function (e) {
-    if (ddOpen && dd && !dd.contains(e.target)) setDropdown(false);
+    for (var i = 0; i < dropdowns.length; i++) {
+      var g = dropdowns[i];
+      if (g.open && g.root && !g.root.contains(e.target)) setDropdown(g, false);
+    }
   });
 
   document.addEventListener('keydown', function (e) {
     var key = e.key;
     if (key !== 'Escape' && key !== 'Esc') return;
-    if (ddOpen && ddBtn) {
-      setDropdown(false);
-      ddBtn.focus();
+    var open = null;
+    for (var i = 0; i < dropdowns.length; i++) if (dropdowns[i].open) open = dropdowns[i];
+    if (open) {
+      closeDropdowns(null);
+      if (open.lastFocus) open.lastFocus.focus();
     } else if (menuOpen) {
       setMenu(false);
       burger.focus();
@@ -158,7 +196,7 @@
   function onBreakpoint(e) {
     if (!e.matches) return;
     if (menuOpen) setMenu(false);
-    if (ddOpen) setDropdown(false);
+    closeDropdowns(null);
   }
 
   if (DESKTOP.addEventListener) DESKTOP.addEventListener('change', onBreakpoint);
@@ -167,5 +205,5 @@
   /* -- État initial ------------------------------------------------------ */
 
   setMenu(false);
-  setDropdown(false);
+  closeDropdowns(null);
 })();
